@@ -1,0 +1,10 @@
+.produkimg{
+    max-width: 100%;
+    height: 200px;
+    border: 0;
+    vertical-align: middle;
+}
+
+h1,h2,h4,h3,h5,h6 {
+    color: #6712d6;
+}
