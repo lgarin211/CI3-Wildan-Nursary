@@ -14,7 +14,6 @@ class Auth extends CI_Controller
         if ($this->session->userdata('email')) {
             redirect('user');
         }
-
         $this->form_validation->set_rules('email', 'Email', 'trim|required|valid_email');
         $this->form_validation->set_rules('password', 'Password', 'trim|required');
 
@@ -24,8 +23,7 @@ class Auth extends CI_Controller
             $this->load->view('auth/login');
             $this->load->view('templates/auth_footer');
         } else {
-            // validasinya success
-            $this->_login();
+             $this->_login();
         }
     }
 
@@ -51,11 +49,11 @@ class Auth extends CI_Controller
 
                     if ($user['setsesion']==0) {
                         var_dump($_SESSION['semi_id']);
-                        $this->db->set('setsesion', $_SESSION['semi_id']);
+                        $this->db->set('setsesion', $_SESSION['semi_id']+2020);
                         $this->db->where('id', $user['id']);
                         $this->db->update('user');
                         $id=array(
-                            'id_user_main'=> $_SESSION['semi_id']
+                            'id_user_main'=> $_SESSION['semi_id']+2020
                         );
                         $this->db->insert('asess',$id);
                     }
@@ -216,7 +214,7 @@ class Auth extends CI_Controller
         $this->session->unset_userdata('role_id');
         $this->session->unset_userdata('semi_id');
         $this->session->set_flashdata('message', '<div class="alert alert-success" role="alert">You have been logged out!</div>');
-        redirect('auth');
+        redirect('/');
     }
 
 

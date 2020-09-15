@@ -1,67 +1,8 @@
-<!doctype html>
-<html lang="en">
-  <head>
-    <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-    <meta name="description" content="">
-    <meta name="author" content="Mark Otto, Jacob Thornton, and Bootstrap contributors">
-    <meta name="generator" content="Jekyll v3.8.6">
-    <title>Welcome</title>
-
-
-    <style>
-      .bd-placeholder-img {
-        font-size: 1.125rem;
-        text-anchor: middle;
-        -webkit-user-select: none;
-        -moz-user-select: none;
-        -ms-user-select: none;
-        user-select: none;
-      }
-
-      @media (min-width: 768px) {
-        .bd-placeholder-img-lg {
-          font-size: 3.5rem;
-        }
-      }
-    </style>
-
-    <link href="<?= base_url('assets/'); ?>css/sb-admin-2.css" rel="stylesheet">
-    <link href="http://localhost/CODE/wildan/assets/vendor/fontawesome-free/css/all.min.css" rel="stylesheet" type="text/css">
-  </head>
-  <body>
-    <div class="d-flex flex-column flex-md-row align-items-center p-3 px-md-4 mb-3 bg-white border-bottom shadow-sm">
-
-  <!-- <h5 class="">Wildan Nursery</h5> -->
-  <img src="<?=base_url('assets/img/produk/head.jpg');?>" class="my-0 mr-md-auto font-weight-normal" width="150px"  alt="" srcset="">
-  <nav class="my-2 my-md-0 mr-md-3">
-  <div class="dropdown">
-  <!-- Default dropleft button -->
-<div class="btn-group dropleft">
-  <button type="button" class="btn btn btn-outline-primary dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-
-  </button>
-  <div class="dropdown-menu row">
-    <a class="p-2 col-md btn btn-primary " href="<?=base_url('/dagang/keranjang')?>">keranjang()</a>
-    <a class="p-2 col-md btn btn-primary " href="#">sessi(<?= $sas?>)</a>
-    <a class="p-2 col-md btn btn-primary " href="#">Support</a>
-    <a class="p-2 col-md btn btn-primary " href="#">Pricing</a>
-  </div>
-</div>
-
-</div>
-  </nav>
-  <a class="btn btn-primary" href="<?=base_url('/auth')?>">Sign up</a>
-  <a class="nav-link" href="<?=base_url('/dagang/keranjang')?>" >
-<i class="fas fa-envelope fa-fw"></i><span class="badge badge-danger badge-counter"><?=$keranjang?></span></a>
-</div>
-
-
 <div class="container" id="page-top">
 <div class="row">
 <div class="ml-2 card container col-md-2">
 <h2 class="mx-auto">kategory</h2>
-<ul>
+<ul class="text-center">
 <li><h6><a href="<?=base_url('/dagang/rone?val=2')?>">tanaman buah</a></h6></li><hr>
 <li><h6>tanaman lindung</h6></li><hr>
 <li><h6><a href="<?=base_url('/dagang/rone?val=1')?>">tanaman hias</a></h6></li><hr>
@@ -85,7 +26,7 @@
             <h1>Example headline.</h1>
             <p>Cras justo odio, dapibus ac facilisis in, egestas eget quam. Donec id elit non mi porta gravida at eget metus. Nullam id dolor id nibh ultricies vehicula ut id elit.</p>
             <p>
-              <a class="btn btn-lg btn-primary" href="#" role="button">Sign up today</a>
+              <a class="btn btn-lg btn-primary" href="#" role="button">DAFTAR SEKARANG</a>
           </p>
           </div>
         </div>
@@ -97,7 +38,7 @@
             <h1>Another example headline.</h1>
             <p>Cras justo odio, dapibus ac facilisis in, egestas eget quam. Donec id elit non mi porta gravida at eget metus. Nullam id dolor id nibh ultricies vehicula ut id elit.</p>
             <p>
-              <a class="btn btn-lg btn-primary" href="#" role="button">Learn more</a>
+              <a class="btn btn-lg btn-primary" href="#" role="button">Tentang kami</a>
           </p>
           </div>
         </div>
@@ -131,7 +72,6 @@
 </div>
 </div>
 <br>
-
 <!-- list -->
 <link rel="stylesheet" href="<?=base_url('assets/one.css');?>">
 <link rel="stylesheet" href="<?=base_url('assets/two.css');?>">
@@ -151,6 +91,7 @@
 </div>
 <div class="woodmart-add-btn">
 <form action="<?= base_url('/dagang/rone')?>" method="post">
+        <input type="hidden" name="quantity" value="1">
         <input type="hidden" name="idbarang" value="<?=$a['id']?>">
         <input type="hidden" name="sesi" value="<?=$sas;?>">
 <button type="submit" data-quantity="1" class="button product_type_simple add_to_cart_button ajax_add_to_cart add-to-cart-loop btn-primary btn"><span><img src="<?=base_url('assets/vendor/fontawesome-free/svgs/solid/cart-plus.svg')?>"  width="30px" alt=""></span>
@@ -172,52 +113,3 @@
 <?endforeach;?>
 <link href="<?= base_url('assets/'); ?>css/sb-admin-2.css" rel="stylesheet">
 </div>
-
-<div class="container">
-  <div class="card-deck mb-3 text-center">
-    <div class="card mb-4 shadow-sm">
-      <div class="card-header">
-        <h4 class="my-0 font-weight-normal">Free</h4>
-      </div>
-      <div class="card-body">
-        <h1 class="card-title pricing-card-title">$0 <small class="text-muted">/ mo</small></h1>
-        <ul class="list-unstyled mt-3 mb-4">
-          <li>10 users included</li>
-          <li>2 GB of storage</li>
-          <li>Email support</li>
-          <li>Help center access</li>
-        </ul>
-        <button type="button" class="btn btn-lg btn-block btn-outline-primary">Sign up for free</button>
-      </div>
-    </div>
-    <div class="card mb-4 shadow-sm">
-      <div class="card-header">
-        <h4 class="my-0 font-weight-normal">Pro</h4>
-      </div>
-      <div class="card-body">
-        <h1 class="card-title pricing-card-title">$15 <small class="text-muted">/ mo</small></h1>
-        <ul class="list-unstyled mt-3 mb-4">
-          <li>20 users included</li>
-          <li>10 GB of storage</li>
-          <li>Priority email support</li>
-          <li>Help center access</li>
-        </ul>
-        <button type="button" class="btn btn-lg btn-block btn-primary">Get started</button>
-      </div>
-    </div>
-    <div class="card mb-4 shadow-sm">
-      <div class="card-header">
-        <h4 class="my-0 font-weight-normal">Enterprise</h4>
-      </div>
-      <div class="card-body">
-        <h1 class="card-title pricing-card-title">$29 <small class="text-muted">/ mo</small></h1>
-        <ul class="list-unstyled mt-3 mb-4">
-          <li>30 users included</li>
-          <li>15 GB of storage</li>
-          <li>Phone and email support</li>
-          <li>Help center access</li>
-        </ul>
-        <button type="button" class="btn btn-lg btn-block btn-primary">Contact us</button>
-      </div>
-    </div>
-  </div>

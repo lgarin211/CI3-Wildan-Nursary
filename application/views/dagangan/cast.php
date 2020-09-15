@@ -1,46 +1,3 @@
-<!doctype html>
-<html lang="en">
-  <head>
-    <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-    <meta name="description" content="">
-    <meta name="author" content="Mark Otto, Jacob Thornton, and Bootstrap contributors">
-    <meta name="generator" content="Jekyll v3.8.6">
-    <title>Welcome</title>
-
-
-    <style>
-      .bd-placeholder-img {
-        font-size: 1.125rem;
-        text-anchor: middle;
-        -webkit-user-select: none;
-        -moz-user-select: none;
-        -ms-user-select: none;
-        user-select: none;
-      }
-
-      @media (min-width: 768px) {
-        .bd-placeholder-img-lg {
-          font-size: 3.5rem;
-        }
-      }
-    </style>
-
-    <link href="<?= base_url('assets/'); ?>css/sb-admin-2.css" rel="stylesheet">
-  </head>
-  <body>
-    <div class="d-flex flex-column flex-md-row align-items-center p-3 px-md-4 mb-3 bg-white border-bottom shadow-sm">
-  <h5 class="my-0 mr-md-auto font-weight-normal">Wildan Nursery</h5>
-  <nav class="my-2 my-md-0 mr-md-3">
-    <a class="p-2 text-dark" href="#">Features</a>
-    <a class="p-2 text-dark" href="#">Enterprise</a>
-    <a class="p-2 text-dark" href="#">Support</a>
-    <a class="p-2 text-dark" href="#">Pricing</a>
-  </nav>
-  <a class="btn btn-outline-primary" href="<?=base_url('/auth')?>">Sign up</a>
-</div>
-
-
 <div id="myCarousel" class="carousel slide" data-ride="carousel">
     <ol class="carousel-indicators">
       <li data-target="#myCarousel" data-slide-to="0" class="active">
@@ -55,11 +12,6 @@
     </ol>
     <div class="carousel-inner">
       <div class="carousel-item active">
-        <!-- <svg class="bd-placeholder-img" width="100%" height="100%" xmlns="http://www.w3.org/2000/svg" preserveAspectRatio="xMidYMid slice" focusable="false" role="img">
-        <rect width="100%" height="100%" fill="#777">
-
-        </rect>
-      </svg> -->
         <img src="<?=base_url('assets/')?>img/dam/979349.jpg" alt="" srcset="" class="bd-placeholder-img" width="100%" height="500px">
         <div class="container">
           <div class="carousel-caption text-left">
@@ -72,11 +24,6 @@
         </div>
       </div>
       <div class="carousel-item">
-        <!-- <svg class="bd-placeholder-img" width="100%" height="100%" xmlns="http://www.w3.org/2000/svg" preserveAspectRatio="xMidYMid slice" focusable="false" role="img">
-        <rect width="100%" height="100%" fill="#777">
-
-        </rect>
-      </svg> -->
         <img src="<?=base_url('assets/')?>img/dam/374846.jpg" alt="" srcset="" class="bd-placeholder-img" width="100%" height="500px">
         <div class="container">
           <div class="carousel-caption">
@@ -89,11 +36,6 @@
         </div>
       </div>
       <div class="carousel-item">
-        <!-- <svg class="bd-placeholder-img" width="100%" height="100%" xmlns="http://www.w3.org/2000/svg" preserveAspectRatio="xMidYMid slice" focusable="false" role="img">
-        <rect width="100%" height="100%" fill="#777">
-
-        </rect>
-      </svg> -->
         <img src="<?=base_url('assets/')?>img/dam/545909.jpg" alt="" srcset="" class="bd-placeholder-img" width="100%" height="500px">
         <div class="container">
           <div class="carousel-caption text-right">
@@ -169,10 +111,7 @@
     </span>
     </span>
     </div>
-  
     <? endforeach; ?>
-  
-
     <link href="<?= base_url('assets/'); ?>css/sb-admin-2.css" rel="stylesheet">    
     </div>
   </div>

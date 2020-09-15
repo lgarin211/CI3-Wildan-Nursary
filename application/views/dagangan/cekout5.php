@@ -1,6 +1,4 @@
-<!-- .'<br>';
-            echo '<small>keterangan: email= '.$link['email'].',alamat penerima= '.$link['alamat'];?> -->
-            <?$phone='628888360409';
+<?$phone='628888360409';
             $produk='';
             foreach ($p as $key => $i) {
               $produk=$produk.','.$i[0]->nama_produk;
