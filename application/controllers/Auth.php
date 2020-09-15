@@ -48,6 +48,23 @@ class Auth extends CI_Controller
                         'role_id' => $user['role_id']
                     ];
                     $this->session->set_userdata($data);
+
+                    if ($user['setsesion']==0) {
+                        var_dump($_SESSION['semi_id']);
+                        $this->db->set('setsesion', $_SESSION['semi_id']);
+                        $this->db->where('id', $user['id']);
+                        $this->db->update('user');
+                        $id=array(
+                            'id_user_main'=> $_SESSION['semi_id']
+                        );
+                        $this->db->insert('asess',$id);
+                    }
+                    $this->session->unset_userdata('semi_id');
+                    $user = $this->db->get_where('user', ['email' => $email])->row_array();
+                    $this->session->set_userdata('semi_id', $user['setsesion']);
+                    // var_dump($_SESSION);die;
+                    
+                    
                     if ($user['role_id'] == 1) {
                         redirect('admin');
                     } else {
@@ -197,7 +214,7 @@ class Auth extends CI_Controller
     {
         $this->session->unset_userdata('email');
         $this->session->unset_userdata('role_id');
-
+        $this->session->unset_userdata('semi_id');
         $this->session->set_flashdata('message', '<div class="alert alert-success" role="alert">You have been logged out!</div>');
         redirect('auth');
     }

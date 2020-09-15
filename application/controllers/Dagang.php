@@ -168,7 +168,9 @@ class Dagang extends CI_Controller
 
     }
     public function setse()
-    {
+    { 
+
+        if ($_SESSION['semi_id']==null) {
         $dam = $this->db->get('asess')->num_rows();
         // var_dump($dam);die;
         if ($dam==0) {
@@ -176,21 +178,45 @@ class Dagang extends CI_Controller
             $this->session->set_userdata('semi_id', 1);
         }else{
             $this->session->set_userdata('semi_id', $dam+1);}
-            redirect('/');
+            redirect('/');        
+        }else{
+            redirect('/');        
+            // var_dump($_SESSION['semi_id']);die;
+
+        }
+
+
+    }
+    public function rtree($get)
+    {
+        
+        $data=$this->db->get('barang')->result_array();
+        $data2=[];
+        foreach ($data as $key1 => $k) {
+            // var_dump($k);
+            $a=$k['kategory'];
+            $b=explode(',',$a);
+           foreach ($b as $key2 => $lang) {
+               $no1=$lang;
+               $no2=$get;
+               if ($no1==$no2) {
+                   $data2[$key1]=$k;
+               }
+           }
+        }
+        // var_dump($data2);die;
+     
+return $data2;
 
     }
     public function Rone()
-    {
-
-
-// var_dump($_SESSION);die;
-
+    {       
 // $this->session->semiid($dam);
-if ($_SESSION['semi_id']<=0) {
+if ($_SESSION['semi_id']==null) {
+    // var_dump($_SESSION);die;
     redirect('dagang/setse');
 }
 $data['sas']=$_SESSION['semi_id'];
-
 
 if (!$_POST==null) {
     $ceksemi = $this->db->get_where('asess', array('id_user_main' => $_POST['sesi']))->num_rows();
@@ -205,14 +231,18 @@ if (!$_POST==null) {
          }
 
 // $this->db->select_max('id');
-$query =array_reverse($this->db->get('barang')->result());
+$query =array_reverse($this->db->get('barang')->result_array());
 $ceksesi = $this->db->get_where('chart', array('id_user' => $_SESSION['semi_id']))->num_rows();
 $data['keranjang']=$ceksesi;
 // var_dump($data);
 // var_dump($query);die;
 
         $data['one'] = $query;
-        
+        if (!$_GET==null) {
+            $data2=$this->rtree($_GET['val']);
+        $data['one']=$data2;
+        }
+         
         $this->load->view('dagangan/list', $data);
         $this->load->view('templates/footer');
         
