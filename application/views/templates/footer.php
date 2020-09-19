@@ -1,24 +1,38 @@
-            <!-- Footer -->
-            <footer class="sticky-footer bg-white blockquote-footer">
-                <div class="container my-auto">
-                    <div class="copyright text-center my-auto">
+<link rel="stylesheet" href="<?=base_url('assets/two.css'); ?>">            <!-- Footer -->
+<footer class="bg-hijau_c b border-top">
+<div class="row bg-black_c">
+        <div class="col-12 col-md">
+            <div class="text-left">
+            <img class="mb-2" src="<?=base_url('assets/img/produk/head.jpg');?>" alt="" width="150px" >
+            <h5 class="d-block mb-3 text-muted">Menjual berbagai jenis tanaman hias, tanaman lindung, tanaman buah, tanaman obat dll.</h5>
+          </div>
+        </div>
+          <div class="col-12 col-md">
+              <div class="text-center">
+            <ul class="list-unstyled text-small">
+            <li><h5><a href="<?=base_url('/')?>">Home</a></h5></li>
+            <li><h5><a href="<?=base_url('/ot')?>">Galery</a></h5></li>
+            <li><h5><a href="<?=base_url('/contak')?>">tentang kami</a></h5></li>
+            </ul>
+         </div>
+         </div>
+          <div class="col-12 col-md">
+        <div class="text-right pr-3">
+            <h5>Features</h5>
+            <ul class="list-unstyled text-small">
+              <li><a class="text-muted" href="#"><small>alamat : </small>Jl. Bojong Kaler Rt.01/04 Kel.Bojongkerta Kec.Bogor Selatan - Bogor 16139</a></li>
+              <li><a class="text-muted" href="#"><small>contak : </small>0896 7355 4066 - 085771970103</a></li>
+            </ul>
+          </div>
+        </div>
+        </div>
+
+        <div class="container my-auto">
+                    <div class="copyright pt-3 bg-hijau_c text-center my-auto">
                         <span>Copyright &copy; Wildan Nursery <?= date('Y'); ?></span>
                     </div>
                 </div>
-            </footer>
-            <!-- End of Footer -->
-
-            </div>
-            <!-- End of Content Wrapper -->
-
-            </div>
-            <!-- End of Page Wrapper -->
-
-            <!-- Scroll to Top Button-->
-            <a class="scroll-to-top rounded" href="#page-top">
-                <i class="fas fa-angle-up"></i>
-            </a>
-
+      </footer>
             <!-- Logout Modal-->
             <div class="modal fade" id="logoutModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
                 <div class="modal-dialog" role="document">

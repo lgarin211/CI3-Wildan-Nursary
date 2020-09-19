@@ -1,12 +1,11 @@
-<div class="container" id="page-top">
+<div class="ml-4 mr-4" id="page-top">
 <div class="row">
-<div class="ml-2 card container col-md-2">
+<div class="ml-2 card bg-black_c container col-md-2">
 <h2 class="mx-auto">kategory</h2>
 <ul class="text-center">
-<li><h6><a href="<?=base_url('/dagang/rone?val=2')?>">tanaman buah</a></h6></li><hr>
-<li><h6>tanaman lindung</h6></li><hr>
-<li><h6><a href="<?=base_url('/dagang/rone?val=1')?>">tanaman hias</a></h6></li><hr>
-<li><h6>tanaman herbal</h6></li><hr>
+<?foreach ($kategori as $key => $value):?>
+<li><h6><a href="<?=base_url('/dagang/rone?val='.$value->id)?>"><?=$value->value?></a></h6></li><hr>
+<?endforeach;?>
 </ul>
 </div>
 <div id="myCarousel" class="carousel slide col-md" data-ride="carousel">
@@ -50,7 +49,7 @@
             <h1>One more for good measure.</h1>
             <p>Cras justo odio, dapibus ac facilisis in, egestas eget quam. Donec id elit non mi porta gravida at eget metus. Nullam id dolor id nibh ultricies vehicula ut id elit.</p>
             <p>
-              <a class="btn btn-lg btn-primary" href="#" role="button">Browse gallery</a>
+              <a class="btn btn-lg btn-primary" href="<?=base_url('/ot')?>" role="button">Browse gallery</a>
           </p>
           </div>
         </div>
@@ -85,6 +84,7 @@
 </div>
 <img width="150px" src="<?=base_url('assets/img/dam/'.$a['img_link'])?>" height="200px" class="attachment-woocommerce_thumbnail size-woocommerce_thumbnail" sizes="(max-width: 150px) 100vw, 150px"></a>
 <div class="woodmart-buttons">
+  <i class="far fa-eye"></i>
 <div class="quick-view">
 <a href="<?=base_url('/dagang/rtwo?id='.$a['id'])?>" class="open-quick-view woodmart-tltp raskasl" ><span class="woodmart-tooltip-label" style="margin-left: -43px;">Quick View</span>Quick View</a>
 </div>
@@ -94,7 +94,7 @@
         <input type="hidden" name="quantity" value="1">
         <input type="hidden" name="idbarang" value="<?=$a['id']?>">
         <input type="hidden" name="sesi" value="<?=$sas;?>">
-<button type="submit" data-quantity="1" class="button product_type_simple add_to_cart_button ajax_add_to_cart add-to-cart-loop btn-primary btn"><span><img src="<?=base_url('assets/vendor/fontawesome-free/svgs/solid/cart-plus.svg')?>"  width="30px" alt=""></span>
+<button type="submit" data-quantity="1" class="button product_type_simple add_to_cart_button ajax_add_to_cart add-to-cart-loop btn-primary btn"><span><i class="fas fa-cart-plus fa-fw"></i></span>
 </button>	
 </form>
 </div>

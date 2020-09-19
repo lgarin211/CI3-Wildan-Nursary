@@ -8,3 +8,11 @@
 h1,h2,h4,h3,h5,h6 {
     color: #6712d6;
 }
+
+
+.bg-black_c {
+    background-color: #060606 !important;
+}
+.bg-hijau_c{
+    background-color: #3CFB08    !important;
+}

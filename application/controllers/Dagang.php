@@ -16,12 +16,12 @@ class Dagang extends CI_Controller
         $this->load->view('dagangan/head',$data);
 	}
 
-	
-
-
     // Create    
     public function cone()
-    { 	$ting['title'] = 'Dashboard';
+    {
+        $kategori=$this->db->get('view_kategori ')->result();
+        $data['kategori']=$kategori;
+        $ting['title'] = 'Dashboard';
 		$ting['user'] = $this->db->get_where('user', ['email' => $this->session->userdata('email')])->row_array();
 		$this->load->view('templates/header', $ting);
         $this->load->view('templates/sidebar', $ting);
@@ -29,29 +29,40 @@ class Dagang extends CI_Controller
         $this->cek();
         if (!$_POST==null) {
             $data=$_POST;
+            $text='';
+                foreach ($kategori as $key => $value) {
+                    if ($_POST['ktr'.$value->id]==true) {
+                        $text=$text.','.$_POST['ktr'.$value->id];
+                    }else {
+                        $text=$text.',0';
+                    }
+                }
+                // var_dump($text);die;
             $paket = array(
                 'nama_produk' => $data['name'],
                 'banyak_produk' => $data['banyak'],
                 'deskripsi' => $data['deskripsi'],
                 'harga' => $data['harga'],
-                'img_link' => 'oxana_janerova.jpg'
+                'img_link' => 'oxana_janerova.jpg',
+                'kategory'=>$text
                 );                
             $this->db->insert('barang', $paket);
             redirect('dagang/cone');
         } else {
-            $this->load->view('dagangan/new_produk');
+            $this->load->view('dagangan/new_produk',$data);
 		}
         $this->load->view('templates/footer');
     }
 
-    public function ctwo()
-    {
-        $this->load->view('welcome_message');
-    }
+    // public function ctwo()
+    // {
+    //     $this->load->view('welcome_message');
+    // }
 
 
     // Read
     public function kirim()
+
     {
 
         # code...
@@ -66,16 +77,16 @@ class Dagang extends CI_Controller
             $data['one']=$query;
             $data['two']=$query1;
             $this->load->view('dagangan/cekout',$data);
-            $this->load->view('templates/footer');
+            // $this->load->view('templates/footer');
         }else {
             $link=$_POST;
             $data['link']=$link;
 
             $this->load->view('dagangan/cekout2',$data);
-            $this->load->view('templates/footer');
+            // $this->load->view('templates/footer');
         }
 
-
+        $this->load->view('templates/footer');
     }
 
     public function cek()
@@ -104,6 +115,8 @@ class Dagang extends CI_Controller
             $data['isi']=$ping;
             $this->session->set_userdata('cekout', $ping);
            $this->load->view('dagangan/cekout4', $data, FALSE);
+            $this->load->view('templates/footer');
+
         }
 
 
@@ -139,6 +152,8 @@ class Dagang extends CI_Controller
          $data['isi']=$ping;
          $data['link_p']=$dist;
          $this->load->view('dagangan/kall', $data);
+                 $this->load->view('templates/footer');
+
      }
 
     }
@@ -181,6 +196,9 @@ return $data2;
     public function Rone()
     {       
 
+        $kategori=$this->db->get('view_kategori ')->result();
+        $data['kategori']=$kategori;
+        
 if ($_SESSION['semi_id']==null) {
     redirect('dagang/setse');
 }
@@ -241,7 +259,7 @@ $query =array_reverse($this->db->get('barang')->result_array());
 		$id=$_POST['id'];
         $config['upload_path']          = './assets/img/dam/';
         $config['allowed_types']        = 'gif|jpg|png|jpeg';
-        $config['max_size']             = 100*10;
+        $config['max_size']             = 100*100;
         // $config['max_width']            = 1024;
         // $config['max_height']           = 768;
 
@@ -265,6 +283,7 @@ $query =array_reverse($this->db->get('barang')->result_array());
 	// Dellet
 	public function done()
 	{
-	$this->load->view('dagangan/suc');
+    $this->load->view('dagangan/suc');
+    $this->load->view('templates/footer');
 	}
 	}

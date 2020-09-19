@@ -29,30 +29,31 @@
     <link href="<?= base_url('assets/'); ?>css/sb-admin-2.css" rel="stylesheet">
     <link href="<?= base_url('assets/'); ?>vendor/fontawesome-free/css/all.min.css" rel="stylesheet" type="text/css">
   </head>
-  <body>
+  <body class="bg-black_c">
 
 
-  <div class="d-flex flex-column flex-md-row align-items-center p-3 px-md-4 mb-3 bg-white border-bottom shadow-sm">
+  <div class="d-flex flex-column flex-md-row align-items-center p-3 px-md-4 mb-3 bg-black_c border-bottom shadow-sm">
   <!-- <h5 class="">Company name</h5> -->
   <a class="navbar-brand my-0 mr-md-auto font-weight-normal" href="<?=base_url('/');?>">
-    <img src="<?=base_url('assets/img/produk/head.jpg');?>" width="150px"  class="d-inline-block align-top" alt="" loading="lazy">
+    <img src="<?=base_url('assets/img/produk/head.jpg');?>" width="300px"  class="d-inline-block align-top" alt="" loading="lazy">
   </a>
+  <!-- //http://localhost/CODE/wildan/ -->
   <nav class="my-2 my-md-0 mr-md-3">
   <a class="btn btn-outline-primary" href="<?=base_url('/')?>">HOME</a>
   <button type="button" class="btn btn-danger dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
     menu
   </button>
   <div class="dropdown-menu">
-    <a class="dropdown-item" href="#">Action</a>
-    <a class="dropdown-item" href="#">Another action</a>
-    <a class="dropdown-item" href="#">Something else here</a>
+    <a class="dropdown-item" href="#">tentanf kami</a>
+    <a class="dropdown-item" href="<?=base_url('/ot')?>">galery</a>
+    <a class="dropdown-item" href="#">cara pembelian</a>
     <a class="dropdown-item btn btn-primary" href="<?=base_url('/auth')?>">Sign up</a>
     <div class="dropdown-divider"></div>
-    <a class="dropdown-item" href="#">Separated link</a>
+    <a class="dropdown-item" href="#">contakus</a>
   </div>
     <!-- <a class="p-2 text-dark" href="#">Features</a> -->
   </nav>
-  <a class="nav-link" href="<?=base_url('/dagang/keranjang')?>" ><i class="fas fa-envelope fa-fw"></i><span class="badge badge-danger badge-counter"><?=$keranjang?></span></a>
+  <a class="nav-link" href="<?=base_url('/dagang/keranjang')?>" ><i class="fas fa-box-open fa-fw"></i><span class="badge badge-danger badge-counter"><?=$keranjang?></span></a>
 
 </div>
   

@@ -50,7 +50,7 @@
         </div>
 
         <div class="mb-3">
-          <label for="address2">tingaalkan Pesan Untuk pengmtar<span class="text-muted">(tidak wajib)</span></label>
+          <label for="address2">tingaalkan Pesan Untuk pengantar<span class="text-muted">(tidak wajib)</span></label>
           <input type="text" name="pesan" class="form-control" id="address2" placeholder="di sebelah alfamart tajur">
         </div>
          <button class="btn btn-primary btn-lg btn-block" type="submit">lanjutkan</button> 
