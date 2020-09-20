@@ -12,13 +12,13 @@
             <ul class="list-unstyled text-small">
             <li><h5><a href="<?=base_url('/')?>">Home</a></h5></li>
             <li><h5><a href="<?=base_url('/ot')?>">Galery</a></h5></li>
-            <li><h5><a href="<?=base_url('/contak')?>">tentang kami</a></h5></li>
+            <li><h5><a href="<?=base_url('/ot/abaut')?>">tentang kami</a></h5></li>
             </ul>
          </div>
          </div>
           <div class="col-12 col-md">
         <div class="text-right pr-3">
-            <h5>Features</h5>
+            <h5>contak</h5>
             <ul class="list-unstyled text-small">
               <li><a class="text-muted" href="#"><small>alamat : </small>Jl. Bojong Kaler Rt.01/04 Kel.Bojongkerta Kec.Bogor Selatan - Bogor 16139</a></li>
               <li><a class="text-muted" href="#"><small>contak : </small>0896 7355 4066 - 085771970103</a></li>

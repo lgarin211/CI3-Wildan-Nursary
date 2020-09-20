@@ -1,6 +1,6 @@
 <div class="ml-4 mr-4" id="page-top">
 <div class="row">
-<div class="ml-2 card bg-black_c container col-md-2">
+<div class="card bg-black_c container col-md-2">
 <h2 class="mx-auto">kategory</h2>
 <ul class="text-center">
 <?foreach ($kategori as $key => $value):?>
@@ -19,31 +19,31 @@
     </ol>
     <div class="carousel-inner">
       <div class="carousel-item active">
-        <img src="<?=base_url('assets/')?>img/dam/979349.jpg" alt="" srcset="" class="bd-placeholder-img card" width="100%" height="500px">
+        <img src="<?=base_url('assets/')?>img/produk/s1.jpeg" alt="" srcset="" class="bd-placeholder-img card" width="100%" height="500px">
         <div class="container">
           <div class="carousel-caption text-left">
             <h1>Example headline.</h1>
             <p>Cras justo odio, dapibus ac facilisis in, egestas eget quam. Donec id elit non mi porta gravida at eget metus. Nullam id dolor id nibh ultricies vehicula ut id elit.</p>
             <p>
-              <a class="btn btn-lg btn-primary" href="#" role="button">DAFTAR SEKARANG</a>
+              <a class="btn btn-lg btn-primary" href="<?=base_url('/auth')?>" role="button">DAFTAR SEKARANG</a>
           </p>
           </div>
         </div>
       </div>
       <div class="carousel-item">
-        <img src="<?=base_url('assets/')?>img/dam/374846.jpg" alt="" srcset="" class="bd-placeholder-img card" width="100%" height="500px">
+        <img src="<?=base_url('assets/')?>img/produk/s2.jpeg" alt="" srcset="" class="bd-placeholder-img card" width="100%" height="500px">
         <div class="container">
           <div class="carousel-caption">
             <h1>Another example headline.</h1>
             <p>Cras justo odio, dapibus ac facilisis in, egestas eget quam. Donec id elit non mi porta gravida at eget metus. Nullam id dolor id nibh ultricies vehicula ut id elit.</p>
             <p>
-              <a class="btn btn-lg btn-primary" href="#" role="button">Tentang kami</a>
+              <a class="btn btn-lg btn-primary" href="<?=base_url('/ot/abaut')?>" role="button">Tentang kami</a>
           </p>
           </div>
         </div>
       </div>
       <div class="carousel-item">
-        <img src="<?=base_url('assets/')?>img/dam/545909.jpg" alt="" srcset="" class="bd-placeholder-img card" width="100%" height="500px">
+        <img src="<?=base_url('assets/')?>img/produk/s3.jpeg" alt="" srcset="" class="bd-placeholder-img card" width="100%" height="500px">
         <div class="container">
           <div class="carousel-caption text-right">
             <h1>One more for good measure.</h1>

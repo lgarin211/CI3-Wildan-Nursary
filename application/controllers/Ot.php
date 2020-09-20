@@ -23,5 +23,10 @@ class Ot extends CI_Controller
         $this->load->view('ot/galeri',$data);
         // $this->load->view('templates/footer');
     }
+    public function abaut()
+    {
+        $this->load->view('ot/abaut');
+        // $this->load->view('templates/footer');
+    }
 
 }

@@ -19,7 +19,7 @@ class Dagang extends CI_Controller
     // Create    
     public function cone()
     {
-        $kategori=$this->db->get('view_kategori ')->result();
+        $kategori=$this->db->get('view_kategori')->result();
         $data['kategori']=$kategori;
         $ting['title'] = 'Dashboard';
 		$ting['user'] = $this->db->get_where('user', ['email' => $this->session->userdata('email')])->row_array();

@@ -40,11 +40,11 @@
   <!-- //http://localhost/CODE/wildan/ -->
   <nav class="my-2 my-md-0 mr-md-3">
   <a class="btn btn-outline-primary" href="<?=base_url('/')?>">HOME</a>
-  <button type="button" class="btn btn-danger dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+  <button type="button" class="btn btn-outline-danger dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
     menu
   </button>
   <div class="dropdown-menu">
-    <a class="dropdown-item" href="#">tentanf kami</a>
+    <a class="dropdown-item" href="<?=base_url('/ot')?>">tentang kami</a>
     <a class="dropdown-item" href="<?=base_url('/ot')?>">galery</a>
     <a class="dropdown-item" href="#">cara pembelian</a>
     <a class="dropdown-item btn btn-primary" href="<?=base_url('/auth')?>">Sign up</a>
