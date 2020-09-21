@@ -105,20 +105,27 @@ class Dagang extends CI_Controller
 
     public function manycek()
     {
+        $heko='';
        if (!$_GET==null) {
             $i=0;
             foreach ($_GET as $key => $d) {
                $ping[$key]=$isi = $this->db->get_where('barang', array('id' => $d))->result();
+               foreach ($ping as $key1 => $pas) {
+                $link[$key1]=$this->db->get_where('chart', array('item' => $pas[0]->id))->result();
+                $tag[$key1]=$link[$key1][0]->quantity;
+            }
                $i++;
             }
+
             $data['one']=$i;
-            $data['isi']=$ping;
-            $this->session->set_userdata('cekout', $ping);
-           $this->load->view('dagangan/cekout4', $data, FALSE);
+            $data['isi']=$ping;           
+            $data['link']=$tag;
+            // var_dump($data);die;
+
+            $this->session->set_userdata('cekout', $data['isi']);
+            $this->load->view('dagangan/cekout4', $data, FALSE);
             $this->load->view('templates/footer');
-
         }
-
 
         if (!$_POST==null) {
             $a=$_SESSION['cekout'];
@@ -126,6 +133,27 @@ class Dagang extends CI_Controller
             $data['link']=$link;
             $data['p']=$a;
             $i=0;
+            // var_dump($a);
+            foreach ($a as $key => $nam) {
+                $ping[$key]=$this->db->get_where('chart', array('item' => $nam[0]->id))->result();
+                $produk[$key]=$nam[0]->nama_produk;
+                foreach ($ping as $key => $ran) {
+                    $banyak[$key]=$ran[0]->quantity;
+                }
+
+
+            }
+            $data['nan']=$produk;
+            $data['ran']=$banyak;
+            // var_dump($data['nan']);die;
+            foreach ($data['nan'] as $key => $man) {
+            $heko=$heko.'>>produk '.$man.' sebanyak '.$data['ran'][$key].',';}
+            // ;echo ;
+           $text='saya '.$link['namapembeli'].'>>akan membeli : '.$heko.'>> dengan total harga Rp '.$link['total'].'000,00 ,>>dan  keterangan *>>alamat -'.$link['alamat'].',>>nomor -'.$link['telp'].'>>dan pesan -'.$link['pesan'].'*';
+           $text=str_replace(" ","%20",$text);
+           $text=str_replace(">>","%0A",$text);
+           $data['text']=$text;
+           $data['no_admin']='628888360409';
             $this->load->view('dagangan/cekout5',$data);
             $this->load->view('templates/footer');
         } 

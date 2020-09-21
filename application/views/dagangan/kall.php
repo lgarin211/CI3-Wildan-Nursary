@@ -33,6 +33,7 @@
   </div>
 </div>
 <?endforeach;?>
+
   </div>
 </div>
 <div class="container">
@@ -47,7 +48,6 @@
   <table class="table table-hover">
   <thead>
     <tr>
-      <th scope="col">#</th>
       <th scope="col">produk</th>
       <th scope="col">banyak</th>
       <th scope="col">harga</th>
@@ -57,14 +57,15 @@
   <?$total=0;foreach ($isi as $key => $i):?>
     <? $a=$i[0];?>
       <tr>
-      <th scope="row">1</th>
       <td><?=$a->nama_produk?></td>
       <td><?=$link_p[$key]?></td>
       <td>Rp.<?=$a->harga*$link_p[$key];?></td>
     </tr>
 
   <?endforeach;?>
-  </tbody>
+  
+
+</tbody>
 </table>
   <li class="list-group-item d-flex justify-content-between bg-light">
           <span>Total (USD)</span>

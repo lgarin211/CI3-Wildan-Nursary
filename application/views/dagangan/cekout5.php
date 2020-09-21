@@ -1,10 +1,7 @@
 <?$phone='628888360409';
             $produk='';
-            foreach ($p as $key => $i) {
-              $produk=$produk.','.$i[0]->nama_produk;
-             } ?>
-            
-       <?php $kalimat = "saya ".$link['namapembeli'].'>> akan membeli '.$produk.'>> sebanyak '.$link['total'].'>>,keterangan: email= '.$link['email'].',alamat penerima= '.$link['alamat'].'pesan untuk anda='.$link['pesan'];?>
+            foreach ($p as $key => $i) {$produk=$produk.','.$i[0]->nama_produk;} ?>
+       <?php $kalimat = "saya ".$link['namapembeli'].'>> akan membeli '.$produk.'>> sebanyak '.$link['total'].'>>,keterangan: email= '.$link['telp'].',alamat penerima= '.$link['alamat'].'pesan untuk anda='.$link['pesan'];?>
 <div class="container">       
 <div class="card">
   <div class="card-body">
@@ -21,14 +18,15 @@
         keterangan : </small>
         <ul>
             <li>alamat penerima: <?=$link['alamat']?></li>
-            <li>email penerima: <?=$link['email']?></li>
+            <li>telp penerima: <?=$link['telp']?></li>
             <li>pesan pengirim: <?=$link['pesan']?></li>
         </ul>
     </p>
-    <a href="https://api.whatsapp.com/send?phone=<?=$phone?>&text=<?$a=str_replace(" ","%20",$kalimat);echo str_replace(">>","%0A",$a)?>" class="btn btn-primary">chat penjual</a>
+    <a href="https://api.whatsapp.com/send?phone=<?=$no_admin?>&text=<?=$text?>" class="btn btn-primary">chat penjual</a>
   </div>
   <img src="<?=base_url('assets/img/dam/').'979349.jpg'?>" height="500px" class="card-img-top" alt="...">
 </div>
+
 
 <div class="card mb-3">
 

@@ -46,12 +46,12 @@
       </h4>
       <ul class="list-group mb-3">
         <?$total=0; foreach ($isi as $key => $two) :?>
-            <?$total=$total+$two[0]->harga?>
+            <?$total=$total+($two[0]->harga*$link[$key])?>
       <li class="list-group-item d-flex justify-content-between lh-condensed">
           <div>
           <!-- <? var_dump($two[0]);?> -->
             <h6 class="my-0"><?=$two[0]->nama_produk;?></h6>
-            <small class="text-muted"><?=$two[0]->banyak_produk;?></small>
+            <small class="text-muted"><?=$link[$key];?></small>
           </div>
           <span class="text-muted">Rp<?=$two[0]->harga;?>.000,~</span>
         </li>
@@ -74,12 +74,12 @@
             </div>
           </div>
         </div>
-<input type="hidden" name="total" value="<?=$total?>">
+        <input type="hidden" name="total" value="<?=$total?>">
         <div class="mb-3">
-          <label for="email">Email <span class="text-muted">(tidak wajib)</span></label>
-          <input type="email" email name="email" class="form-control" id="email" placeholder="you@example.com">
+          <label for="email">No telp <span class="text-muted">(tidak wajib)</span></label>
+          <input type="text" email name="telp" class="form-control" id="email" placeholder="08xxxxxxxx">
           <div class="invalid-feedback">
-            tolong masukan email.
+            tolong masukan Nomor telphon.
           </div>
         </div>
 
