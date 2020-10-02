@@ -202,9 +202,10 @@ class Dagang extends CI_Controller
 
 
     }
-    public function rtree($get)
+    public function rtree()
     {
-        
+
+        $get=$_GET['val'];
         $data=$this->db->get('barang')->result_array();
         $data2=[];
         foreach ($data as $key1 => $k) {
@@ -218,21 +219,21 @@ class Dagang extends CI_Controller
                }
            }
         }
-return $data2;
+        $l['one']=$data2;
+        // var_dump($data2);die;
+        $this->load->view('dagangan/bash', $l);
+        $this->load->view('templates/footer');
 
     }
     public function Rone()
-    {       
-
-        $kategori=$this->db->get('view_kategori ')->result();
-        $data['kategori']=$kategori;
-        
+    {      
+    $kategori=$this->db->get('view_kategori')->result();
+    $data['kategori']=$kategori;        
 if ($_SESSION['semi_id']==null) {
-    redirect('dagang/setse');
-}
+    redirect('dagang/setse');}
 $data['sas']=$_SESSION['semi_id'];
 
-if (!$_POST==null) {
+if (!$_POST==null) {    
     $ceksemi = $this->db->get_where('asess', array('id_user_main' => $_POST['sesi']))->num_rows();
     if ($ceksemi==0) {
         $d=array('id_user_main'=>$_POST['sesi']);
@@ -246,8 +247,7 @@ if (!$_POST==null) {
         $this->db->where('id_user', $_SESSION['semi_id']);
         $this->db->where('item', $_POST['idbarang']);
         $this->db->update('chart');
-        redirect('/');
-    } 
+        redirect('/');} 
         $reg = array(
                 'item' => $_POST['idbarang'],
                 'quantity'=>$_POST['quantity'],
@@ -256,13 +256,20 @@ if (!$_POST==null) {
     redirect('/');
 }
 
-$query =array_reverse($this->db->get('barang')->result_array());
-
-        $data['one'] = $query;
-        if (!$_GET==null) {
-            $data2=$this->rtree($_GET['val']);
-        $data['one']=$data2;
+$query=array_reverse($this->db->get('barang')->result_array());
+      
+        foreach ($query as $key => $l) {
+            if ($key==20) {
+            break;
+            }
+            $query2[$key]=$l;
         }
+        // var_dump($query2);die;
+
+        $data['one'] = $query2;
+        // if (!$_GET==null) {
+        // $data2=$this->rtree($_GET['val']);
+        // $data['one']=$data2;}
         $this->load->view('dagangan/list', $data);
         $this->load->view('templates/footer');
         

@@ -1,18 +1,16 @@
-.produkimg{
-    max-width: 100%;
-    height: 200px;
-    border: 0;
-    vertical-align: middle;
-}
 
+@font-face{
+    flood-color: #3CFB08;
+}
 h1,h2,h4,h3,h5,h6 {
-    color: #6712d6;
+    color: #3CFB08 ;
 }
 
 
 .bg-black_c {
-    background-color: #060606 !important;
+    background-color: #52494c !important;
 }
 .bg-hijau_c{
     background-color: #3CFB08    !important;
 }
+

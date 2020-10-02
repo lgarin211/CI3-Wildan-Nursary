@@ -1,70 +1,3 @@
-<div class="ml-4 mr-4" id="page-top">
-<div class="row">
-<div class="card bg-black_c container col-md-2">
-<h2 class="mx-auto">kategory</h2>
-<ul class="text-center">
-<?foreach ($kategori as $key => $ln):?>
-<li><h6><a href="<?=base_url('/dagang/rtree?val='.$ln->id)?>"><?=$ln->value?></a></h6></li><hr>
-<?endforeach;?>
-</ul>
-</div>
-<div id="myCarousel" class="carousel slide col-md" data-ride="carousel">
-    <ol class="carousel-indicators">
-      <li data-target="#myCarousel" data-slide-to="0" class="active">
-      </li>
-      <li data-target="#myCarousel" data-slide-to="1">
-      </li>
-      <li data-target="#myCarousel" data-slide-to="2">
-      </li>
-    </ol>
-    <div class="carousel-inner">
-      <div class="carousel-item active">
-        <img src="<?=base_url('assets/')?>img/produk/s1.jpeg" alt="" srcset="" class="bd-placeholder-img card imh-rela" width="100%" height="240px">
-        <div class="container">
-          <div class="carousel-caption text-left">
-          <p>
-              <a class="btn btn-sm btn-primary" href="<?=base_url('/auth')?>" role="button">DAFTAR SEKARANG</a>
-          </p>
-          </div>
-        </div>
-      </div>
-      <div class="carousel-item">
-        <img src="<?=base_url('assets/')?>img/produk/s2.jpeg" alt="" srcset="" class="bd-placeholder-img card imh-rela" width="100%" height="240px">
-        <div class="container">
-          <div class="carousel-caption">
-          <p>
-              <a class="btn btn-sm btn-primary" href="<?=base_url('/ot/abaut')?>" role="button">Tentang kami</a>
-          </p>
-          </div>
-        </div>
-      </div>
-      <div class="carousel-item">
-        <img src="<?=base_url('assets/')?>img/produk/s3.jpeg" alt="" srcset="" class="bd-placeholder-img card imh-rela" width="100%" height="240px">
-        <div class="container">
-          <div class="carousel-caption text-right">
-          <p>
-              <a class="btn btn-sm btn-primary" href="<?=base_url('/ot')?>" role="button">Browse gallery</a>
-          </p>
-          </div>
-        </div>
-      </div>
-    </div>
-    <a class="carousel-control-prev" href="#myCarousel" role="button" data-slide="prev">
-      <span class="carousel-control-prev-icon" aria-hidden="true">
-
-      </span>
-      <span class="sr-only">Previous</span>
-    </a>
-    <a class="carousel-control-next" href="#myCarousel" role="button" data-slide="next">
-      <span class="carousel-control-next-icon" aria-hidden="true">
-
-      </span>
-      <span class="sr-only">Next</span>
-    </a>
-</div>
-</div>
-</div>
-<br>
 <!-- list -->
 <link rel="stylesheet" href="<?=base_url('assets/one.css');?>">
 <link rel="stylesheet" href="<?=base_url('assets/two.css');?>">
@@ -74,6 +7,7 @@
 <?foreach ($one as $key => $a) :?>
 <div class="product-grid-item product without-stars product-no-swatches quick-shop-on quick-view-on woodmart-hover-quick  col-6 col-sm-4 col-md-3 col-lg-2 first  product-in-grid type-product post-15729 status-publish first instock product_cat-jual-bibit-tanaman product_tag-bibit-buah-tin-merah product_tag-bibit-tin-merah product_tag-buah-tin-merah product_tag-harga-bibit-buah-tin-merah product_tag-jual-bibit-buah-tin-merah product_tag-tabulampot-buah-tin-merah has-post-thumbnail sale shipping-taxable purchasable product-type-simple hover-width-small">
 <div class="product-element-top">
+<!-- <a href="<?=base_url('/dagang/rtwo?id='.$a['id'])?>" class="product-image-link"> -->
 <a href="#" data-toggle="modal" data-target=".id<?=$a['id']?>">
 <div class="product-labels labels-rounded">
   <!-- <span class="onsale product-label">-24%</span> -->
@@ -89,7 +23,7 @@
 <form action="<?= base_url('/dagang/rone')?>" method="post">
         <input type="hidden" name="quantity" value="1">
         <input type="hidden" name="idbarang" value="<?=$a['id']?>">
-        <input type="hidden" name="sesi" value="<?=$sas;?>">
+        <input type="hidden" name="sesi" value="<?=$_SESSION['semi_id'];?>">
 <button type="submit" data-quantity="1" class="button product_type_simple add_to_cart_button ajax_add_to_cart add-to-cart-loop btn-primary btn"><span><i class="fas fa-cart-plus fa-fw"></i></span>
 </button>	
 </form>
@@ -126,7 +60,8 @@
           </div>
           <div class="col-md-5">
             <h5>
-              desripsi: <br> <?=$a['deskripsi']?>.
+                dekripsi=
+                produk ini kbaksbdkjalbsjdl kldhask dkb slihaioblsbd lkdbkbalskbfalksndkf al sbk andjls kdb alksbfkanskdasjdn skbaknsbkl;a k,fnks bdjasb kdb kbs; lanskbdn lb l;bkbfkasvlb.kslbdkasbf kaslbfckasndk bslkbsfkbas kbskbf;alsdbkslb fkbsjfkbalkfbskahfs
             </h5>
           </div>
         </div>

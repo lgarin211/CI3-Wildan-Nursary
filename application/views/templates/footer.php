@@ -1,7 +1,7 @@
 <link rel="stylesheet" href="<?=base_url('assets/two.css'); ?>">            <!-- Footer -->
 <footer class="bg-hijau_c b border-top">
 <div class="row bg-black_c">
-        <div class="col-12 col-md">
+        <div class="col-12 ml-2 col-md">
             <div class="text-left">
             <img class="mb-2" src="<?=base_url('assets/img/produk/head.jpg');?>" alt="" width="150px" >
             <h5 class="d-block mb-3 text-muted">Menjual berbagai jenis tanaman hias, tanaman lindung, tanaman buah, tanaman obat dll.</h5>
