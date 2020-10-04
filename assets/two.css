@@ -1,16 +1,21 @@
 
-@font-face{
-    flood-color: #3CFB08;
+h1,h6,h2,h4,h3,h5 {
+    color: #3CFB08 ;}
+.hijau{
+    color: #3CFB08;
 }
-h1,h2,h4,h3,h5,h6 {
-    color: #3CFB08 ;
+h3,h6 {
+    color:black;
 }
 
 
 .bg-black_c {
-    background-color: #52494c !important;
+    background-color: black !important;
+}
+.bg-c {
+    background-color: #F0F1EC  !important;
 }
 .bg-hijau_c{
-    background-color: #3CFB08    !important;
+    background-color: black    !important;
 }
 

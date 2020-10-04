@@ -4,7 +4,7 @@
 <h2 class="mx-auto">kategory</h2>
 <ul class="text-center">
 <?foreach ($kategori as $key => $ln):?>
-<li><h6><a href="<?=base_url('/dagang/rtree?val='.$ln->id)?>"><?=$ln->value?></a></h6></li><hr>
+<li><h6 class="hijau"><a href="<?=base_url('/dagang/rtree?val='.$ln->id)?>"><?=$ln->value?></a></h6></li><hr>
 <?endforeach;?>
 </ul>
 </div>
@@ -23,7 +23,7 @@
         <div class="container">
           <div class="carousel-caption text-left">
           <p>
-              <a class="btn btn-sm btn-primary" href="<?=base_url('/auth')?>" role="button">DAFTAR SEKARANG</a>
+              <a class="btn btn-sm btn-success" href="<?=base_url('/auth')?>" role="button">DAFTAR SEKARANG</a>
           </p>
           </div>
         </div>
@@ -33,7 +33,7 @@
         <div class="container">
           <div class="carousel-caption">
           <p>
-              <a class="btn btn-sm btn-primary" href="<?=base_url('/ot/abaut')?>" role="button">Tentang kami</a>
+              <a class="btn btn-sm btn-success" href="<?=base_url('/ot/abaut')?>" role="button">Tentang kami</a>
           </p>
           </div>
         </div>
@@ -43,7 +43,7 @@
         <div class="container">
           <div class="carousel-caption text-right">
           <p>
-              <a class="btn btn-sm btn-primary" href="<?=base_url('/ot')?>" role="button">Browse gallery</a>
+              <a class="btn btn-sm btn-success" href="<?=base_url('/ot')?>" role="button">Browse gallery</a>
           </p>
           </div>
         </div>
@@ -69,7 +69,7 @@
 <link rel="stylesheet" href="<?=base_url('assets/one.css');?>">
 <link rel="stylesheet" href="<?=base_url('assets/two.css');?>">
 <div class="row">
-<div class="container col-md-10" >
+<div class="bg-link container col-md-10" >
 <div class="row mx-auto">
 <?foreach ($one as $key => $a) :?>
 <div class="product-grid-item product without-stars product-no-swatches quick-shop-on quick-view-on woodmart-hover-quick  col-6 col-sm-4 col-md-3 col-lg-2 first  product-in-grid type-product post-15729 status-publish first instock product_cat-jual-bibit-tanaman product_tag-bibit-buah-tin-merah product_tag-bibit-tin-merah product_tag-buah-tin-merah product_tag-harga-bibit-buah-tin-merah product_tag-jual-bibit-buah-tin-merah product_tag-tabulampot-buah-tin-merah has-post-thumbnail sale shipping-taxable purchasable product-type-simple hover-width-small">
@@ -78,19 +78,15 @@
 <div class="product-labels labels-rounded">
   <!-- <span class="onsale product-label">-24%</span> -->
 </div>
-  <img width="150px" src="<?=base_url('assets/img/dam/'.$a['img_link'])?>" height="200px" class="attachment-woocommerce_thumbnail size-woocommerce_thumbnail" sizes="(max-width: 150px) 100vw, 150px"></a>
+  <img width="100%" src="<?=base_url('assets/img/dam/'.$a['img_link'])?>" height="180px" class="attachment-woocommerce_thumbnail size-woocommerce_thumbnail" sizes="(max-width: 150px) 100vw, 150px"></a>
 <div class="woodmart-buttons">
-  <i class="far fa-eye"></i>
-<div class="quick-view">
-<a href="<?=base_url('/dagang/rtwo?id='.$a['id'])?>" class="open-quick-view woodmart-tltp raskasl" ><span class="woodmart-tooltip-label" style="margin-left: -43px;">Quick View</span>Quick View</a>
-</div>
 </div>
 <div class="woodmart-add-btn">
 <form action="<?= base_url('/dagang/rone')?>" method="post">
         <input type="hidden" name="quantity" value="1">
         <input type="hidden" name="idbarang" value="<?=$a['id']?>">
         <input type="hidden" name="sesi" value="<?=$sas;?>">
-<button type="submit" data-quantity="1" class="button product_type_simple add_to_cart_button ajax_add_to_cart add-to-cart-loop btn-primary btn"><span><i class="fas fa-cart-plus fa-fw"></i></span>
+<button type="submit" data-quantity="1" class="button product_type_simple add_to_cart_button ajax_add_to_cart add-to-cart-loop btn-success btn"><span><i class="fas fa-cart-plus fa-fw"></i></span>
 </button>	
 </form>
 </div>
@@ -101,10 +97,16 @@
 </div>
 </div>
 </div>
-<h3 class="product-title"><a href=""><?=$a['nama_produk']?></a>
-</h3>
-<!-- <span class="price"><del><span class="woocommerce-Price-amount amount"><bdi><span class="woocommerce-Price-currencySymbol">Rp</span>125.000</bdi> -->
-</span></del> <ins><span class="woocommerce-Price-amount amount"><bdi><span class="woocommerce-Price-currencySymbol">Rp</span><?=$a['harga']?>.000</bdi></span></ins></span>
+<h3 class="text-center"><?=$a['nama_produk']?></h3>
+
+<h6>
+<ins>
+    <bdi>
+        Rp
+      <?=$a['harga']?>.000,~
+    </bdi>
+</ins>
+</h6>
 </div>
 
 <div class="modal fade bd-example-modal-lg id<?=$a['id']?>" tabindex="-1" role="dialog" aria-labelledby="myLargeModalLabel" aria-hidden="true">

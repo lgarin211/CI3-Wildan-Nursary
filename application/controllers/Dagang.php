@@ -6,13 +6,16 @@ class Dagang extends CI_Controller
     public function __construct()
     {
         parent::__construct();
+        $san='';
+        if ($_SESSION['semi_id']>2000) {
+        $san='Dasboard';}else{$san='login';}       
         $this->load->library('form_validation');	
         $ceksesi = $this->db->get_where('chart', array('id_user' => $_SESSION['semi_id']))->result();
         $banyak=0;
         foreach ($ceksesi as $key => $i) {
-        $banyak=$banyak+$i->quantity;
-        }
+        $banyak=$banyak+$i->quantity;}
         $data['keranjang']=$banyak;
+        $data['san']=$san;
         $this->load->view('dagangan/head',$data);
     }
     public function index()
@@ -208,13 +211,12 @@ class Dagang extends CI_Controller
 
     }
     public function Rone()
-    {      
+    {
     $kategori=$this->db->get('view_kategori')->result();
-    $data['kategori']=$kategori;        
+    $data['kategori']=$kategori; 
 if ($_SESSION['semi_id']==null) {
     redirect('dagang/setse');}
 $data['sas']=$_SESSION['semi_id'];
-
     if (!$_POST==null) {    
     $ceksemi = $this->db->get_where('asess', array('id_user_main' => $_POST['sesi']))->num_rows();
     if ($ceksemi==0) {

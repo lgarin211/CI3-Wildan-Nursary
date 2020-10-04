@@ -29,7 +29,7 @@
     <link href="<?= base_url('assets/'); ?>css/sb-admin-2.css" rel="stylesheet">
     <link href="<?= base_url('assets/'); ?>vendor/fontawesome-free/css/all.min.css" rel="stylesheet" type="text/css">
   </head>
-  <body class="bg-black_c">
+  <body class="bg-c">
 
 
   <div class="d-flex flex-column flex-md-row align-items-center p-3 px-md-4 mb-3 bg-black_c border-bottom shadow-sm">
@@ -43,8 +43,12 @@
   <a class="btn btn-outline-primary" href="<?=base_url('/ot')?>">tentang kami</a>
   <a class="btn btn-outline-primary" href="<?=base_url('/ot')?>">galery</a>
   <a class="btn btn-outline-primary" href="#"><?=$_SESSION['semi_id']?></a>
+  <a class="btn btn-outline-primary" href="<?=base_url('/auth')?>">
+  <?=$san?>
+  </a>
   
-  <button type="button" class="btn btn-outline-danger dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+  
+  <!-- <button type="button" class="btn btn-outline-danger dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
     menu
   </button>
   <div class="dropdown-menu">
@@ -54,7 +58,7 @@
     <a class="dropdown-item btn btn-primary" href="<?=base_url('/auth')?>">Sign up</a>
     <div class="dropdown-divider"></div>
     <a class="dropdown-item" href="#">contakus</a>
-  </div>
+  </div> -->
     <!-- <a class="p-2 text-dark" href="#">Features</a> -->
   </nav>
   <a class="nav-link" href="<?=base_url('/dagang/keranjang')?>" ><i class="fas fa-box-open fa-fw"></i><span class="badge badge-danger badge-counter"><?=$keranjang?></span></a>
