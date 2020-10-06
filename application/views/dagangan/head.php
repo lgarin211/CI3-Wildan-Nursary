@@ -35,17 +35,34 @@
   <div class="d-flex flex-column flex-md-row align-items-center p-3 px-md-4 mb-3 bg-black_c border-bottom shadow-sm">
   <!-- <h5 class="">Company name</h5> -->
   <a class="navbar-brand my-0 mr-md-auto font-weight-normal" href="<?=base_url('/');?>">
-    <img src="<?=base_url('assets/img/produk/head.jpg');?>" width="300px"  class="d-inline-block align-top" alt="" loading="lazy">
+    <!-- <img src="<?=base_url('assets/img/produk/head.jpg');?>" width="300px"  class="d-inline-block align-top" alt="" loading="lazy"> -->
   </a>
+  <nav class="navbar mx-auto navbar-expand-lg navbar-light ">
+  <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavDropdown" aria-controls="navbarNavDropdown" aria-expanded="false" aria-label="Toggle navigation">
+    <span class="navbar-toggler-icon"></span>
+  </button>
+  <div class="collapse navbar-collapse" id="navbarNavDropdown">
+    <ul class="navbar-nav">
+      <li class="nav-item active">
+      <a class="btn btn-light" href="<?=base_url('/')?>">HOME</a>
+      </li>
+      <li class="nav-item">
+      <a class="btn btn-light" href="<?=base_url('/ot')?>">tentang kami</a>
+      </li>
+      <li class="nav-item">
+      <a class="btn btn-light" href="<?=base_url('/ot')?>">galery</a>
+      </li>
+      
+    </ul>
+  </div>
+</nav>
   <!-- //http://localhost/CODE/wildan/ -->
   <nav class="my-2 my-md-0 mr-md-3">
-  <a class="btn btn-dark" href="<?=base_url('/')?>">HOME</a>
-  <a class="btn btn-dark" href="<?=base_url('/ot')?>">tentang kami</a>
-  <a class="btn btn-dark" href="<?=base_url('/ot')?>">galery</a>
-  <a class="btn btn-dark" href="#"><?=$_SESSION['semi_id']?></a>
-  <a class="btn btn-dark" href="<?=base_url('/auth')?>">
-  <?=$san?>
-  </a>
+
+
+
+  <!-- <a class="btn btn-light" href="#"><?=$_SESSION['semi_id']?></a> -->
+  
   
   
   <!-- <button type="button" class="btn btn-outline-danger dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
@@ -61,7 +78,9 @@
   </div> -->
     <!-- <a class="p-2 text-dark" href="#">Features</a> -->
   </nav>
-  <a class="nav-link" href="<?=base_url('/dagang/keranjang')?>" ><i class="fas fa-box-open fa-fw"></i><span class="badge badge-danger badge-counter"><?=$keranjang?></span></a>
-
+  <div class="row">
+  <a href="<?=base_url('/auth')?>"><i class="fas fa-user-alt fa-fw"></i></a>
+  <a class="" href="<?=base_url('/dagang/keranjang')?>" ><i class="fas fa-box-open fa-fw"></i><span class="badge badge-danger badge-counter"><?=$keranjang?></span></a>
+  </div>
 </div>
   

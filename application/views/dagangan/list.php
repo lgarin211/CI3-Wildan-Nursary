@@ -4,7 +4,7 @@
 <h2 class="mx-auto">kategory</h2>
 <ul class="text-center">
 <?foreach ($kategori as $key => $ln):?>
-<li><h6 class="hijau"><a href="<?=base_url('/dagang/rtree?val='.$ln->id)?>"><?=$ln->value?></a></h6></li><hr>
+<li><h6 class="btn btn-light"><a href="<?=base_url('/dagang/rtree?val='.$ln->id)?>"><?=$ln->value?></a></h6></li><hr>
 <?endforeach;?>
 </ul>
 </div>
@@ -78,7 +78,7 @@
 <div class="product-labels labels-rounded">
   <!-- <span class="onsale product-label">-24%</span> -->
 </div>
-  <img width="100%" src="<?=base_url('assets/img/dam/'.$a['img_link'])?>" height="180px" class="attachment-woocommerce_thumbnail size-woocommerce_thumbnail" sizes="(max-width: 150px) 100vw, 150px"></a>
+  <img width="100%" src="<?=base_url('assets/img/dam/'.$a['img_link'])?>" height="100%" class="attachment-woocommerce_thumbnail size-woocommerce_thumbnail" sizes="(max-width: 150px) 100vw, 150px"></a>
 <div class="woodmart-buttons">
 </div>
 <div class="woodmart-add-btn">

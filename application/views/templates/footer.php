@@ -4,7 +4,7 @@
         <div class="col-12 ml-2 col-md">
             <div class="text-left">
             <img class="mb-2" src="<?=base_url('assets/img/produk/head.jpg');?>" alt="" width="150px" >
-            <h5 class="d-block mb-3 text-muted">Menjual berbagai jenis tanaman hias, tanaman lindung, tanaman buah, tanaman obat dll.</h5>
+            <h5 class="d-block mb-3  mag">Menjual berbagai jenis tanaman hias, tanaman lindung, tanaman buah, tanaman obat dll.</h5>
           </div>
         </div>
           <div class="col-12 col-md">
@@ -20,8 +20,8 @@
         <div class="text-right pr-3">
             <h5>contak</h5>
             <ul class="list-unstyled text-small">
-              <li><a class="text-muted" href="#"><small>alamat : </small>Jl. Bojong Kaler Rt.01/04 Kel.Bojongkerta Kec.Bogor Selatan - Bogor 16139</a></li>
-              <li><a class="text-muted" href="#"><small>contak : </small>0896 7355 4066 - 085771970103</a></li>
+              <li><a class=" mag" href="#"><small class="mag">alamat : </small>Jl. Bojong Kaler Rt.01/04 Kel.Bojongkerta Kec.Bogor Selatan - Bogor 16139</a></li>
+              <li><a class=" mag" href="#"><small class="mag">contak : </small>0896 7355 4066 - 085771970103</a></li>
             </ul>
           </div>
         </div>
