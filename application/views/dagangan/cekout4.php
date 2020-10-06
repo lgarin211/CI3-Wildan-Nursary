@@ -1,37 +1,4 @@
-<!doctype html>
-<html lang="en">
-  <head>
-    <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-    <meta name="description" content="">
-    <meta name="author" content="Mark Otto, Jacob Thornton, and Bootstrap contributors">
-    <meta name="generator" content="Jekyll v3.8.6">
-    <title>Checkout example · Bootstrap</title>
-    <link href="<?= base_url('assets/'); ?>css/sb-admin-2.css" rel="stylesheet">
-   
-
-
-    <style>
-      .bd-placeholder-img {
-        font-size: 1.125rem;
-        text-anchor: middle;
-        -webkit-user-select: none;
-        -moz-user-select: none;
-        -ms-user-select: none;
-        user-select: none;
-      }
-
-      @media (min-width: 768px) {
-        .bd-placeholder-img-lg {
-          font-size: 3.5rem;
-        }
-      }
-    </style>
-    <!-- Custom styles for this template -->
-    <link href="form-validation.css" rel="stylesheet">
-  </head>
-  <body class="bg-light">
-    <div class="container">
+    <div class="container card bg-dark mb-3">
   <div class="py-5 text-center">
     <img class="d-block mx-auto mb-4" src="<?=base_url('')?>assets/img/produk/head.jpg" alt="" width="500px" height="20%">
     <h2>Checkout</h2>
@@ -68,7 +35,7 @@
         <div class="row">
           <div class="col-md mb-3">
             <label for="firstName">Nama lengkap</label>
-            <input type="text" name="namapembeli" class="form-control" id="firstName" placeholder="udin rizky" value="" required>
+            <input type="text" required autofocus name="namapembeli" class="form-control" id="firstName" placeholder="udin rizky" value="" required>
             <div class="invalid-feedback">
               Harap isi Nama Lengkap.
             </div>
@@ -77,7 +44,7 @@
         <input type="hidden" name="total" value="<?=$total?>">
         <div class="mb-3">
           <label for="email">No telp <span class="text-muted">(tidak wajib)</span></label>
-          <input type="text" email name="telp" class="form-control" id="email" placeholder="08xxxxxxxx">
+          <input type="text" email name="telp" required class="form-control" id="email" placeholder="08xxxxxxxx">
           <div class="invalid-feedback">
             tolong masukan Nomor telphon.
           </div>
@@ -85,7 +52,7 @@
 
         <div class="mb-3">
           <label for="address">Alamat</label>
-          <input type="text" name="alamat" class="form-control" id="address" placeholder="Bogor Selatan,Tajur,rt1,rw1,no 12" required>
+          <input type="text" name="alamat" required class="form-control" id="address" placeholder="Bogor Selatan,Tajur,rt1,rw1,no 12" required>
           <div class="invalid-feedback">
             harap masukan alamat pengiriman
           </div>
@@ -99,4 +66,5 @@
       </form> 
     </div>
   </div>
-
+</div>
+        </div>

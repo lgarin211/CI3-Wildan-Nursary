@@ -117,7 +117,7 @@ class Dagang extends CI_Controller
             $data['link']=$tag;
 
             $this->session->set_userdata('cekout', $data['isi']);
-            $this->load->view('dagangan/cekout4', $data, FALSE);
+            $this->load->view('dagangan/cekout4', $data);
             $this->load->view('templates/footer');
         }
 

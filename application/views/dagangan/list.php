@@ -19,7 +19,7 @@
     </ol>
     <div class="carousel-inner">
       <div class="carousel-item active">
-        <img src="<?=base_url('assets/')?>img/produk/s1.jpeg" alt="" srcset="" class="bd-placeholder-img card imh-rela" width="100%" height="240px">
+        <img src="<?=base_url('assets/')?>img/produk/s1.jpeg" alt="" srcset="" class="bd-placeholder-img card imh-rela" width="100%" height="100%">
         <div class="container">
           <div class="carousel-caption text-left">
           <p>
@@ -29,7 +29,7 @@
         </div>
       </div>
       <div class="carousel-item">
-        <img src="<?=base_url('assets/')?>img/produk/s2.jpeg" alt="" srcset="" class="bd-placeholder-img card imh-rela" width="100%" height="240px">
+        <img src="<?=base_url('assets/')?>img/produk/s2.jpeg" alt="" srcset="" class="bd-placeholder-img card imh-rela" width="100%" height="100%">
         <div class="container">
           <div class="carousel-caption">
           <p>
@@ -39,7 +39,7 @@
         </div>
       </div>
       <div class="carousel-item">
-        <img src="<?=base_url('assets/')?>img/produk/s3.jpeg" alt="" srcset="" class="bd-placeholder-img card imh-rela" width="100%" height="240px">
+        <img src="<?=base_url('assets/')?>img/produk/s3.jpeg" alt="" srcset="" class="bd-placeholder-img card imh-rela" width="100%" height="100%">
         <div class="container">
           <div class="carousel-caption text-right">
           <p>

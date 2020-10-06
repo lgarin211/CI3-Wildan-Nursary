@@ -39,11 +39,11 @@
   </a>
   <!-- //http://localhost/CODE/wildan/ -->
   <nav class="my-2 my-md-0 mr-md-3">
-  <a class="btn btn-outline-primary" href="<?=base_url('/')?>">HOME</a>
-  <a class="btn btn-outline-primary" href="<?=base_url('/ot')?>">tentang kami</a>
-  <a class="btn btn-outline-primary" href="<?=base_url('/ot')?>">galery</a>
-  <a class="btn btn-outline-primary" href="#"><?=$_SESSION['semi_id']?></a>
-  <a class="btn btn-outline-primary" href="<?=base_url('/auth')?>">
+  <a class="btn btn-dark" href="<?=base_url('/')?>">HOME</a>
+  <a class="btn btn-dark" href="<?=base_url('/ot')?>">tentang kami</a>
+  <a class="btn btn-dark" href="<?=base_url('/ot')?>">galery</a>
+  <a class="btn btn-dark" href="#"><?=$_SESSION['semi_id']?></a>
+  <a class="btn btn-dark" href="<?=base_url('/auth')?>">
   <?=$san?>
   </a>
   

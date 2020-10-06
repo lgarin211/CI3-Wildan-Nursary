@@ -1,9 +1,9 @@
-<div class="pricing-header px-3 py-3 pt-md-5 pb-md-4 mx-auto text-center">
+<div class="jumbotron pricing-header px-3 py-3 pt-md-5 pb-md-4 mx-auto text-center">
 <h1 class="display-4">total</h1>
 <?$nilai=0;foreach ($isi as $key => $a) {$nilai=$nilai+($a[0]->harga*$link_p[$key]);}?>
-  <p class="lead">total harga=<?=$nilai?></p>
+  <p class="lead">total harga=Rp. <?=$nilai?>.000,~</p>
 </div>
-<div class="row">
+<div class="row jumbotron">
 <div class="col-md-7">
 <div class="col-md-7 card-group container">
 <div class="row">
@@ -13,13 +13,14 @@
     <div class="card mb-3 col-md-2" style="max-width: 540px;">
   <div class="row no-gutters">
     <div class="col-md-4">
-      <img src="<?=base_url('assets/img/dam/')?><?=$a->img_link?>" height="140px"  class="card-img" alt="...">
+      <img src="<?=base_url('assets/img/dam/').$a->img_link?>" height="180px" width="100%"  class="card-img" alt="...">
     </div>
     <div class="col-md-8">
       <div class="card-body">
         <h5 class="card-title"><?=$a->nama_produk?></h5>
-        <p class="card-text">sebanyak: <?=$link_p[$key]?>.</p>
-        <p class="card-text">    <small class="text-muted">
+        <p class="card-text">sebanyak:<?=$link_p[$key]?>.</p>
+        <p class="card-text">
+        <small class="text-muted">
       <div class="btn-group" >
       <button type="button" class="btn btn-warning">beli</button>
       <button type="button" class="btn btn-primary">Lihat</button>
@@ -33,16 +34,15 @@
   </div>
 </div>
 <?endforeach;?>
-
-  </div>
+</div>
 </div>
 <div class="container">
-<div class="">
+<!-- <div class="">
 <button type="submit" class='col-md btn btn-primary'>beli semua</button>
+</div> -->
 </div>
 </div>
-</div>
-<div class="col-md-5">
+<div class="col-md-5 jumbotron">
     <h1 class="text-center">RINCIAN</h1>
   <div class="">
   <table class="table table-hover">
@@ -59,16 +59,13 @@
       <tr>
       <td><?=$a->nama_produk?></td>
       <td><?=$link_p[$key]?></td>
-      <td>Rp.<?=$a->harga*$link_p[$key];?></td>
+      <td>Rp.<?=$a->harga*$link_p[$key];?>.000,~</td>
     </tr>
-
   <?endforeach;?>
-  
-
 </tbody>
 </table>
   <li class="list-group-item d-flex justify-content-between bg-light">
-          <span>Total (USD)</span>
+          <span>Total (Rp)</span>
           <strong>RP.<?=$nilai?>.000,~</strong>
         </li> 
         <button type="submit" class='col-md btn btn-primary'>beli semua</button>

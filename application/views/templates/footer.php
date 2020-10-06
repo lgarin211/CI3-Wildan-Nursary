@@ -25,13 +25,13 @@
             </ul>
           </div>
         </div>
-        </div>
-
-        <div class="container my-auto">
+        <div class="col-md-12 mx-auto">
                     <div class="copyright pt-3 bg-hijau_c text-center my-auto">
                         <span>Copyright &copy; Wildan Nursery <?= date('Y'); ?></span>
+                        <br>
                     </div>
-                </div>
+        </div>
+        </div>
       </footer>
             <!-- Logout Modal-->
             <div class="modal fade" id="logoutModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
