@@ -19,9 +19,15 @@ h3,
 h6 {
     color: black;
 }
+.pilk{
+    color: #a8dba8;
+}
 
 .bg-black_c {
     background-color: #a8dba8 !important;
+}
+.bg-black_ch {
+    background-color: #0b486b !important;
 }
 
 .bg-c {

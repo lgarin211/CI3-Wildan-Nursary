@@ -12,6 +12,51 @@
  * Licensed under MIT (https://github.com/twbs/bootstrap/blob/master/LICENSE)
  */
 
+ .sepia {
+-webkit-filter: sepia(1);
+filter: sepia(1);
+}
+.grayscale {
+-webkit-filter: grayscale(1);
+filter: grayscale(1);
+}
+.sepia {
+-webkit-filter: sepia(1);
+filter: sepia(1);
+}
+.saturate {
+-webkit-filter: saturate(8);
+filter: saturate(8);
+}
+.hue-rotate {
+-webkit-filter: hue-rotate(90deg);
+filter: hue-rotate(90deg);
+}
+.invert {
+-webkit-filter: invert(.8);
+filter: invert(.8);
+}
+.opacity {
+-webkit-filter: opacity(.2);
+filter: opacity(.2);
+}
+.brightness {
+-webkit-filter: brightness(3);
+filter: brightness(3);
+}
+.contrast {
+-webkit-filter: contrast(4);
+filter: contrast(4);
+}
+.blur {
+-webkit-filter: blur(5px);
+filter: blur(5px);
+}
+.drop-shadow {
+-webkit-filter: drop-shadow(5px 5px 10px rgba(0,0,0,0.9));
+filter: drop-shadow(5px 5px 10px rgba(0,0,0,0.9));
+}
+
 :root {
     --blue: #4e73df;
     --indigo: #6610f2;
