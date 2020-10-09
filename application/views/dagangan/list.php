@@ -11,12 +11,6 @@
           <div class="collapse navbar-collapse" id="navbarSupportedContent">
             <ul class="mx-auto text-center">
 
-              <li class="nav-item">
-                <a class="nav-link" href="#">
-                  <h6 class="btn btn-primary">link</h6>
-                </a>
-              </li>
-
               <? foreach ($kategori as $key => $ln) : ?>
                 <li class="nav-item pb-1"><a class="btn btn-light" href="<?= base_url('/dagang/rtree?val=' . $ln->id) ?>"><?= $ln->value ?></a></li>
               <? endforeach; ?>
@@ -89,7 +83,7 @@
   <div class="container">
     <div class="">
       <div class="row">
-<!-- for -->
+        <!-- for -->
         <div class="mx-auto col-md-4 pb-1">
           <div class="card bg-danger text-white">
             <img src="<?= base_url('assets/') ?>img/produk/s1.jpeg" class="card-img" alt="...">
@@ -101,7 +95,7 @@
           </div>
         </div>
 
-                <div class="col-md-4 mx-auto pb-1">
+        <div class="col-md-4 mx-auto pb-1">
 
           <div class="card bg-danger text-white">
             <img src="<?= base_url('assets/') ?>img/produk/s1.jpeg" class="card-img" alt="...">
@@ -112,7 +106,7 @@
             </div>
           </div>
         </div>
-<!-- end for -->
+        <!-- end for -->
         <!-- <div class="col-md-4 pb-1">
 
           <div class="card bg-danger text-white">
