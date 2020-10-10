@@ -26,15 +26,15 @@
       }
     }
   </style>
-
+	<!-- <link rel="stylesheet" href="<?=base_url('assets/multiverse/')?>assets/css/main.css" /> -->
   <link href="<?= base_url('assets/'); ?>css/sb-admin-2.css" rel="stylesheet">
   <link href="<?= base_url('assets/'); ?>vendor/fontawesome-free/css/all.min.css" rel="stylesheet" type="text/css">
 </head>
 
-<body class="bg-c">
+<body class="bg-c is-preload">
 
 
-  <div class="d-flex flex-column flex-md-row align-items-center p-3 px-md-4 mb-3 bg-black_c border-bottom shadow-sm">
+  <div class="d-flex flex-column flex-md-row align-items-center p-3 px-md-4 mb-3 bg-cb border-bottom shadow-sm">
     <!-- <h5 class="">Company name</h5> -->
     <a class="navbar-brand my-0 mr-md-auto font-weight-normal" href="<?= base_url('/'); ?>">
       <img src="<?= base_url('assets/img/produk/head.jpg'); ?>" width="300px"  class="d-inline-block align-top" alt="" loading="lazy">
@@ -46,13 +46,13 @@
       <div class="collapse mx-auto navbar-collapse" id="navbarNavDropdown">
         <ul class="navbar-nav">
           <li class="nav-item mx-auto">
-            <a class="btn btn-light" href="<?= base_url('/') ?>">HOME</a>
+            <a class="btn btn-warning" href="<?= base_url('/') ?>">HOME</a>
           </li>
           <li class="nav-item mx-auto">
-            <a class="btn btn-light" href="<?= base_url('/ot') ?>">tentang kami</a>
+            <a class="btn btn-warning" href="<?= base_url('/ot') ?>">tentang kami</a>
           </li>
           <li class="nav-item mx-auto">
-            <a class="btn btn-light" href="<?= base_url('/ot') ?>">galery</a>
+            <a class="btn btn-warning" href="<?= base_url('/ot') ?>">galery</a>
           </li>
 
         </ul>

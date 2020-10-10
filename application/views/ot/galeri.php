@@ -23,7 +23,10 @@
 						<h1><a href="<?=base_url('/')?>"><img src="<?=base_url('assets/img/produk/head.jpg');?>" width="100px"  class="d-inline-block align-top" alt="" loading="lazy"></h1>
 						<nav>
 							<ul>
-								<li><a href="#footer" class="icon solid fa-info-circle">About</a></li>
+								<li><a href="#footer" class="icon won solid fa-info-circle">About</a></li>
+								<li><a href="#footer" class="icon won solid fa-info-circle">About</a></li>
+								<li><a href="#footer" class="icon won solid fa-info-circle">About</a></li>
+								<li><a href="#footer" class="icon won solid fa-info-circle">About</a></li>
 							</ul>
 						</nav>
 					</header>

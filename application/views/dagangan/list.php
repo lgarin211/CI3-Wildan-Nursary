@@ -35,7 +35,7 @@
         <div class="carousel-item active">
           <img src="<?= base_url('assets/') ?>img/produk/s1.jpeg" alt="" srcset="" class="bd-placeholder-img card imh-rela" width="100%" height="100%">
           <div class="container">
-            <div class="carousel-caption text-left">
+            <div class="carousel-caption text-center">
               <p>
                 <a class="btn btn-sm btn-success" href="<?= base_url('/auth') ?>" role="button">DAFTAR SEKARANG</a>
               </p>
@@ -45,7 +45,7 @@
         <div class="carousel-item">
           <img src="<?= base_url('assets/') ?>img/produk/s2.jpeg" alt="" srcset="" class="bd-placeholder-img card imh-rela" width="100%" height="100%">
           <div class="container">
-            <div class="carousel-caption">
+            <div class="carousel-caption text-center">
               <p>
                 <a class="btn btn-sm btn-success" href="<?= base_url('/ot/abaut') ?>" role="button">Tentang kami</a>
               </p>
@@ -55,7 +55,7 @@
         <div class="carousel-item">
           <img src="<?= base_url('assets/') ?>img/produk/s3.jpeg" alt="" srcset="" class="bd-placeholder-img card imh-rela" width="100%" height="100%">
           <div class="container">
-            <div class="carousel-caption text-right">
+            <div class="carousel-caption text-center">
               <p>
                 <a class="btn btn-sm btn-success" href="<?= base_url('/ot') ?>" role="button">Browse gallery</a>
               </p>

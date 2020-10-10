@@ -163,7 +163,7 @@ input, select, textarea {
 	}
 
 	body {
-		background: #242629;
+		background: #a8dba8;
 	}
 
 		body.is-preload *, body.is-preload *:before, body.is-preload *:after {
@@ -631,7 +631,7 @@ input, select, textarea {
 
 		select option {
 			color: #ffffff;
-			background: #242629;
+			background: #a8dba8;
 		}
 
 		select:focus::-ms-value {
@@ -1469,7 +1469,7 @@ input, select, textarea {
 		-moz-user-select: none;
 		-ms-user-select: none;
 		-webkit-user-select: none;
-		background: #1f2224;
+		background: #0b486b;
 		bottom: -1em;
 		height: 5em;
 		left: 0;
@@ -1547,7 +1547,7 @@ input, select, textarea {
 						}
 
 						#header nav > ul > li a.active {
-							background-color: #242629;
+							background-color: #a8dba8;
 						}
 
 	@media screen and (max-width: 736px) {
