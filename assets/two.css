@@ -1,3 +1,10 @@
+@font-face {
+    font-family: "akj";
+    src: url('css/gontserrat/Gontserrat-BlackItalic.ttf');
+ }
+*{
+	font-family: "akj";
+}
 h1,
 h6,
 h2,

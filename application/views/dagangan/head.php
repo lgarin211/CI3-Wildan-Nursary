@@ -25,9 +25,16 @@
         font-size: 3.5rem;
       }
     }
+    @font-face {
+    font-family: "akj";
+    src: url('css/gontserrat/Gontserrat-BlackItalic.ttf');
+ }
+*{
+	font-family: "akj";
+}
   </style>
 	<!-- <link rel="stylesheet" href="<?=base_url('assets/multiverse/')?>assets/css/main.css" /> -->
-  <link href="<?= base_url('assets/'); ?>css/sb-admin-2.css" rel="stylesheet">
+  <link href="<?= base_url('assets/'); ?>css/sb-admin-2.min.css" rel="stylesheet">
   <link href="<?= base_url('assets/'); ?>vendor/fontawesome-free/css/all.min.css" rel="stylesheet" type="text/css">
 </head>
 
@@ -52,7 +59,7 @@
             <a class="btn btn-warning" href="<?= base_url('/ot') ?>">tentang kami</a>
           </li>
           <li class="nav-item mx-auto">
-            <a class="btn btn-warning" href="<?= base_url('/ot') ?>">galery</a>
+            <a class="btn btn-warning" href="<?= base_url('/dagang/gales') ?>">galery</a>
           </li>
 
         </ul>

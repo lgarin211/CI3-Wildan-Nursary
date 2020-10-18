@@ -24,15 +24,12 @@
     </div>
     <div id="myCarousel" class="carousel slide col-md" data-ride="carousel">
       <ol class="carousel-indicators">
-        <li data-target="#myCarousel" data-slide-to="0" class="active">
-        </li>
-        <li data-target="#myCarousel" data-slide-to="1">
-        </li>
-        <li data-target="#myCarousel" data-slide-to="2">
-        </li>
+        <?foreach ($asesoris[2] as $key => $value): ?>
+      <li data-target="#myCarousel" data-slide-to="<?=$key?>" class="active"></li>
+      <?endforeach;?>
       </ol>
       <div class="carousel-inner">
-        <div class="carousel-item active">
+        <!-- <div class="carousel-item active">
           <img src="<?= base_url('assets/') ?>img/produk/s1.jpeg" alt="" srcset="" class="bd-placeholder-img card imh-rela" width="100%" height="100%">
           <div class="container">
             <div class="carousel-caption text-center">
@@ -41,18 +38,24 @@
               </p>
             </div>
           </div>
-        </div>
-        <div class="carousel-item">
-          <img src="<?= base_url('assets/') ?>img/produk/s2.jpeg" alt="" srcset="" class="bd-placeholder-img card imh-rela" width="100%" height="100%">
+        </div> -->
+        <?foreach ($asesoris[2] as $key => $value): ?>
+        <div class="carousel-item <?if ($key==0) {
+          echo "active";
+        }?>">
+          <img src="<?= base_url('assets/img/produk/'.$value) ?>" alt="" srcset="" class="bd-placeholder-img card imh-rela" width="100%" height="100%">
           <div class="container">
             <div class="carousel-caption text-center">
               <p>
-                <a class="btn btn-sm btn-success" href="<?= base_url('/ot/abaut') ?>" role="button">Tentang kami</a>
+                <!-- <a class="btn btn-sm btn-success" href="<?= base_url('/ot/abaut') ?>" role="button">Tentang kami</a> -->
               </p>
             </div>
           </div>
         </div>
-        <div class="carousel-item">
+      <?endforeach;?>
+
+
+        <!-- <div class="carousel-item">
           <img src="<?= base_url('assets/') ?>img/produk/s3.jpeg" alt="" srcset="" class="bd-placeholder-img card imh-rela" width="100%" height="100%">
           <div class="container">
             <div class="carousel-caption text-center">
@@ -61,7 +64,7 @@
               </p>
             </div>
           </div>
-        </div>
+        </div> -->
       </div>
       <a class="carousel-control-prev" href="#myCarousel" role="button" data-slide="prev">
         <span class="carousel-control-prev-icon" aria-hidden="true">
@@ -79,7 +82,7 @@
   </div>
 </div>
 <br>
-<div class="container">
+<div class="">
   <div class="container">
     <div class="">
       <div class="row">
@@ -139,10 +142,10 @@
 <link rel="stylesheet" href="<?= base_url('assets/one.css'); ?>">
 <link rel="stylesheet" href="<?= base_url('assets/two.css'); ?>">
 <div class="row">
-  <div class="bg-link container col-md-10">
+  <div class="bg-link col-md-10">
     <div class="row mx-auto">
       <? foreach ($one as $key => $a) : ?>
-        <div class="product-grid-item product without-stars product-no-swatches quick-shop-on quick-view-on woodmart-hover-quick  col-6 col-sm-4 col-md-3 col-lg-2 first  product-in-grid type-product post-15729 status-publish first instock product_cat-jual-bibit-tanaman product_tag-bibit-buah-tin-merah product_tag-bibit-tin-merah product_tag-buah-tin-merah product_tag-harga-bibit-buah-tin-merah product_tag-jual-bibit-buah-tin-merah product_tag-tabulampot-buah-tin-merah has-post-thumbnail sale shipping-taxable purchasable product-type-simple hover-width-small">
+        <div class="border  product-grid-item product without-stars product-no-swatches quick-shop-on quick-view-on woodmart-hover-quick  col-6 col-sm-4 col-md-3 col-lg-2 first  product-in-grid type-product post-15729 status-publish first instock product_cat-jual-bibit-tanaman product_tag-bibit-buah-tin-merah product_tag-bibit-tin-merah product_tag-buah-tin-merah product_tag-harga-bibit-buah-tin-merah product_tag-jual-bibit-buah-tin-merah product_tag-tabulampot-buah-tin-merah has-post-thumbnail sale shipping-taxable purchasable product-type-simple hover-width-small">
           <div class="product-element-top">
             <a href="#" data-toggle="modal" data-target=".id<?= $a['id'] ?>">
               <div class="product-labels labels-rounded">
@@ -206,9 +209,9 @@
                 <div class="row">
                   <div class="col-md-12 mx-auto">
                     <div class="btn-group" role="group" aria-label="Basic example">
-                      <button type="button" class="btn btn-secondary">Left</button>
-                      <button type="button" class="btn btn-secondary">Middle</button>
-                      <button type="button" data-dismiss="modal" class="btn btn-secondary">cencel</button>
+                      <button type="button" class="btn btn-primary">keranjang</button>
+                      <button type="button" class="btn btn-success">beli</button>
+                      <button type="button" data-dismiss="modal" class="btn warni">cencel</button>
                     </div>
                   </div>
                 </div>
@@ -242,5 +245,5 @@
 
 </div>
 </div>
-<link href="<?= base_url('assets/'); ?>css/sb-admin-2.css" rel="stylesheet">
+<link href="<?= base_url('assets/'); ?>css/sb-admin-2.min.css" rel="stylesheet">
 </div>

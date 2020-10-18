@@ -27,42 +27,43 @@ class Dagang extends CI_Controller
         redirect('/');
     }
 
-    
+
 
     public function cone()
     {
-        $kategori=$this->db->get('view_kategori')->result();
-        $data['kategori']=$kategori;
+        $kategori = $this->db->get('view_kategori')->result();
+        $data['kategori'] = $kategori;
         $ting['title'] = 'Dashboard';
-		$ting['user'] = $this->db->get_where('user', ['email' => $this->session->userdata('email')])->row_array();
-		$this->load->view('templates/header', $ting);
+        $ting['user'] = $this->db->get_where('user', ['email' => $this->session->userdata('email')])->row_array();
+        $this->load->view('templates/header', $ting);
         $this->load->view('templates/sidebar', $ting);
         $this->load->view('templates/topbar', $ting);
         $this->cek();
-        if (!$_POST==null) {
-            $data=$_POST;
-            $text='';
-                foreach ($kategori as $key => $value) {
-                    if ($_POST['ktr'.$value->id]==true) {
-                        $text=$text.','.$_POST['ktr'.$value->id];
-                    }else {
-                        $text=$text.',0';
-                    }
+        if (!$_POST == null) {
+            $data = $_POST;
+            $text = '';
+            foreach ($kategori as $key => $value) {
+                if ($_POST['ktr' . $value->id] == true) {
+                    $text = $text . ',' . $_POST['ktr' . $value->id];
+                } else {
+                    $text = $text . ',0';
                 }
+            }
             $paket = array(
                 'nama_produk' => $data['name'],
                 'banyak_produk' => $data['banyak'],
                 'deskripsi' => $data['deskripsi'],
                 'harga' => $data['harga'],
                 'img_link' => 'oxana_janerova.jpg',
-                'kategory'=>$text
-                );                
+                'kategory' => $text
+            );
             $this->db->insert('barang', $paket);
             redirect('dagang/cone');
         } else {
-            $this->load->view('dagangan/new_produk',$data);
-		}
-        $this->load->view('templates/footer');
+            $this->load->view('dagangan/new_produk', $data);
+        }
+        $data['asesoris'] = $this->nams();
+        $this->load->view('dagangan/footer', $data);
     }
 
 
@@ -90,7 +91,8 @@ class Dagang extends CI_Controller
             $this->load->view('dagangan/cekout2', $data);
         }
 
-        $this->load->view('templates/footer');
+        $data['asesoris'] = $this->nams();
+        $this->load->view('dagangan/footer', $data);
     }
 
     public function cek()
@@ -126,7 +128,9 @@ class Dagang extends CI_Controller
 
             $this->session->set_userdata('cekout', $data['isi']);
             $this->load->view('dagangan/cekout4', $data);
-            $this->load->view('templates/footer');
+            $data['asesoris'] = $this->nams();
+            $this->load->view('dagangan/footer', $data);
+            // var_dump($data['assesoris']);
         }
 
         if (!$_POST == null) {
@@ -153,7 +157,8 @@ class Dagang extends CI_Controller
             $data['text'] = $text;
             $data['no_admin'] = '628888360409';
             $this->load->view('dagangan/cekout5', $data);
-            $this->load->view('templates/footer');
+            $data['asesoris'] = $this->nams();
+            $this->load->view('dagangan/footer', $data);
         }
     }
     public function hapus()
@@ -178,7 +183,8 @@ class Dagang extends CI_Controller
             $data['isi'] = $ping;
             $data['link_p'] = $dist;
             $this->load->view('dagangan/kall', $data);
-            $this->load->view('templates/footer');
+            $data['asesoris'] = $this->nams();
+            $this->load->view('dagangan/footer', $data);
         }
     }
     public function setse()
@@ -213,12 +219,14 @@ class Dagang extends CI_Controller
                 }
             }
         }
-        $l['one'] = $data2;
-        $this->load->view('dagangan/bash', $l);
-        $this->load->view('templates/footer');
+        $l['gas'] = $data2;
+        $this->load->view('dagangan/gal', $l);
+        $data['asesoris'] = $this->nams();
+        $this->load->view('dagangan/footer', $data);
     }
     public function Rone()
     {
+        $data['asesoris'] = $this->nams();
         $kategori = $this->db->get('view_kategori')->result();
         $data['kategori'] = $kategori;
         if ($_SESSION['semi_id'] == null) {
@@ -261,21 +269,30 @@ class Dagang extends CI_Controller
                 }
                 $query2[$key] = $l;
             }
-        $data['one'] = $query2;
-        
-        foreach ($query as $key => $l) {
-            if ($key == 3) {
-                break;
-            }
-            $query3[$key] = $l;
-        }
-    $data['gas'] = $query3;
+            $data['one'] = $query2;
 
+            foreach ($query as $key => $l) {
+                if ($key == 3) {
+                    break;
+                }
+                $query3[$key] = $l;
+            }
+            $data['gas'] = $query3;
         }
+        // var_dump($data['asesoris'][2]);die;
         $this->load->view('dagangan/list', $data);
-        $this->load->view('dagangan/ketlist',$data);
+        $this->load->view('dagangan/ketlist', $data);
         $this->load->view('dagangan/list3', $data);
-        $this->load->view('templates/footer');
+        $this->load->view('dagangan/footer', $data);
+    }
+
+    public function gales()
+    {
+        $query = array_reverse($this->db->get('barang')->result_array());
+        $data['gas'] = $query;
+        $this->load->view('dagangan/gal', $data);
+        $data['asesoris'] = $this->nams();
+        $this->load->view('dagangan/footer', $data);
     }
 
     public function Rtwo()
@@ -287,7 +304,19 @@ class Dagang extends CI_Controller
         $data['one'] = $query;
         $data['two'] = $ping;
         $this->load->view('dagangan/suc', $data);
-        $this->load->view('templates/footer');
+        $data['asesoris'] = $this->nams();
+        $this->load->view('dagangan/footer', $data);
+    }
+
+    public function nams()
+    {
+        $data[1] = $this->db->get_where('text-assis', array('id' => 1))->result();
+        $masl = $this->db->get_where('text-assis', array('id' => 2))->result();
+        $data[2] = explode('|', $masl[0]->img);
+        $data[3] = $this->db->get_where('text-assis', array('id' => 3))->result();
+        $data[4] = $this->db->get_where('text-assis', array('id' => 4))->result();
+
+        return $data;
     }
 
     public function Uone()
@@ -318,6 +347,7 @@ class Dagang extends CI_Controller
     public function done()
     {
         $this->load->view('dagangan/suc');
-        $this->load->view('templates/footer');
+        $data['asesoris'] = $this->nams();
+        $this->load->view('dagangan/footer', $data);
     }
 }

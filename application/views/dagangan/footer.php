@@ -1,25 +1,38 @@
-
-            <!-- Footer -->
-            <footer class="sticky-footer bg-white">
-                <div class="container my-auto">
-                    <div class="copyright text-center my-auto">
-                        <span>Copyright &copy; Web Programming UNPAS <?= date('Y'); ?></span>
+<link rel="stylesheet" href="<?=base_url('assets/two.css'); ?>">            <!-- Footer -->
+<footer class="bg-hijau_c b border-top">
+<div class="row bg-black_c">
+        <div class="col-12 ml-2 col-md">
+            <div class="text-left">
+            <img class="mb-2" src="<?=base_url('assets/img/produk/head.jpg');?>" alt="" width="150px" >
+            <h5 class="d-block mb-3  mag"><?=$asesoris[1][0]->text_alig?></h5>
+          </div>
+        </div>
+          <div class="col-12 col-md">
+              <div class="text-center">
+            <ul class="list-unstyled text-small">
+            <li><h5><a href="<?=base_url('/')?>">Home</a></h5></li>
+            <li><h5><a href="<?=base_url('/ot')?>">Galery</a></h5></li>
+            <li><h5><a href="<?=base_url('/ot/abaut')?>">tentang kami</a></h5></li>
+            </ul>
+         </div>
+         </div>
+          <div class="col-12 col-md">
+        <div class="text-right pr-3">
+            <h5>contak</h5>
+            <ul class="list-unstyled text-small">
+              <li><a class=" mag" href="#"><small class="mag">alamat : </small><?=$asesoris[3][0]->text_alig?></a></li>
+              <li><a class=" mag" href="#"><small class="mag">contak : </small><?=$asesoris[4][0]->text_alig?></a></li>
+            </ul>
+          </div>
+        </div>
+        <div class="col-md-12 mx-auto">
+                    <div class="copyright pt-3 bg-hijau_c text-center my-auto">
+                        <span>Copyright &copy; Wildan Nursery <?= date('Y'); ?></span>
+                        <br>
                     </div>
-                </div>
-            </footer>
-            <!-- End of Footer -->
-
-            </div>
-            <!-- End of Content Wrapper -->
-
-            </div>
-            <!-- End of Page Wrapper -->
-
-            <!-- Scroll to Top Button-->
-            <a class="scroll-to-top rounded" href="#page-top">
-                <i class="fas fa-angle-up"></i>
-            </a>
-
+        </div>
+        </div>
+      </footer>
             <!-- Logout Modal-->
             <div class="modal fade" id="logoutModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
                 <div class="modal-dialog" role="document">
