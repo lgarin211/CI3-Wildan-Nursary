@@ -1,6 +1,6 @@
 @font-face {
     font-family: "akj";
-    src: url('css/gontserrat/Gontserrat-BlackItalic.ttf');
+    src: url('css/comic-sans-ms/COMIC.TTF');
  }
 *{
 	font-family: "akj";
@@ -12,6 +12,9 @@ h4,
 h3,
 h5 {
     color: #0b486b;
+}
+.mass{
+ font-size: 20px;   
 }
 
 .mag {
@@ -27,11 +30,14 @@ h6 {
     color: black;
 }
 .pilk{
-    color: #a8dba8;
+    color: #222527;
 }
+/* .pilk2{
+    color: #3CFB08;
+} */
 
 .bg-black_c {
-    background-color: #a8dba8 !important;
+    background-color: #3CFB08 !important;
 }
 .bg-black_ch {
     background-color: #0b486b !important;

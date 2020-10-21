@@ -4,8 +4,8 @@
         <?foreach ($gas as $key => $f):?>
         
         <div class="col-md-4">
-            <div class="card mb-4 bg-black_c shadow-sm">
-                <div class="card-header bg-black_ch">
+            <div class="card mb-4 bg-light shadow-sm">
+                <div class="card-header bg-light">
                     <h4 class="my-0 text-center pilk font-weight-normal"><?= $f['nama_produk'] ?></h4>
                 </div>
                 <div class="card-body">

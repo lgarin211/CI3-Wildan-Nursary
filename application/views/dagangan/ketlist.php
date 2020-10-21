@@ -1,5 +1,5 @@
 <div class="container">
-    <div class="bg-black_c  mb-1 card">
+    <div class="bg-link mb-1 card">
         <h1 class="text-center">Tanaman</h1>
         <div class="mx-auto">
             <div class="row">

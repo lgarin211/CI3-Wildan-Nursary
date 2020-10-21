@@ -1,6 +1,6 @@
 <link rel="stylesheet" href="<?=base_url('assets/two.css'); ?>">            <!-- Footer -->
-<footer class="bg-hijau_c b border-top">
-<div class="row bg-black_c">
+<footer class="bg-light b border-top">
+<div class="row bg-link">
         <div class="col-12 ml-2 col-md">
             <div class="text-left">
             <img class="mb-2" src="<?=base_url('assets/img/produk/head.jpg');?>" alt="" width="150px" >
@@ -26,8 +26,8 @@
           </div>
         </div>
         <div class="col-md-12 mx-auto">
-                    <div class="copyright pt-3 bg-hijau_c text-center my-auto">
-                        <span>Copyright &copy; Wildan Nursery <?= date('Y'); ?></span>
+                    <div class="copyright pt-3 bg-light text-center my-auto">
+                        <span>Copyright &copy; Wildan linkery <?= date('Y'); ?></span>
                         <br>
                     </div>
         </div>
