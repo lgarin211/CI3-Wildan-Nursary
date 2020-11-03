@@ -1,3 +1,4 @@
+</div>
 <div class="ml-4 mr-4" id="page-top">
   <div class="row">
     <div class="card bg-link  container col-md-2">
@@ -7,10 +8,8 @@
           <button class="navbar-toggler mx-auto" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
             <span class="navbar-toggler-icon"></span>
           </button>
-
           <div class="collapse navbar-collapse" id="navbarSupportedContent">
             <ul class="mx-auto text-center ">
-
               <? foreach ($kategori[1] as $key => $ln) : ?>
               <li class="nav-item pb-1 btn-light"><a class="btn" href="<?= base_url('/dagang/rtree?val=' . $ln->id) ?>"><?= $ln->value ?></a></li>
               <? endforeach; ?>
@@ -24,18 +23,9 @@
                   <? endforeach; ?>
                 </div>
               </li>
-
-
-
-
-
-
-
             </ul>
           </div>
         </nav>
-
-
       </div>
     </div>
     <div id="myCarousel" class="carousel slide col-md" data-ride="carousel">
@@ -45,51 +35,24 @@
         <?endforeach;?>
       </ol>
       <div class="carousel-inner">
-        <!-- <div class="carousel-item active">
-          <img src="<?= base_url('assets/') ?>img/produk/s1.jpeg" alt="" srcset="" class="bd-placeholder-img card imh-rela" width="100%" height="100%">
-          <div class="container">
-            <div class="carousel-caption text-center">
-              <p>
-                <a class="btn btn-sm btn-success" href="<?= base_url('/auth') ?>" role="button">DAFTAR SEKARANG</a>
-              </p>
-            </div>
-          </div>
-        </div> -->
         <?foreach ($asesoris[2] as $key => $value): ?>
         <div class="carousel-item <?if ($key==0) {
           echo " active"; }?>">
           <img src="<?= base_url('assets/img/produk/' . $value) ?>" alt="" srcset="" class="bd-placeholder-img card imh-rela" width="100%" height="100%">
           <div class="container">
             <div class="carousel-caption text-center">
-              <p>
-                <!-- <a class="btn btn-sm btn-success" href="<?= base_url('/ot/abaut') ?>" role="button">Tentang kami</a> -->
-              </p>
             </div>
           </div>
         </div>
         <?endforeach;?>
-
-
-        <!-- <div class="carousel-item">
-          <img src="<?= base_url('assets/') ?>img/produk/s3.jpeg" alt="" srcset="" class="bd-placeholder-img card imh-rela" width="100%" height="100%">
-          <div class="container">
-            <div class="carousel-caption text-center">
-              <p>
-                <a class="btn btn-sm btn-success" href="<?= base_url('/ot') ?>" role="button">Browse gallery</a>
-              </p>
-            </div>
-          </div>
-        </div> -->
       </div>
       <a class="carousel-control-prev" href="#myCarousel" role="button" data-slide="prev">
         <span class="carousel-control-prev-icon" aria-hidden="true">
-
         </span>
         <span class="sr-only">Previous</span>
       </a>
       <a class="carousel-control-next" href="#myCarousel" role="button" data-slide="next">
         <span class="carousel-control-next-icon" aria-hidden="true">
-
         </span>
         <span class="sr-only">Next</span>
       </a>
@@ -98,17 +61,12 @@
 </div>
 <br>
 <div class="">
-
 </div>
 <br>
 <!-- list -->
-<style>
-  .pilk2 {
-    color: #<?= $active; ?>;
-  }
-</style>
 <link rel="stylesheet" href="<?= base_url('assets/one.css'); ?>">
 <link rel="stylesheet" href="<?= base_url('assets/two.css'); ?>">
+<link rel="stylesheet" href="<?= base_url('assets/tree.css'); ?>">
 <div class="row">
   <div class="bg-link col-md-10">
     <div class="row mx-auto">
@@ -117,7 +75,6 @@
         <div class="product-element-top">
           <a href="#" data-toggle="modal" data-target=".id<?= $a['id'] ?>">
             <div class="product-labels labels-rounded">
-              <!-- <span class="onsale product-label">-24%</span> -->
             </div>
             <img width="100%" src="<?= base_url('assets/img/dam/' . $a['img_link']) ?>" height="100%" class="attachment-woocommerce_thumbnail size-woocommerce_thumbnail" sizes="(max-width: 150px) 100vw, 150px">
           </a>
@@ -140,7 +97,6 @@
           </div>
         </div>
         <h3 class="text-center"><?= $a['nama_produk'] ?></h3>
-
         <h6>
           <ins>
             <bdi>
@@ -150,7 +106,6 @@
           </ins>
         </h6>
       </div>
-
       <div class="modal fade bd-example-modal-lg id<?= $a['id'] ?>" tabindex="-1" role="dialog" aria-labelledby="myLargeModalLabel" aria-hidden="true">
         <div class="modal-dialog modal-lg" role="document">
           <div class="modal-content">
@@ -204,8 +159,8 @@
       </div>
     </div>
   </div>
-
 </div>
 </div>
 <link href="<?= base_url('assets/'); ?>css/sb-admin-2.min.css" rel="stylesheet">
+<?= $active; ?>
 </div>

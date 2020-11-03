@@ -24,11 +24,8 @@ class Dagang extends CI_Controller
     }
     public function index()
     {
-        redirect('/');
+        $this->Rone('noknok');
     }
-
-
-
     public function cone()
     {
         $kategori = $this->db->get('view_kategori')->result();
@@ -224,27 +221,28 @@ class Dagang extends CI_Controller
         $data['asesoris'] = $this->nams();
         $this->load->view('dagangan/footer', $data);
     }
-    public function Rone()
+    public function Rone($parameter1)
     {
-        $data['active']='3CFB08';
+        $parameter2 = "the key is the parameter";
+        $data['active'] = '<style>.ding1{color:red;}</style>';
         $data['asesoris'] = $this->nams();
         $kategori = $this->db->get('view_kategori')->result();
-       
-        $dal=count($kategori);
-    $i=0;    
-    $ii=0;
-foreach ($kategori as $key => $value) {
-    
-    if ($i<6) {
-        # code...
-    $unkate[1][$i]=$value;
-}else{
-   
-     $unkate[2][$ii]=$value;
-     $ii++;
-}
-$i++;
+        $arti = $this->db->get('view_artikel')->result();
+        $data['artikel'] = $arti;
 
+        $i = 0;
+        $ii = 0;
+        foreach ($kategori as $key => $value) {
+
+            if ($i < 6) {
+                # code...
+                $unkate[1][$i] = $value;
+            } else {
+
+                $unkate[2][$ii] = $value;
+                $ii++;
+            }
+            $i++;
         }
         $data['kategori'] = $unkate;
         if ($_SESSION['semi_id'] == null) {
@@ -297,15 +295,38 @@ $i++;
             }
             $data['gas'] = $query3;
         }
+        $bongkar = $data['artikel'];
+        foreach ($bongkar as $key => $value) {
+            $paket_judul[$key] = $value->judul;
+            $paket_head[$key] = $value->head;
+            $paket_I_H[$key] = $value->isi_head;
+            $ID[$key] = $value->id;
+        }
+        $paket['judul'] = $paket_judul;
+        $paket['head'] = $paket_head;
+        $paket['isi'] = $paket_I_H;
+        $paket['ids'] = $ID;
+        $data['paket'] = $paket;
 
 
-        // var_dump($data['asesoris'][2]);die;
-        $this->load->view('dagangan/list', $data);
-        // $this->load->view('dagangan/ketlist', $data);
-        $this->load->view('dagangan/list3', $data);
+        if ($parameter1 == $parameter2) {
+            return $data;
+        } else {
+            // var_dump($data['asesoris'][2]);die;
+            $this->load->view('dagangan/list', $data);
+            $this->load->view('dagangan/list3', $data);
+            $this->load->view('dagangan/artikel', $data);
+            $this->load->view('dagangan/footer', $data);
+        }
+    }
+    public function artikel()
+    {
+        $data = $this->Rone("the key is the parameter");
+        $data['tulis'] = $this->db->get_where('view_artikel', array('id' => $_GET['id']))->result();
+        // $this->load->view('dagangan/artikel_base', $data);
+        $this->load->view('dagangan/list_artikel', $data);
         $this->load->view('dagangan/footer', $data);
     }
-
     public function gales()
     {
         $query = array_reverse($this->db->get('barang')->result_array());
@@ -338,7 +359,7 @@ $i++;
         $data[5][1] = explode('|', $masl2[0]->link);
         $data[3] = $this->db->get_where('text-assis', array('id' => 3))->result();
         $data[4] = $this->db->get_where('text-assis', array('id' => 4))->result();
-        
+
 
         return $data;
     }
