@@ -62,11 +62,7 @@ class Dagang extends CI_Controller
         $data['asesoris'] = $this->nams();
         $this->load->view('dagangan/footer', $data);
     }
-
-
-
     public function kirim()
-
     {
 
         # code...
@@ -91,7 +87,6 @@ class Dagang extends CI_Controller
         $data['asesoris'] = $this->nams();
         $this->load->view('dagangan/footer', $data);
     }
-
     public function cek()
     {
         $query = $this->db->get('barang')->result();
@@ -104,7 +99,6 @@ class Dagang extends CI_Controller
             }
         }
     }
-
     public function manycek()
     {
         $heko = '';
@@ -165,7 +159,6 @@ class Dagang extends CI_Controller
         $this->db->delete('chart');
         redirect('/dagang/keranjang');
     }
-
     public function keranjang()
     {
         $isi = $this->db->get_where('chart', array('id_user' => $_SESSION['semi_id']))->result();
@@ -221,14 +214,17 @@ class Dagang extends CI_Controller
         $data['asesoris'] = $this->nams();
         $this->load->view('dagangan/footer', $data);
     }
-    public function Rone($parameter1)
+    public function Rone($parameter1 = 1)
     {
+        if ($_SESSION['semi_id'] == null) {
+            redirect('dagang/setse');
+        }
         $parameter2 = "the key is the parameter";
         $data['active'] = '<style>.ding1{color:red;}</style>';
         $data['asesoris'] = $this->nams();
         $kategori = $this->db->get('view_kategori')->result();
         $arti = $this->db->get('view_artikel')->result();
-        $data['artikel'] = $arti;
+        $data['artikel'] = array_reverse($arti);
 
         $i = 0;
         $ii = 0;
@@ -245,9 +241,7 @@ class Dagang extends CI_Controller
             $i++;
         }
         $data['kategori'] = $unkate;
-        if ($_SESSION['semi_id'] == null) {
-            redirect('dagang/setse');
-        }
+
         $data['sas'] = $_SESSION['semi_id'];
         if (!$_POST == null) {
             $ceksemi = $this->db->get_where('asess', array('id_user_main' => $_POST['sesi']))->num_rows();
@@ -319,13 +313,18 @@ class Dagang extends CI_Controller
             $this->load->view('dagangan/footer', $data);
         }
     }
-    public function artikel()
+    public function artikel($par1 = "not")
     {
         $data = $this->Rone("the key is the parameter");
-        $data['tulis'] = $this->db->get_where('view_artikel', array('id' => $_GET['id']))->result();
-        // $this->load->view('dagangan/artikel_base', $data);
-        $this->load->view('dagangan/list_artikel', $data);
-        $this->load->view('dagangan/footer', $data);
+        $data['tulis'] = array_reverse($this->db->get_where('view_artikel', array('id' => $_GET['id']))->result());
+
+        $this->load->view('dagangan/artikel_base', $data);
+        $par2 = "this the key";
+        if ($par2 == $par1) {
+            $this->load->view('dagangan/list_artikel', $data);
+        } else {
+            $this->load->view('dagangan/footer', $data);
+        }
     }
     public function gales()
     {
@@ -335,7 +334,6 @@ class Dagang extends CI_Controller
         $data['asesoris'] = $this->nams();
         $this->load->view('dagangan/footer', $data);
     }
-
     public function Rtwo()
     {
         $id = $_GET['id'];
@@ -348,7 +346,6 @@ class Dagang extends CI_Controller
         $data['asesoris'] = $this->nams();
         $this->load->view('dagangan/footer', $data);
     }
-
     public function nams()
     {
         $data[1] = $this->db->get_where('text-assis', array('id' => 1))->result();
@@ -363,7 +360,6 @@ class Dagang extends CI_Controller
 
         return $data;
     }
-
     public function Uone()
     {
         $id = $_POST['id'];
@@ -387,8 +383,6 @@ class Dagang extends CI_Controller
             redirect('dagang/cone');
         }
     }
-
-
     public function done()
     {
         $this->load->view('dagangan/suc');
