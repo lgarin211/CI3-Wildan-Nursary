@@ -3,7 +3,7 @@ defined('BASEPATH') or exit('No direct script access allowed');
 
 class Dagang extends CI_Controller
 {
-    public function __construct($pas = 1)
+    public function __construct()
     {
         parent::__construct();
         $san = '';
@@ -20,14 +20,18 @@ class Dagang extends CI_Controller
         }
         $data['keranjang'] = $banyak;
         $data['san'] = $san;
-        if ($pas == 1) {
-
-            $this->load->view('dagangan/head', $data);
-        }
+        $this->load->view('v2/head', $data);
     }
-    public function fas()
+    public function v2()
     {
-        $data = $this->__construct(2);
+        $data = $this->Rone('the key is the parameter');
+        // var_dump($data['cos']);die;
+       
+        foreach ($data['cos'] as $key => $value) {
+            $data['cos1'][$key]=count($value);
+        }
+// var_dump($data);die;
+        $this->load->view('v2/semibody', $data);
     }
     public function index()
     {
@@ -199,10 +203,9 @@ class Dagang extends CI_Controller
             redirect('/');
         }
     }
-    public function rtree()
+    public function rtreev2($fall = 'cas')
     {
-
-        $get = $_GET['val'];
+        $pal = $fall;
         $data = $this->db->get('barang')->result_array();
         $data2 = [];
         foreach ($data as $key1 => $k) {
@@ -210,16 +213,44 @@ class Dagang extends CI_Controller
             $b = explode(',', $a);
             foreach ($b as $key2 => $lang) {
                 $no1 = $lang;
-                $no2 = $get;
+                $no2 = $pal;
                 if ($no1 == $no2) {
                     $data2[$key1] = $k;
                 }
             }
         }
         $l['gas'] = $data2;
-        $this->load->view('dagangan/gal', $l);
         $data['asesoris'] = $this->nams();
-        $this->load->view('dagangan/footer', $data);
+        if ($fall == 'cas') {
+            $this->load->view('dagangan/gal', $l);
+            $this->load->view('dagangan/footer', $data);
+        } else {
+            return $data2;
+        }
+    }    public function rtree($fall = 'cas')
+    {
+        $pal = $_GET['val'];
+        $data = $this->db->get('barang')->result_array();
+        $data2 = [];
+        foreach ($data as $key1 => $k) {
+            $a = $k['kategory'];
+            $b = explode(',', $a);
+            foreach ($b as $key2 => $lang) {
+                $no1 = $lang;
+                $no2 = $pal;
+                if ($no1 == $no2) {
+                    $data2[$key1] = $k;
+                }
+            }
+        }
+        $l['gas'] = $data2;
+        $data['asesoris'] = $this->nams();
+        if ($fall == 'cas') {
+            $this->load->view('dagangan/gal', $l);
+            $this->load->view('dagangan/footer', $data);
+        } else {
+            return $data;
+        }
     }
     public function Rone($parameter1 = 1)
     {
@@ -229,7 +260,8 @@ class Dagang extends CI_Controller
         $parameter2 = "the key is the parameter";
         $data['active'] = '<style>.ding1{color:red;}</style>';
         $data['asesoris'] = $this->nams();
-        $kategori = $this->db->get('view_kategori')->result();
+        $kategori = array_reverse($this->db->get('view_kategori')->result());
+        $data['pasing']=$kategori;
         $arti = $this->db->get('view_artikel')->result();
         $data['artikel'] = array_reverse($arti);
 
@@ -237,7 +269,7 @@ class Dagang extends CI_Controller
         $ii = 0;
         foreach ($kategori as $key => $value) {
 
-            if ($i < 6) {
+            if ($i < 5) {
                 # code...
                 $unkate[1][$i] = $value;
             } else {
@@ -248,7 +280,14 @@ class Dagang extends CI_Controller
             $i++;
         }
         $data['kategori'] = $unkate;
-
+        foreach ($data['pasing'] as $key => $kate) {
+            foreach ($kate as $key2 => $value) {
+                $plank['past'][$key][$key2] = $this->rtreev2($value);
+            }
+        }
+        foreach ($plank['past'] as $key => $value) {
+            $data['cos'][$key]=$value['id'];
+        }
         $data['sas'] = $_SESSION['semi_id'];
         if (!$_POST == null) {
             $ceksemi = $this->db->get_where('asess', array('id_user_main' => $_POST['sesi']))->num_rows();

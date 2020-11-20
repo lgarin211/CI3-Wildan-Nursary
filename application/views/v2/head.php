@@ -1,4 +1,24 @@
-<nav class="navbar navbar-default" role="navigation">
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="">
+    <meta name="author" content="">
+    <title>Bootstrap E-Commerce Template- DIGI Shop mini</title>
+    <!-- Bootstrap core CSS -->
+    <link href="<?=base_url('/assets/bs-digishop-mini/')?>assets/css/bootstrap.css" rel="stylesheet">
+    <!-- Fontawesome core CSS -->
+    <link href="<?=base_url('/assets/bs-digishop-mini/')?>assets/css/font-awesome.min.css" rel="stylesheet" />
+    <!--GOOGLE FONT -->
+    <link href='http://fonts.googleapis.com/css?family=Open+Sans' rel='stylesheet' type='text/css'>
+    <!--Slide Show Css -->
+    <link href="<?=base_url('/assets/bs-digishop-mini/')?>assets/ItemSlider/css/main-style.css" rel="stylesheet" />
+    <!-- custom CSS here -->
+    <link href="<?=base_url('/assets/bs-digishop-mini/')?>assets/css/style.css" rel="stylesheet" />
+</head>
+<body>
+    <nav class="navbar navbar-default" role="navigation">
         <div class="container-fluid">
             <!-- Brand and toggle get grouped for better mobile display -->
             <div class="navbar-header">
@@ -28,7 +48,7 @@
                             <li class="divider"></li>
                             <li><a href="#"><strong>Address: </strong>
                                 <div>
-                                    234, New york Street,<br>
+                                    234, New york Street,<br />
                                     Just Location, USA
                                 </div>
                             </a></li>
