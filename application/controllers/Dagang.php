@@ -3,7 +3,7 @@ defined('BASEPATH') or exit('No direct script access allowed');
 
 class Dagang extends CI_Controller
 {
-    public function __construct()
+    public function __construct($pas = 1)
     {
         parent::__construct();
         $san = '';
@@ -20,7 +20,14 @@ class Dagang extends CI_Controller
         }
         $data['keranjang'] = $banyak;
         $data['san'] = $san;
-        $this->load->view('dagangan/head', $data);
+        if ($pas == 1) {
+
+            $this->load->view('dagangan/head', $data);
+        }
+    }
+    public function fas()
+    {
+        $data = $this->__construct(2);
     }
     public function index()
     {

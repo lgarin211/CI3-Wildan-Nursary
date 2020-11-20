@@ -5,7 +5,7 @@ if (!defined('BASEPATH'))
 
 class Chart extends CI_Controller
 {
-    function __construct()
+    function __construct($pas=1)
     {
         parent::__construct();
         $this->load->model('Chart_model');
@@ -17,7 +17,16 @@ class Chart extends CI_Controller
         $banyak=$banyak+$i->quantity;
         }
         $data['keranjang']=$banyak;
-        $this->load->view('dagangan/head',$data);
+        if ($pas==1) {
+            $this->load->view('dagangan/head',$data);
+        }else {
+            return $data;
+        }
+
+    }
+    public function fas()
+    {
+        $data=$this->__construct(2);
     }
 
     public function index()
