@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -7,18 +8,22 @@
     <meta name="author" content="">
     <title>Bootstrap E-Commerce Template- DIGI Shop mini</title>
     <!-- Bootstrap core CSS -->
-    <link href="<?=base_url('/assets/bs-digishop-mini/')?>assets/css/bootstrap.css" rel="stylesheet">
+    <link href="<?= base_url('/assets/bs-digishop-mini/') ?>assets/css/bootstrap.css" rel="stylesheet">
+    <link href="<?= base_url('/assets/bs-digishop-mini/') ?>assets/css/new.css" rel="stylesheet">
     <!-- Fontawesome core CSS -->
-    <link href="<?=base_url('/assets/bs-digishop-mini/')?>assets/css/font-awesome.min.css" rel="stylesheet" />
+    <link href="<?= base_url('/assets/bs-digishop-mini/') ?>assets/css/font-awesome.min.css" rel="stylesheet" />
     <!--GOOGLE FONT -->
     <link href='http://fonts.googleapis.com/css?family=Open+Sans' rel='stylesheet' type='text/css'>
     <!--Slide Show Css -->
-    <link href="<?=base_url('/assets/bs-digishop-mini/')?>assets/ItemSlider/css/main-style.css" rel="stylesheet" />
+    <link href="<?= base_url('/assets/bs-digishop-mini/') ?>assets/ItemSlider/css/main-style.css" rel="stylesheet" />
     <!-- custom CSS here -->
-    <link href="<?=base_url('/assets/bs-digishop-mini/')?>assets/css/style.css" rel="stylesheet" />
+    <link href="<?= base_url('/assets/bs-digishop-mini/') ?>assets/css/style.css" rel="stylesheet" />
+    <!-- <link href="<?= base_url('assets/'); ?>css/sb-admin-2.min.css" rel="stylesheet"> -->
+    <link href="<?= base_url('assets/'); ?>vendor/fontawesome-free/css/all.min.css" rel="stylesheet" type="text/css">
 </head>
+
 <body>
-    <nav class="navbar navbar-default" role="navigation">
+    <nav class="navbar site-header sticky-top navbar-default" role="navigation">
         <div class="container-fluid">
             <!-- Brand and toggle get grouped for better mobile display -->
             <div class="navbar-header">
@@ -47,11 +52,11 @@
                             <li><a href="#"><strong>Mail: </strong>info@yourdomain.com</a></li>
                             <li class="divider"></li>
                             <li><a href="#"><strong>Address: </strong>
-                                <div>
-                                    234, New york Street,<br />
-                                    Just Location, USA
-                                </div>
-                            </a></li>
+                                    <div>
+                                        234, New york Street,<br />
+                                        Just Location, USA
+                                    </div>
+                                </a></li>
                         </ul>
                     </li>
                 </ul>
@@ -59,7 +64,7 @@
                     <div class="form-group">
                         <input type="text" placeholder="Enter Keyword Here ..." class="form-control">
                     </div>
-                    &nbsp; 
+                    &nbsp;
                     <button type="submit" class="btn btn-primary">Search</button>
                 </form>
             </div>

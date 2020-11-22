@@ -20,18 +20,103 @@ class Dagang extends CI_Controller
         }
         $data['keranjang'] = $banyak;
         $data['san'] = $san;
+
         $this->load->view('v2/head', $data);
+    }
+    public function artikelv2($case)
+    {
+        $options  = array(
+            'http' =>
+            array(
+                'ignore_errors' => true,
+                'header' =>
+                array(
+                    0 => 'authorization: Bearer TIp29KsRs6XLS1%kYk96Qn$X5%MUI4jKPQlEA2r5U*Zkz8ifn&C@@%Bm#sI)hqkj',
+                ),
+            ),
+        );
+        if ($case == 'a1') {
+            $context  = stream_context_create($options);
+            $response = file_get_contents(
+                'https://public-api.wordpress.com/rest/v1.1/sites/agustinus211.wordpress.com/posts/?number=2',
+                false,
+                $context
+            );
+            $response = json_decode($response);
+            $data['total'] = $response->found;
+            $data['artikel'] = $response->posts;
+        }
+        return $data;
+    }
+    public function jsondata()
+    {
+        $apidata = [];
+        $a = file_get_contents(base_url('/assets/data.json'));
+        $item = json_decode($a);
+        $data['keyId']='46726200';
+        foreach ($item->items as $key => $value) {
+            // echo $value->itemid;die;
+            $apidata[$key]['detail']= $this->GetAPIOn($value->itemid, $data['keyId']);
+            $apidata[$key]['toko_detail']= $this->GetAPIOn($value->itemid, $data['keyId']);
+            $apidata[$key]['image'] = $value->image;
+            $apidata[$key]['image2'] = $value->images;
+            $apidata[$key]['image'] = $value->image;
+            $apidata[$key]['terjual'] = $value->cmt_count;
+            $apidata[$key]['dilihat'] = $value->view_count;
+            $apidata[$key]['harga'] = $value->price;
+            $apidata[$key]['stok'] = $value->stock;
+            
+            if ($key>10) {
+            break;
+            }
+        }
+
+         $data['apidata'] = $apidata;
+         return $data;
+    }
+    public function GetAPIOn2($id, $toko='46726200')
+    {
+        
+    }
+    public function GetAPIOn($id, $toko='46726200')
+    {
+        $curl = curl_init();
+        $url = 'https://shopee.co.id/api/v2/item/get?itemid='.$id.'&shopid='.$toko;
+        curl_setopt_array($curl, array(
+            CURLOPT_URL => $url,
+            CURLOPT_RETURNTRANSFER => true,
+            CURLOPT_ENCODING => "",
+            CURLOPT_MAXREDIRS => 10,
+            CURLOPT_TIMEOUT => 20,
+            CURLOPT_HTTP_VERSION => CURL_HTTP_VERSION_1_1,
+            CURLOPT_CUSTOMREQUEST => "GET",
+            CURLOPT_HTTPHEADER => array(
+                "cache-control: no-cache",
+                "postman-token: 81718e9c-ff7a-80b9-e63b-9dffb78800a5"
+            ),
+        ));
+
+        $response = curl_exec($curl);
+        $err = curl_error($curl);
+
+        curl_close($curl);
+
+        if ($err) {
+            echo "cURL Error #:" . $err;die;
+        } else {
+            return json_decode($response);
+        }
     }
     public function v2()
     {
         $data = $this->Rone('the key is the parameter');
-        // var_dump($data['cos']);die;
-       
+        $data['apidata'] = $this->jsondata();
         foreach ($data['cos'] as $key => $value) {
-            $data['cos1'][$key]=count($value);
+            $data['cos1'][$key] = count($value);
         }
-// var_dump($data);die;
+        $data['artikelv2'] = $this->artikelv2("a1");
         $this->load->view('v2/semibody', $data);
+    
     }
     public function index()
     {
@@ -227,7 +312,8 @@ class Dagang extends CI_Controller
         } else {
             return $data2;
         }
-    }    public function rtree($fall = 'cas')
+    }
+    public function rtree($fall = 'cas')
     {
         $pal = $_GET['val'];
         $data = $this->db->get('barang')->result_array();
@@ -261,7 +347,7 @@ class Dagang extends CI_Controller
         $data['active'] = '<style>.ding1{color:red;}</style>';
         $data['asesoris'] = $this->nams();
         $kategori = array_reverse($this->db->get('view_kategori')->result());
-        $data['pasing']=$kategori;
+        $data['pasing'] = $kategori;
         $arti = $this->db->get('view_artikel')->result();
         $data['artikel'] = array_reverse($arti);
 
@@ -286,7 +372,7 @@ class Dagang extends CI_Controller
             }
         }
         foreach ($plank['past'] as $key => $value) {
-            $data['cos'][$key]=$value['id'];
+            $data['cos'][$key] = $value['id'];
         }
         $data['sas'] = $_SESSION['semi_id'];
         if (!$_POST == null) {

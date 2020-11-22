@@ -31,7 +31,7 @@
   <link href="<?= base_url('assets/'); ?>vendor/fontawesome-free/css/all.min.css" rel="stylesheet" type="text/css">
 </head>
 
-<body class="bg-link is-preload">
+<body class="bg-link ">
 
   <div class="bg-light site-header sticky-top">
     <div class=" bg-link d-flex flex-column flex-md-row align-items-center p-3 px-md-4 mb-3 border-bottom shadow-sm">
