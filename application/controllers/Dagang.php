@@ -23,6 +23,25 @@ class Dagang extends CI_Controller
 
         $this->load->view('v2/head', $data);
     }
+    private function Vup($mil, $update = [])
+    {
+        if ($mil == 1) {
+            # code...
+        } else {
+            $this->load->view('v2/admin');
+        }
+    }
+    public function Vpdate()
+    {
+        if (!$_POST == null) {
+            $this->db->set('Json_data', $_POST['json']);
+            $this->db->where('ID_Shope', '331253719');
+            $this->db->update('chart');
+            return redirect('admin');
+        } else {
+            $this->Vup(2);
+        }
+    }
     public function artikelv2($case)
     {
         $options  = array(
@@ -51,13 +70,13 @@ class Dagang extends CI_Controller
     public function jsondata()
     {
         $apidata = [];
-        $a = file_get_contents(base_url('/assets/data.json'));
-        $item = json_decode($a);
-        $data['keyId']='46726200';
+        $da = array_reverse($this->db->get('V2')->result());
+        $json = $da[0]->Json_data;
+        $item = json_decode($json);
+        $data['keyId'] = $da[0]->ID_Shope;
+        $data['keyurl'] = $da[0]->Link_Shopie;
         foreach ($item->items as $key => $value) {
-            // echo $value->itemid;die;
-            $apidata[$key]['detail']= $this->GetAPIOn($value->itemid, $data['keyId']);
-            $apidata[$key]['toko_detail']= $this->GetAPIOn($value->itemid, $data['keyId']);
+            $apidata[$key]['detail'] = $this->GetAPIOn($value->itemid, $data['keyId']);
             $apidata[$key]['image'] = $value->image;
             $apidata[$key]['image2'] = $value->images;
             $apidata[$key]['image'] = $value->image;
@@ -65,23 +84,78 @@ class Dagang extends CI_Controller
             $apidata[$key]['dilihat'] = $value->view_count;
             $apidata[$key]['harga'] = $value->price;
             $apidata[$key]['stok'] = $value->stock;
-            
-            if ($key>10) {
-            break;
-            }
         }
-
-         $data['apidata'] = $apidata;
-         return $data;
+        $data['apidata'] = $apidata;
+        $data['itm_total'] = count($item->items);
+        $data['toko_detail'] = $this->GetAPIOn2($data['keyId']);
+        return $data;
     }
-    public function GetAPIOn2($id, $toko='46726200')
+    public function GetAPIOn2($id = null, $acesBase_link = 'wildan_nursery')
     {
-        
+        $data = [];
+        // start get detail
+        $curl = curl_init();
+
+        curl_setopt_array($curl, array(
+            CURLOPT_URL => "https://shopee.co.id/api/v4/shop/get_shop_detail?username=" . $acesBase_link,
+            CURLOPT_RETURNTRANSFER => true,
+            CURLOPT_ENCODING => "",
+            CURLOPT_MAXREDIRS => 10,
+            CURLOPT_TIMEOUT => 30,
+            CURLOPT_HTTP_VERSION => CURL_HTTP_VERSION_1_1,
+            CURLOPT_CUSTOMREQUEST => "GET",
+            CURLOPT_HTTPHEADER => array(
+                "access-control-allow-credentials: true",
+                "cache-control: no-cache",
+                "postman-token: 39a44fc6-5f46-4808-fb85-6f76d45a9e56"
+            ),
+        ));
+
+        $response = curl_exec($curl);
+        $err = curl_error($curl);
+
+        curl_close($curl);
+
+        if ($err) {
+            echo "cURL Error #:" . $err;
+        } else {
+            $data['identi'] = json_decode($response);
+        }
+        // end get detail
+
+        $curl = curl_init();
+
+        curl_setopt_array($curl, array(
+            CURLOPT_URL => "https://shopee.co.id/api/v2/shop/get_categories?limit=20&offset=0&shopid=" . $id,
+            CURLOPT_RETURNTRANSFER => true,
+            CURLOPT_ENCODING => "",
+            CURLOPT_MAXREDIRS => 10,
+            CURLOPT_TIMEOUT => 30,
+            CURLOPT_HTTP_VERSION => CURL_HTTP_VERSION_1_1,
+            CURLOPT_CUSTOMREQUEST => "GET",
+            CURLOPT_HTTPHEADER => array(
+                "access-control-allow-credentials: true",
+                "cache-control: no-cache",
+                "postman-token: d1c02e25-cf82-60d5-b0fe-37f0d5b51d1c"
+            ),
+        ));
+
+        $response = curl_exec($curl);
+        $err = curl_error($curl);
+
+        curl_close($curl);
+        if ($err) {
+            echo "cURL Error #:" . $err;
+        } else {
+            $data['Kategori'] = json_decode($response);
+        }
+        // var_dump($data); die;
+        return $data;
     }
-    public function GetAPIOn($id, $toko='46726200')
+    public function GetAPIOn($id, $toko = '331253719')
     {
         $curl = curl_init();
-        $url = 'https://shopee.co.id/api/v2/item/get?itemid='.$id.'&shopid='.$toko;
+        $url = 'https://shopee.co.id/api/v2/item/get?itemid=' . $id . '&shopid=' . $toko;
         curl_setopt_array($curl, array(
             CURLOPT_URL => $url,
             CURLOPT_RETURNTRANSFER => true,
@@ -102,7 +176,8 @@ class Dagang extends CI_Controller
         curl_close($curl);
 
         if ($err) {
-            echo "cURL Error #:" . $err;die;
+            echo "cURL Error #:" . $err;
+            die;
         } else {
             return json_decode($response);
         }
@@ -115,8 +190,8 @@ class Dagang extends CI_Controller
             $data['cos1'][$key] = count($value);
         }
         $data['artikelv2'] = $this->artikelv2("a1");
+        // var_dump($data);die;
         $this->load->view('v2/semibody', $data);
-    
     }
     public function index()
     {

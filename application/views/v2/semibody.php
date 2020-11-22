@@ -90,20 +90,18 @@
 
             <div class="row">
                 <div class="btn-group alg-right-pad">
-                    <button type="button" class="btn btn-default"><strong>1235 </strong>items</button>
+                    <button type="button" class="btn btn-default"><strong><?=$apidata['itm_total']?></strong> items</button>
                     <div class="btn-group">
                         <button type="button" class="btn btn-danger dropdown-toggle" data-toggle="dropdown">
                             Sort Products &nbsp;
                             <span class="caret"></span>
                         </button>
                         <ul class="dropdown-menu">
-                            <li><a href="#">By Price Low</a></li>
+                            <?foreach ($apidata['toko_detail']['Kategori']->data->items as $key => $value31):?>
+                            <li><a href="#"><?=$value31->name?></a></li>
                             <li class="divider"></li>
-                            <li><a href="#">By Price High</a></li>
-                            <li class="divider"></li>
-                            <li><a href="#">By Popularity</a></li>
-                            <li class="divider"></li>
-                            <li><a href="#">By Reviews</a></li>
+                            <?endforeach?>
+                            
                         </ul>
                     </div>
                 </div>
