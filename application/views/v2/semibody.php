@@ -1,58 +1,58 @@
 <div class="container-fluid">
     <div class="container">
-    <div class="row">
-        <!-- <div class="col-md"></div> -->
-        <div class="col-md-9">
-            <div id="myCarousel" class="carousel slide col-md" data-ride="carousel">
-                <ol class="carousel-indicators">
-                    <!-- <? foreach ($asesoris[2] as $key => $value) : ?>
+        <div class="row">
+            <!-- <div class="col-md"></div> -->
+            <div class="col-md-12">
+                <div id="myCarousel" class="carousel slide col-md" data-ride="carousel">
+                    <ol class="carousel-indicators">
+                        <!-- <? foreach ($asesoris[2] as $key => $value) : ?>
                         <li data-target="#myCarousel" data-slide-to="<?= $key ?>" class="active"></li>
                     <? endforeach; ?> -->
-                </ol>
-                <div class="carousel-inner">
-                    <? foreach ($asesoris[2] as $key => $value) : ?>
-                        <div class="carousel-item <? if ($key == 0) {
-                                                        echo " active";
-                                                    } ?>">
-                            <img src="<?= base_url('assets/img/produk/' . $value) ?>" alt="" srcset="" class="bd-placeholder-img card imh-rela" width="100%" height="100%">
-                            <div class="container">
-                                <div class="carousel-caption text-center">
+                    </ol>
+                    <div class="carousel-inner">
+                        <? foreach ($asesoris[2] as $key => $value) : ?>
+                            <div class="carousel-item <? if ($key == 0) {
+                                                            echo " active";
+                                                        } ?>">
+                                <img src="<?= base_url('assets/img/produk/' . $value) ?>" alt="" srcset="" class="bd-placeholder-img card imh-rela" width="100%" height="100%">
+                                <div class="container">
+                                    <div class="carousel-caption text-center">
+                                    </div>
                                 </div>
                             </div>
-                        </div>
-                    <? endforeach; ?>
+                        <? endforeach; ?>
+                    </div>
+                    <a class="carousel-control-prev" href="#myCarousel" role="button" data-slide="prev">
+                        <span class="carousel-control-prev-icon" aria-hidden="true">
+                        </span>
+                        <span class="sr-only">Previous</span>
+                    </a>
+                    <a class="carousel-control-next" href="#myCarousel" role="button" data-slide="next">
+                        <span class="carousel-control-next-icon" aria-hidden="true">
+                        </span>
+                        <span class="sr-only">Next</span>
+                    </a>
                 </div>
-                <a class="carousel-control-prev" href="#myCarousel" role="button" data-slide="prev">
-                    <span class="carousel-control-prev-icon" aria-hidden="true">
-                    </span>
-                    <span class="sr-only">Previous</span>
-                </a>
-                <a class="carousel-control-next" href="#myCarousel" role="button" data-slide="next">
-                    <span class="carousel-control-next-icon" aria-hidden="true">
-                    </span>
-                    <span class="sr-only">Next</span>
-                </a>
             </div>
         </div>
-        <div class="col-md-3 text-center">
-            <div>
-                <a href="#" class="list-group-item active">artikel<span class="label label-primary pull-right"><?= $artikelv2['total'] ?>
-                </a>
-                <ul class="list-group">
-
-                    <? foreach ($artikelv2['artikel'] as $key => $value) : ?>
-                        <li class="list-group-item"><?= $value->title ?>
-                            <span class="label label-primary pull-right"><?= $cos1[$key]; ?></span>
-                        </li>
-                    <? endforeach; ?>
-                </ul>
-            </div>
-        </div>
-    </div>
     </div>
 
     <div class="row">
         <div class="col-md-3">
+        <div class="text-center">
+                <div>
+                    <a href="#" class="list-group-item active">artikel<span class="label label-primary pull-right"><?= $artikelv2['total'] ?>
+                    </a>
+                    <ul class="list-group">
+
+                        <? foreach ($artikelv2['artikel'] as $key => $value) : ?>
+                            <li class="list-group-item"><?= $value->title ?>
+                                <span class="label label-primary pull-right"><?= $cos1[$key]; ?></span>
+                            </li>
+                        <? endforeach; ?>
+                    </ul>
+                </div>
+            </div>
             <div>
                 <ul class="list-group">
                     <li class="list-group-item list-group-item-success"><a href="#">New Offer's Coming </a></li>
@@ -90,18 +90,18 @@
 
             <div class="row">
                 <div class="btn-group alg-right-pad">
-                    <button type="button" class="btn btn-default"><strong><?=$apidata['itm_total']?></strong> items</button>
+                    <button type="button" class="btn btn-default"><strong><?= $apidata['itm_total'] ?></strong> items</button>
                     <div class="btn-group">
                         <button type="button" class="btn btn-danger dropdown-toggle" data-toggle="dropdown">
                             Sort Products &nbsp;
                             <span class="caret"></span>
                         </button>
                         <ul class="dropdown-menu">
-                            <?foreach ($apidata['toko_detail']['Kategori']->data->items as $key => $value31):?>
-                            <li><a href="#"><?=$value31->name?></a></li>
-                            <li class="divider"></li>
-                            <?endforeach?>
-                            
+                            <? foreach ($apidata['toko_detail']['Kategori']->data->items as $key => $value31) : ?>
+                                <li><a href="#"><?= $value31->name ?></a></li>
+                                <li class="divider"></li>
+                            <? endforeach ?>
+
                         </ul>
                     </div>
                 </div>
@@ -131,14 +131,15 @@
                                 <p>
                                     <? $kata = '';
                                     foreach ($value['detail']->item->attributes as $key => $value3) : ?>
-                                        <? $kata =$kata.$value3->value;
+                                        <? $kata = $kata . $value3->value;
                                         if (strlen($kata) > 20) {
                                             // echo substr($kata, 0, 1) . '...';
                                         } else {
-                                            echo $kata.'.';
-                                        } if ($key==0) {
-                                        break;
-                                        }?>
+                                            echo $kata . '.';
+                                        }
+                                        if ($key == 0) {
+                                            break;
+                                        } ?>
                                     <? endforeach; ?>
                                 </p>
                                 <p><a href="#" class="btn btn-success" role="button">Add To Cart</a> <a href="#" class="btn btn-primary" role="button">See Details</a></p>

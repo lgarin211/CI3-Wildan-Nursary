@@ -36,7 +36,7 @@ class Dagang extends CI_Controller
         if (!$_POST == null) {
             $this->db->set('Json_data', $_POST['json']);
             $this->db->where('ID_Shope', '331253719');
-            $this->db->update('chart');
+            $this->db->update('V2');
             return redirect('admin');
         } else {
             $this->Vup(2);
@@ -190,8 +190,21 @@ class Dagang extends CI_Controller
             $data['cos1'][$key] = count($value);
         }
         $data['artikelv2'] = $this->artikelv2("a1");
-        // var_dump($data);die;
-        $this->load->view('v2/semibody', $data);
+        foreach ($data['artikelv2'] as $key => $value) {
+            $data['contentv2'][$key] = $value;
+        }
+
+        if (!$_GET['bagian'] == null) {
+            // $id=$_GET['id'];
+            $list=$data['contentv2'];
+            var_dump($list);die;
+            foreach ($list as $key => $value) {
+                var_dump($value);
+                die;
+            }
+
+            // $this->load->view('v2/semibody', $data);
+        }
     }
     public function index()
     {
