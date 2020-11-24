@@ -215,6 +215,7 @@ class Dagang extends CI_Controller
         $kategori = $this->db->get('view_kategori')->result();
         $data['kategori'] = $kategori;
         $ting['title'] = 'Dashboard';
+        //ahisyomis
         $ting['user'] = $this->db->get_where('user', ['email' => $this->session->userdata('email')])->row_array();
         $this->load->view('templates/header', $ting);
         $this->load->view('templates/sidebar', $ting);
