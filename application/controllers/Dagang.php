@@ -56,8 +56,9 @@ class Dagang extends CI_Controller
         );
         if ($case == 'a1') {
             $context  = stream_context_create($options);
+            $eas='10';
             $response = file_get_contents(
-                'https://public-api.wordpress.com/rest/v1.1/sites/agustinus211.wordpress.com/posts/?number=2',
+                'https://public-api.wordpress.com/rest/v1.1/sites/agustinus211.wordpress.com/posts/?number='.$eas,
                 false,
                 $context
             );
@@ -65,6 +66,7 @@ class Dagang extends CI_Controller
             $data['total'] = $response->found;
             $data['artikel'] = $response->posts;
         }
+        // var_dump($data);die;
         return $data;
     }
     public function jsondata()
@@ -186,6 +188,7 @@ class Dagang extends CI_Controller
     {
         $data = $this->Rone('the key is the parameter');
         $data['apidata'] = $this->jsondata();
+        // var_dump($data['cos']);die;
         foreach ($data['cos'] as $key => $value) {
             $data['cos1'][$key] = count($value);
         }
@@ -194,17 +197,27 @@ class Dagang extends CI_Controller
             $data['contentv2'][$key] = $value;
         }
 
-        if (!$_GET['bagian'] == null) {
+        if (!empty($_GET['bagian'])) {
             // $id=$_GET['id'];
-            $list=$data['contentv2'];
-            var_dump($list);die;
-            foreach ($list as $key => $value) {
-                var_dump($value);
-                die;
+            $list = $data['contentv2'];
+            // var_dump($list['artikel']);
+            // die;
+            foreach ($list['artikel'] as $key => $value) {
+                if ($value->ID == $_GET['id']) {
+                    $write = $value;
+                }
             }
-
-            // $this->load->view('v2/semibody', $data);
-        }
+            $data['isi']=$write;
+            $this->load->view('v2/site', $data);
+            $this->load->view('v2/artikel', $data);
+        }else{
+            $this->load->view('v2/slide', $data);
+            $this->load->view('v2/site', $data);
+            $this->load->view('v2/produk', $data);
+            $this->load->view('v2/fslide', $data);
+   
+    }
+        $this->load->view('v2/foot', $data);
     }
     public function index()
     {

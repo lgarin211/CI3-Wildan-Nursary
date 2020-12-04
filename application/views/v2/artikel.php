@@ -1,19 +1,11 @@
-<!DOCTYPE html>
-<html lang="en">
-
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
-</head>
-
-<body>
-    <div class="container">
-        <div class="card">
-        <?=$isi?>
+<div class="col-md-8 container">
+    <div class="jumbotron">
+        <div class="blog-post">
+            <h2 class="blog-post-title"><?= $isi->title ?></h2>
+            <p class="blog-post-meta card"><?= $isi->modified ?> by <a href="#"><?= $isi->author->name ?></a></p>
+            <div class="text-justify">
+                <?= $isi->content ?>
+            </div>
         </div>
     </div>
-
-</body>
-
-</html>
+</div>
