@@ -1,11 +1,11 @@
 -- phpMyAdmin SQL Dump
--- version 5.0.2
+-- version 5.0.3
 -- https://www.phpmyadmin.net/
 --
 -- Host: localhost
--- Waktu pembuatan: 04 Des 2020 pada 03.02
--- Versi server: 10.4.13-MariaDB
--- Versi PHP: 7.4.8
+-- Generation Time: Nov 16, 2020 at 01:13 AM
+-- Server version: 10.4.14-MariaDB
+-- PHP Version: 7.4.11
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
 START TRANSACTION;
@@ -24,7 +24,7 @@ SET time_zone = "+00:00";
 -- --------------------------------------------------------
 
 --
--- Struktur dari tabel `asess`
+-- Table structure for table `asess`
 --
 
 CREATE TABLE `asess` (
@@ -32,7 +32,7 @@ CREATE TABLE `asess` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 --
--- Dumping data untuk tabel `asess`
+-- Dumping data for table `asess`
 --
 
 INSERT INTO `asess` (`id_user_main`) VALUES
@@ -43,7 +43,7 @@ INSERT INTO `asess` (`id_user_main`) VALUES
 -- --------------------------------------------------------
 
 --
--- Struktur dari tabel `barang`
+-- Table structure for table `barang`
 --
 
 CREATE TABLE `barang` (
@@ -57,7 +57,7 @@ CREATE TABLE `barang` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 --
--- Dumping data untuk tabel `barang`
+-- Dumping data for table `barang`
 --
 
 INSERT INTO `barang` (`id`, `nama_produk`, `banyak_produk`, `deskripsi`, `harga`, `img_link`, `kategory`) VALUES
@@ -71,7 +71,7 @@ INSERT INTO `barang` (`id`, `nama_produk`, `banyak_produk`, `deskripsi`, `harga`
 -- --------------------------------------------------------
 
 --
--- Struktur dari tabel `chart`
+-- Table structure for table `chart`
 --
 
 CREATE TABLE `chart` (
@@ -82,7 +82,7 @@ CREATE TABLE `chart` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 --
--- Dumping data untuk tabel `chart`
+-- Dumping data for table `chart`
 --
 
 INSERT INTO `chart` (`id`, `item`, `id_user`, `quantity`) VALUES
@@ -96,7 +96,7 @@ INSERT INTO `chart` (`id`, `item`, `id_user`, `quantity`) VALUES
 -- --------------------------------------------------------
 
 --
--- Struktur dari tabel `db`
+-- Table structure for table `db`
 --
 
 CREATE TABLE `db` (
@@ -107,7 +107,7 @@ CREATE TABLE `db` (
 -- --------------------------------------------------------
 
 --
--- Struktur dari tabel `has`
+-- Table structure for table `has`
 --
 
 CREATE TABLE `has` (
@@ -116,7 +116,7 @@ CREATE TABLE `has` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 --
--- Dumping data untuk tabel `has`
+-- Dumping data for table `has`
 --
 
 INSERT INTO `has` (`id`, `nama_db`) VALUES
@@ -135,7 +135,7 @@ INSERT INTO `has` (`id`, `nama_db`) VALUES
 -- --------------------------------------------------------
 
 --
--- Struktur dari tabel `text-assis`
+-- Table structure for table `text-assis`
 --
 
 CREATE TABLE `text-assis` (
@@ -147,7 +147,7 @@ CREATE TABLE `text-assis` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 --
--- Dumping data untuk tabel `text-assis`
+-- Dumping data for table `text-assis`
 --
 
 INSERT INTO `text-assis` (`id`, `text_alig`, `link`, `img`, `nama komponen`) VALUES
@@ -160,7 +160,7 @@ INSERT INTO `text-assis` (`id`, `text_alig`, `link`, `img`, `nama komponen`) VAL
 -- --------------------------------------------------------
 
 --
--- Struktur dari tabel `transaksi`
+-- Table structure for table `transaksi`
 --
 
 CREATE TABLE `transaksi` (
@@ -178,7 +178,7 @@ CREATE TABLE `transaksi` (
 -- --------------------------------------------------------
 
 --
--- Struktur dari tabel `user`
+-- Table structure for table `user`
 --
 
 CREATE TABLE `user` (
@@ -194,7 +194,7 @@ CREATE TABLE `user` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
 --
--- Dumping data untuk tabel `user`
+-- Dumping data for table `user`
 --
 
 INSERT INTO `user` (`id`, `name`, `email`, `image`, `password`, `role_id`, `is_active`, `date_created`, `setsesion`) VALUES
@@ -203,7 +203,7 @@ INSERT INTO `user` (`id`, `name`, `email`, `image`, `password`, `role_id`, `is_a
 -- --------------------------------------------------------
 
 --
--- Struktur dari tabel `user_access_menu`
+-- Table structure for table `user_access_menu`
 --
 
 CREATE TABLE `user_access_menu` (
@@ -213,7 +213,7 @@ CREATE TABLE `user_access_menu` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
 --
--- Dumping data untuk tabel `user_access_menu`
+-- Dumping data for table `user_access_menu`
 --
 
 INSERT INTO `user_access_menu` (`id`, `role_id`, `menu_id`) VALUES
@@ -226,7 +226,7 @@ INSERT INTO `user_access_menu` (`id`, `role_id`, `menu_id`) VALUES
 -- --------------------------------------------------------
 
 --
--- Struktur dari tabel `user_menu`
+-- Table structure for table `user_menu`
 --
 
 CREATE TABLE `user_menu` (
@@ -235,7 +235,7 @@ CREATE TABLE `user_menu` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
 --
--- Dumping data untuk tabel `user_menu`
+-- Dumping data for table `user_menu`
 --
 
 INSERT INTO `user_menu` (`id`, `menu`) VALUES
@@ -249,7 +249,7 @@ INSERT INTO `user_menu` (`id`, `menu`) VALUES
 -- --------------------------------------------------------
 
 --
--- Struktur dari tabel `user_role`
+-- Table structure for table `user_role`
 --
 
 CREATE TABLE `user_role` (
@@ -258,7 +258,7 @@ CREATE TABLE `user_role` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
 --
--- Dumping data untuk tabel `user_role`
+-- Dumping data for table `user_role`
 --
 
 INSERT INTO `user_role` (`id`, `role`) VALUES
@@ -268,7 +268,7 @@ INSERT INTO `user_role` (`id`, `role`) VALUES
 -- --------------------------------------------------------
 
 --
--- Struktur dari tabel `user_sub_menu`
+-- Table structure for table `user_sub_menu`
 --
 
 CREATE TABLE `user_sub_menu` (
@@ -281,7 +281,7 @@ CREATE TABLE `user_sub_menu` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
 --
--- Dumping data untuk tabel `user_sub_menu`
+-- Dumping data for table `user_sub_menu`
 --
 
 INSERT INTO `user_sub_menu` (`id`, `menu_id`, `title`, `url`, `icon`, `is_active`) VALUES
@@ -300,7 +300,7 @@ INSERT INTO `user_sub_menu` (`id`, `menu_id`, `title`, `url`, `icon`, `is_active
 -- --------------------------------------------------------
 
 --
--- Struktur dari tabel `user_token`
+-- Table structure for table `user_token`
 --
 
 CREATE TABLE `user_token` (
@@ -313,27 +313,7 @@ CREATE TABLE `user_token` (
 -- --------------------------------------------------------
 
 --
--- Struktur dari tabel `V2`
---
-
-CREATE TABLE `V2` (
-  `id` int(11) NOT NULL,
-  `Json_data` longtext CHARACTER SET utf8mb4 COLLATE utf8mb4_bin NOT NULL CHECK (json_valid(`Json_data`)),
-  `ID_Shope` int(11) NOT NULL,
-  `Link_Shopie` varchar(1000) NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
-
---
--- Dumping data untuk tabel `V2`
---
-
-INSERT INTO `V2` (`id`, `Json_data`, `ID_Shope`, `Link_Shopie`) VALUES
-(1, '{\"show_disclaimer\":false,\"query_rewrite\":{},\"adjust\":{},\"version\":\"10217e34977ac8105b934a2dbd97a468\",\"algorithm\":\"eyJzZWFyY2giOiI3LmEuMTg0QExNMSIsImFkcyI6IiJ9\",\"need_next_search\":true,\"total_count\":3,\"error\":null,\"total_ads_count\":0,\"disclaimer_infos\":[],\"nomore\":true,\"price_adjust\":{},\"json_data\":\"\",\"suggestion_algorithm\":0,\"items\":[{\"itemid\":6860566567,\"welcome_package_info\":null,\"liked\":false,\"recommendation_info\":null,\"bundle_deal_info\":null,\"price_max_before_discount\":-1,\"tracking_info\":{\"multi_search_tracking\":[0],\"viral_spu_tracking\":null,\"business_tracking\":null},\"image\":\"6fdbe730382e0249d4a66f85e007f2d5\",\"recommendation_algorithm\":null,\"is_cc_installment_payment_eligible\":false,\"shopid\":331253719,\"can_use_wholesale\":false,\"group_buy_info\":null,\"reference_item_id\":\"\",\"currency\":\"IDR\",\"raw_discount\":0,\"show_free_shipping\":false,\"video_info_list\":[],\"ads_keyword\":null,\"collection_id\":null,\"images\":[\"6fdbe730382e0249d4a66f85e007f2d5\"],\"is_preferred_plus_seller\":false,\"price_before_discount\":0,\"is_category_failed\":false,\"show_discount\":0,\"cmt_count\":0,\"view_count\":1,\"display_name\":null,\"catid\":46,\"json_data\":null,\"upcoming_flash_sale\":null,\"is_official_shop\":false,\"brand\":\"Tidak Ada Merek\",\"price_min\":2000000000,\"liked_count\":0,\"can_use_bundle_deal\":false,\"show_official_shop_label\":false,\"coin_earn_label\":null,\"price_min_before_discount\":-1,\"cb_option\":0,\"sold\":0,\"deduction_info\":null,\"stock\":10,\"status\":1,\"price_max\":2000000000,\"add_on_deal_info\":null,\"is_group_buy_item\":null,\"flash_sale\":null,\"price\":2000000000,\"shop_location\":\"KOTA BOGOR\",\"item_rating\":{\"rating_star\":0.0,\"rating_count\":[0,0,0,0,0,0],\"rcount_with_image\":0,\"rcount_with_context\":0},\"show_official_shop_label_in_title\":false,\"tier_variations\":[{\"images\":[],\"properties\":[],\"type\":0,\"name\":\"\",\"options\":[\"\"]}],\"is_adult\":false,\"discount\":null,\"flag\":131072,\"is_non_cc_installment_payment_eligible\":false,\"has_lowest_price_guarantee\":false,\"has_group_buy_stock\":null,\"match_type\":null,\"preview_info\":null,\"welcome_package_type\":0,\"exclusive_price_info\":null,\"name\":\"Aglonema lipstik-Siam Aurora\",\"distance\":null,\"adsid\":null,\"ctime\":1604303737,\"wholesale_tier_list\":[],\"show_shopee_verified_label\":false,\"campaignid\":null,\"show_official_shop_label_in_normal_position\":null,\"item_status\":\"normal\",\"shopee_verified\":false,\"hidden_price_display\":null,\"size_chart\":null,\"item_type\":0,\"shipping_icon_type\":null,\"campaign_stock\":null,\"label_ids\":[1000031],\"service_by_shopee_flag\":0,\"badge_icon_type\":0,\"historical_sold\":0,\"transparent_background_image\":\"\"},{\"itemid\":4363575947,\"welcome_package_info\":null,\"liked\":false,\"recommendation_info\":null,\"bundle_deal_info\":null,\"price_max_before_discount\":-1,\"tracking_info\":{\"multi_search_tracking\":[0],\"viral_spu_tracking\":null,\"business_tracking\":null},\"image\":\"bbe983d13941e212930e1c5f52fca014\",\"recommendation_algorithm\":null,\"is_cc_installment_payment_eligible\":false,\"shopid\":331253719,\"can_use_wholesale\":false,\"group_buy_info\":null,\"reference_item_id\":\"\",\"currency\":\"IDR\",\"raw_discount\":0,\"show_free_shipping\":false,\"video_info_list\":[],\"ads_keyword\":null,\"collection_id\":null,\"images\":[\"bbe983d13941e212930e1c5f52fca014\",\"237d0c8dcec2ca91de116182c2c54d41\",\"b161835880b1c9714b28b251b3cb3cd0\"],\"is_preferred_plus_seller\":false,\"price_before_discount\":0,\"is_category_failed\":false,\"show_discount\":0,\"cmt_count\":0,\"view_count\":1,\"display_name\":null,\"catid\":46,\"json_data\":null,\"upcoming_flash_sale\":null,\"is_official_shop\":false,\"brand\":\"Tidak Ada Merek\",\"price_min\":1000000000,\"liked_count\":0,\"can_use_bundle_deal\":false,\"show_official_shop_label\":false,\"coin_earn_label\":null,\"price_min_before_discount\":-1,\"cb_option\":0,\"sold\":0,\"deduction_info\":null,\"stock\":50,\"status\":1,\"price_max\":1000000000,\"add_on_deal_info\":null,\"is_group_buy_item\":null,\"flash_sale\":null,\"price\":1000000000,\"shop_location\":\"KOTA BOGOR\",\"item_rating\":{\"rating_star\":0.0,\"rating_count\":[0,0,0,0,0,0],\"rcount_with_image\":0,\"rcount_with_context\":0},\"show_official_shop_label_in_title\":false,\"tier_variations\":[{\"images\":[],\"properties\":[],\"type\":0,\"name\":\"\",\"options\":[\"\"]}],\"is_adult\":false,\"discount\":null,\"flag\":0,\"is_non_cc_installment_payment_eligible\":false,\"has_lowest_price_guarantee\":false,\"has_group_buy_stock\":null,\"match_type\":null,\"preview_info\":null,\"welcome_package_type\":0,\"exclusive_price_info\":null,\"name\":\"Bibit stroberi/strawberry\",\"distance\":null,\"adsid\":null,\"ctime\":1605691122,\"wholesale_tier_list\":[],\"show_shopee_verified_label\":false,\"campaignid\":null,\"show_official_shop_label_in_normal_position\":null,\"item_status\":\"normal\",\"shopee_verified\":false,\"hidden_price_display\":null,\"size_chart\":null,\"item_type\":0,\"shipping_icon_type\":null,\"campaign_stock\":null,\"label_ids\":[1000031],\"service_by_shopee_flag\":0,\"badge_icon_type\":0,\"historical_sold\":0,\"transparent_background_image\":\"\"},{\"itemid\":3763667569,\"welcome_package_info\":null,\"liked\":false,\"recommendation_info\":null,\"bundle_deal_info\":null,\"price_max_before_discount\":-1,\"tracking_info\":{\"multi_search_tracking\":[0],\"viral_spu_tracking\":null,\"business_tracking\":null},\"image\":\"6442af55860ee57f127697ebeeb852fa\",\"recommendation_algorithm\":null,\"is_cc_installment_payment_eligible\":false,\"shopid\":331253719,\"can_use_wholesale\":false,\"group_buy_info\":null,\"reference_item_id\":\"\",\"currency\":\"IDR\",\"raw_discount\":0,\"show_free_shipping\":false,\"video_info_list\":[],\"ads_keyword\":null,\"collection_id\":null,\"images\":[\"6442af55860ee57f127697ebeeb852fa\",\"4a6b415e3d343b60f24d93e6ee16b79d\"],\"is_preferred_plus_seller\":false,\"price_before_discount\":0,\"is_category_failed\":false,\"show_discount\":0,\"cmt_count\":0,\"view_count\":0,\"display_name\":null,\"catid\":46,\"json_data\":null,\"upcoming_flash_sale\":null,\"is_official_shop\":false,\"brand\":\"Tidak Ada Merek\",\"price_min\":1500000000,\"liked_count\":0,\"can_use_bundle_deal\":false,\"show_official_shop_label\":false,\"coin_earn_label\":null,\"price_min_before_discount\":-1,\"cb_option\":0,\"sold\":0,\"deduction_info\":null,\"stock\":50,\"status\":1,\"price_max\":1500000000,\"add_on_deal_info\":null,\"is_group_buy_item\":null,\"flash_sale\":null,\"price\":1500000000,\"shop_location\":\"KOTA BOGOR\",\"item_rating\":{\"rating_star\":0.0,\"rating_count\":[0,0,0,0,0,0],\"rcount_with_image\":0,\"rcount_with_context\":0},\"show_official_shop_label_in_title\":false,\"tier_variations\":[{\"images\":[],\"properties\":[],\"type\":0,\"name\":\"\",\"options\":[\"\"]}],\"is_adult\":false,\"discount\":null,\"flag\":0,\"is_non_cc_installment_payment_eligible\":false,\"has_lowest_price_guarantee\":false,\"has_group_buy_stock\":null,\"match_type\":null,\"preview_info\":null,\"welcome_package_type\":0,\"exclusive_price_info\":null,\"name\":\"Tanaman rosemary / Pohon rosemary\",\"distance\":null,\"adsid\":null,\"ctime\":1605691453,\"wholesale_tier_list\":[],\"show_shopee_verified_label\":false,\"campaignid\":null,\"show_official_shop_label_in_normal_position\":null,\"item_status\":\"normal\",\"shopee_verified\":false,\"hidden_price_display\":null,\"size_chart\":null,\"item_type\":0,\"shipping_icon_type\":null,\"campaign_stock\":null,\"label_ids\":[1000031],\"service_by_shopee_flag\":0,\"badge_icon_type\":0,\"historical_sold\":0,\"transparent_background_image\":\"\"}],\"reserved_keyword\":\"\",\"hint_keywords\":[]}', 331253719, 'wildan_nursery');
-
--- --------------------------------------------------------
-
---
--- Struktur dari tabel `view_artikel`
+-- Table structure for table `view_artikel`
 --
 
 CREATE TABLE `view_artikel` (
@@ -350,7 +330,7 @@ CREATE TABLE `view_artikel` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 --
--- Dumping data untuk tabel `view_artikel`
+-- Dumping data for table `view_artikel`
 --
 
 INSERT INTO `view_artikel` (`id`, `judul`, `head`, `isi_head`, `tgl`, `penulis`, `sh_1`, `isi_s1`, `sh_2`, `isi_s2`) VALUES
@@ -360,7 +340,7 @@ INSERT INTO `view_artikel` (`id`, `judul`, `head`, `isi_head`, `tgl`, `penulis`,
 -- --------------------------------------------------------
 
 --
--- Struktur dari tabel `view_galeri`
+-- Table structure for table `view_galeri`
 --
 
 CREATE TABLE `view_galeri` (
@@ -372,7 +352,7 @@ CREATE TABLE `view_galeri` (
 -- --------------------------------------------------------
 
 --
--- Struktur dari tabel `view_kategori`
+-- Table structure for table `view_kategori`
 --
 
 CREATE TABLE `view_kategori` (
@@ -381,7 +361,7 @@ CREATE TABLE `view_kategori` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 --
--- Dumping data untuk tabel `view_kategori`
+-- Dumping data for table `view_kategori`
 --
 
 INSERT INTO `view_kategori` (`id`, `value`) VALUES
@@ -399,191 +379,179 @@ INSERT INTO `view_kategori` (`id`, `value`) VALUES
 --
 
 --
--- Indeks untuk tabel `asess`
+-- Indexes for table `asess`
 --
 ALTER TABLE `asess`
   ADD PRIMARY KEY (`id_user_main`);
 
 --
--- Indeks untuk tabel `barang`
+-- Indexes for table `barang`
 --
 ALTER TABLE `barang`
   ADD PRIMARY KEY (`id`);
 
 --
--- Indeks untuk tabel `chart`
+-- Indexes for table `chart`
 --
 ALTER TABLE `chart`
   ADD PRIMARY KEY (`id`);
 
 --
--- Indeks untuk tabel `db`
+-- Indexes for table `db`
 --
 ALTER TABLE `db`
   ADD PRIMARY KEY (`id`);
 
 --
--- Indeks untuk tabel `has`
+-- Indexes for table `has`
 --
 ALTER TABLE `has`
   ADD PRIMARY KEY (`id`);
 
 --
--- Indeks untuk tabel `text-assis`
+-- Indexes for table `text-assis`
 --
 ALTER TABLE `text-assis`
   ADD PRIMARY KEY (`id`);
 
 --
--- Indeks untuk tabel `transaksi`
+-- Indexes for table `transaksi`
 --
 ALTER TABLE `transaksi`
   ADD PRIMARY KEY (`id`);
 
 --
--- Indeks untuk tabel `user`
+-- Indexes for table `user`
 --
 ALTER TABLE `user`
   ADD PRIMARY KEY (`id`);
 
 --
--- Indeks untuk tabel `user_access_menu`
+-- Indexes for table `user_access_menu`
 --
 ALTER TABLE `user_access_menu`
   ADD PRIMARY KEY (`id`);
 
 --
--- Indeks untuk tabel `user_menu`
+-- Indexes for table `user_menu`
 --
 ALTER TABLE `user_menu`
   ADD PRIMARY KEY (`id`);
 
 --
--- Indeks untuk tabel `user_role`
+-- Indexes for table `user_role`
 --
 ALTER TABLE `user_role`
   ADD PRIMARY KEY (`id`);
 
 --
--- Indeks untuk tabel `user_sub_menu`
+-- Indexes for table `user_sub_menu`
 --
 ALTER TABLE `user_sub_menu`
   ADD PRIMARY KEY (`id`);
 
 --
--- Indeks untuk tabel `user_token`
+-- Indexes for table `user_token`
 --
 ALTER TABLE `user_token`
   ADD PRIMARY KEY (`id`);
 
 --
--- Indeks untuk tabel `V2`
---
-ALTER TABLE `V2`
-  ADD PRIMARY KEY (`id`);
-
---
--- Indeks untuk tabel `view_artikel`
+-- Indexes for table `view_artikel`
 --
 ALTER TABLE `view_artikel`
   ADD PRIMARY KEY (`id`);
 
 --
--- Indeks untuk tabel `view_kategori`
+-- Indexes for table `view_kategori`
 --
 ALTER TABLE `view_kategori`
   ADD PRIMARY KEY (`id`);
 
 --
--- AUTO_INCREMENT untuk tabel yang dibuang
+-- AUTO_INCREMENT for dumped tables
 --
 
 --
--- AUTO_INCREMENT untuk tabel `asess`
+-- AUTO_INCREMENT for table `asess`
 --
 ALTER TABLE `asess`
   MODIFY `id_user_main` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=20202021;
 
 --
--- AUTO_INCREMENT untuk tabel `barang`
+-- AUTO_INCREMENT for table `barang`
 --
 ALTER TABLE `barang`
   MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=43;
 
 --
--- AUTO_INCREMENT untuk tabel `chart`
+-- AUTO_INCREMENT for table `chart`
 --
 ALTER TABLE `chart`
   MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=134;
 
 --
--- AUTO_INCREMENT untuk tabel `db`
+-- AUTO_INCREMENT for table `db`
 --
 ALTER TABLE `db`
   MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;
 
 --
--- AUTO_INCREMENT untuk tabel `has`
+-- AUTO_INCREMENT for table `has`
 --
 ALTER TABLE `has`
   MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=12;
 
 --
--- AUTO_INCREMENT untuk tabel `transaksi`
+-- AUTO_INCREMENT for table `transaksi`
 --
 ALTER TABLE `transaksi`
   MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;
 
 --
--- AUTO_INCREMENT untuk tabel `user`
+-- AUTO_INCREMENT for table `user`
 --
 ALTER TABLE `user`
   MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=21;
 
 --
--- AUTO_INCREMENT untuk tabel `user_access_menu`
+-- AUTO_INCREMENT for table `user_access_menu`
 --
 ALTER TABLE `user_access_menu`
   MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=11;
 
 --
--- AUTO_INCREMENT untuk tabel `user_menu`
+-- AUTO_INCREMENT for table `user_menu`
 --
 ALTER TABLE `user_menu`
   MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=104;
 
 --
--- AUTO_INCREMENT untuk tabel `user_role`
+-- AUTO_INCREMENT for table `user_role`
 --
 ALTER TABLE `user_role`
   MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
 
 --
--- AUTO_INCREMENT untuk tabel `user_sub_menu`
+-- AUTO_INCREMENT for table `user_sub_menu`
 --
 ALTER TABLE `user_sub_menu`
   MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=13;
 
 --
--- AUTO_INCREMENT untuk tabel `user_token`
+-- AUTO_INCREMENT for table `user_token`
 --
 ALTER TABLE `user_token`
   MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=9;
 
 --
--- AUTO_INCREMENT untuk tabel `V2`
---
-ALTER TABLE `V2`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
-
---
--- AUTO_INCREMENT untuk tabel `view_artikel`
+-- AUTO_INCREMENT for table `view_artikel`
 --
 ALTER TABLE `view_artikel`
   MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
 
 --
--- AUTO_INCREMENT untuk tabel `view_kategori`
+-- AUTO_INCREMENT for table `view_kategori`
 --
 ALTER TABLE `view_kategori`
   MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=10;
