@@ -56,9 +56,9 @@ class Dagang extends CI_Controller
         );
         if ($case == 'a1') {
             $context  = stream_context_create($options);
-            $eas='10';
+            $eas = '10';
             $response = file_get_contents(
-                'https://public-api.wordpress.com/rest/v1.1/sites/agustinus211.wordpress.com/posts/?number='.$eas,
+                'https://public-api.wordpress.com/rest/v1.1/sites/agustinus211.wordpress.com/posts/?number=' . $eas,
                 false,
                 $context
             );
@@ -77,15 +77,15 @@ class Dagang extends CI_Controller
         $item = json_decode($json);
         $data['keyId'] = $da[0]->ID_Shope;
         $data['keyurl'] = $da[0]->Link_Shopie;
-        foreach ($item->items as $key => $value) {
-            $apidata[$key]['detail'] = $this->GetAPIOn($value->itemid, $data['keyId']);
-            $apidata[$key]['image'] = $value->image;
-            $apidata[$key]['image2'] = $value->images;
-            $apidata[$key]['image'] = $value->image;
-            $apidata[$key]['terjual'] = $value->cmt_count;
-            $apidata[$key]['dilihat'] = $value->view_count;
-            $apidata[$key]['harga'] = $value->price;
-            $apidata[$key]['stok'] = $value->stock;
+        foreach ($item->items as $key => $value1) {
+            $apidata[$key]['detail'] = $this->GetAPIOn($value1->itemid, $data['keyId']);
+            $apidata[$key]['image'] = $value1->image;
+            $apidata[$key]['image2'] = $value1->images;
+            $apidata[$key]['image'] = $value1->image;
+            $apidata[$key]['terjual'] = $value1->cmt_count;
+            $apidata[$key]['dilihat'] = $value1->view_count;
+            $apidata[$key]['harga'] = $value1->price;
+            $apidata[$key]['stok'] = $value1->stock;
         }
         $data['apidata'] = $apidata;
         $data['itm_total'] = count($item->items);
@@ -189,12 +189,12 @@ class Dagang extends CI_Controller
         $data = $this->Rone('the key is the parameter');
         $data['apidata'] = $this->jsondata();
         // var_dump($data['cos']);die;
-        foreach ($data['cos'] as $key => $value) {
-            $data['cos1'][$key] = count($value);
+        foreach ($data['cos'] as $key => $value2) {
+            $data['cos1'][$key] = count($value2);
         }
         $data['artikelv2'] = $this->artikelv2("a1");
-        foreach ($data['artikelv2'] as $key => $value) {
-            $data['contentv2'][$key] = $value;
+        foreach ($data['artikelv2'] as $key => $value3) {
+            $data['contentv2'][$key] = $value3;
         }
 
         if (!empty($_GET['bagian'])) {
@@ -202,21 +202,20 @@ class Dagang extends CI_Controller
             $list = $data['contentv2'];
             // var_dump($list['artikel']);
             // die;
-            foreach ($list['artikel'] as $key => $value) {
-                if ($value->ID == $_GET['id']) {
-                    $write = $value;
+            foreach ($list['artikel'] as $key => $value4) {
+                if ($value4->ID == $_GET['id']) {
+                    $write = $value4;
                 }
             }
-            $data['isi']=$write;
+            $data['isi'] = $write;
             $this->load->view('v2/site', $data);
             $this->load->view('v2/artikel', $data);
-        }else{
+        } else {
             $this->load->view('v2/slide', $data);
             $this->load->view('v2/site', $data);
             $this->load->view('v2/produk', $data);
             $this->load->view('v2/fslide', $data);
-   
-    }
+        }
         $this->load->view('v2/foot', $data);
     }
     public function index()
@@ -237,9 +236,9 @@ class Dagang extends CI_Controller
         if (!$_POST == null) {
             $data = $_POST;
             $text = '';
-            foreach ($kategori as $key => $value) {
-                if ($_POST['ktr' . $value->id] == true) {
-                    $text = $text . ',' . $_POST['ktr' . $value->id];
+            foreach ($kategori as $key => $value6) {
+                if ($_POST['ktr' . $value6->id] == true) {
+                    $text = $text . ',' . $_POST['ktr' . $value6->id];
                 } else {
                     $text = $text . ',0';
                 }
@@ -288,7 +287,6 @@ class Dagang extends CI_Controller
     public function cek()
     {
         $query = $this->db->get('barang')->result();
-
         foreach ($query as $row) {
             $data['one'] = $row;
             $img = $row->img_link;
@@ -455,26 +453,26 @@ class Dagang extends CI_Controller
 
         $i = 0;
         $ii = 0;
-        foreach ($kategori as $key => $value) {
+        foreach ($kategori as $key => $value8) {
 
             if ($i < 5) {
                 # code...
-                $unkate[1][$i] = $value;
+                $unkate[1][$i] = $value8;
             } else {
 
-                $unkate[2][$ii] = $value;
+                $unkate[2][$ii] = $value8;
                 $ii++;
             }
             $i++;
         }
         $data['kategori'] = $unkate;
         foreach ($data['pasing'] as $key => $kate) {
-            foreach ($kate as $key2 => $value) {
-                $plank['past'][$key][$key2] = $this->rtreev2($value);
+            foreach ($kate as $key2 => $value9) {
+                $plank['past'][$key][$key2] = $this->rtreev2($value9);
             }
         }
-        foreach ($plank['past'] as $key => $value) {
-            $data['cos'][$key] = $value['id'];
+        foreach ($plank['past'] as $key => $value10) {
+            $data['cos'][$key] = $value10['id'];
         }
         $data['sas'] = $_SESSION['semi_id'];
         if (!$_POST == null) {
@@ -524,11 +522,11 @@ class Dagang extends CI_Controller
             $data['gas'] = $query3;
         }
         $bongkar = $data['artikel'];
-        foreach ($bongkar as $key => $value) {
-            $paket_judul[$key] = $value->judul;
-            $paket_head[$key] = $value->head;
-            $paket_I_H[$key] = $value->isi_head;
-            $ID[$key] = $value->id;
+        foreach ($bongkar as $key => $value11) {
+            $paket_judul[$key] = $value11->judul;
+            $paket_head[$key] = $value11->head;
+            $paket_I_H[$key] = $value11->isi_head;
+            $ID[$key] = $value11->id;
         }
         $paket['judul'] = $paket_judul;
         $paket['head'] = $paket_head;
@@ -590,8 +588,6 @@ class Dagang extends CI_Controller
         $data[5][1] = explode('|', $masl2[0]->link);
         $data[3] = $this->db->get_where('text-assis', array('id' => 3))->result();
         $data[4] = $this->db->get_where('text-assis', array('id' => 4))->result();
-
-
         return $data;
     }
     public function Uone()

@@ -4,16 +4,16 @@
         <div class="col-md-12">
             <div id="myCarousel" class="carousel slide col-md" data-ride="carousel">
                 <ol class="carousel-indicators">
-                    <!-- <? foreach ($asesoris[2] as $key => $value) : ?>
+                    <!-- <? foreach ($asesoris[2] as $key => $valuedam) : ?>
                         <li data-target="#myCarousel" data-slide-to="<?= $key ?>" class="active"></li>
                     <? endforeach; ?> -->
                 </ol>
                 <div class="carousel-inner">
-                    <? foreach ($asesoris[2] as $key => $value) : ?>
+                    <? foreach ($asesoris[2] as $key => $valuedim) : ?>
                         <div class="carousel-item <? if ($key == 0) {
                                                         echo " active";
                                                     } ?>">
-                            <img src="<?= base_url('assets/img/produk/' . $value) ?>" alt="" srcset="" class="bd-placeholder-img card imh-rela" width="100%" height="100%">
+                            <img src="<?= base_url('assets/img/produk/' . $valuedim) ?>" alt="" srcset="" class="bd-placeholder-img card imh-rela" width="100%" height="100%">
                             <div class="container">
                                 <div class="carousel-caption text-center">
                                 </div>

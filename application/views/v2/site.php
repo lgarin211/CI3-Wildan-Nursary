@@ -6,9 +6,9 @@
                 </a>
                 <ul class="list-group">
 
-                    <?foreach ($artikelv2['artikel'] as $key => $value) : ?>
-                        <li class="list-group-item"><a href="<?=base_url('/Dagang/v2').'?bagian=1&id='.$value->ID?>"><?=$value->title ?></a>
-                            <span class="label label-primary pull-right"><a href="<?=base_url('/Dagang/v2').'?bagian=1&id='.$value->ID?>"><?='baca' ?></a></span>
+                    <?foreach ($artikelv2['artikel'] as $key => $valueds) : ?>
+                        <li class="list-group-item"><a href="<?=base_url('/Dagang/v2').'?bagian=1&id='.$valueds->ID?>"><?=$valueds->title ?></a>
+                            <span class="label label-primary pull-right"><a href="<?=base_url('/Dagang/v2').'?bagian=1&id='.$valueds->ID?>"><?='baca' ?></a></span>
                         </li>
                     <? endforeach; ?>
                 </ul>
