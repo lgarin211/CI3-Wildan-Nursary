@@ -36,14 +36,16 @@
                         <? } ?>
                     <? endforeach ?>
                     <div class="caption">
-                        <h4><a href="#"><? $kata = $value32['detail']->item->name;
-                                        $jm_K = strlen($kata);
-                                        if ($jm_K >= 25) {
-                                            echo substr($kata, 0, 24) . '...';
-                                        } else {
-                                            echo $kata;
-                                        } ?></a></h4>
-                        <p>Harga : <strong>Rp <?= $value32['harga'] ?></strong> </p>
+                        <h4>
+                            <a href="<?= base_url('/Dagang/detail?id=' . $value32['detail']->item->itemid) ?>">
+                                <? $kata = $value32['detail']->item->name;
+                                $jm_K = strlen($kata);
+                                if ($jm_K >= 25) {
+                                    echo substr($kata, 0, 15) . '...';
+                                } else {
+                                    echo $kata;
+                                } ?></a></h4>
+                        <p>Harga : <strong>Rp <?= substr($value32['harga'], 0, 2) . '.000~'  ?></strong> </p>
                         <p><a href="#">Detail</a></p>
                         <p></p>
                         <p>
@@ -60,37 +62,22 @@
                                 } ?>
                             <? endforeach; ?>
                         </p>
-                        <p><a href="#" class="btn btn-success" role="button">Add To Cart</a> <a href="#" class="btn btn-primary" role="button">See Details</a></p>
+                        <p>
+                            <form action="<?= base_url('dagang/rone') ?>" method="post">
+                                <input type="hidden" name="quantity" value="1">
+                                <input type="hidden" name="idbarang" value="<?= $value32['detail']->item->itemid ?>">
+                                <input type="hidden" name="Harga" value="<?= $value32['harga'] ?>">
+                                <input type="hidden" name="sesi" value="<?= $_SESSION['semi_id'] ?>">
+                                <button type="submit" class="btn btn-success">
+                                    <i class="fas fa-cart-plus fa-fw"></i>
+                                </button>
+                            </form>
+                            <a href="#" class="btn btn-primary" role="button">See Details</a>
+                        </p>
                     </div>
                 </div>
             </div>
         <? endforeach; ?>
-
-        <div class="col-md-4 text-center col-sm-6 col-xs-6">
-            <div class="thumbnail product-box">
-                <img src="<?= base_url('/assets/bs-digishop-mini/') ?>assets/img/dummyimg.png" alt="" />
-                <div class="caption">
-                    <h3><a href="#">Samsung Galaxy </a></h3>
-                    <p>Price : <strong>$ 3,45,900</strong> </p>
-                    <p><a href="#">Ptional dismiss button </a></p>
-                    <p>Ptional dismiss button in tional dismiss button in </p>
-                    <p><a href="#" class="btn btn-success" role="button">Add To Cart</a> <a href="#" class="btn btn-primary" role="button">See Details</a></p>
-                </div>
-            </div>
-        </div>
-
-        <div class="col-md-4 text-center col-sm-6 col-xs-6">
-            <div class="thumbnail product-box">
-                <img src="<?= base_url('/assets/bs-digishop-mini/') ?>assets/img/dummyimg.png" alt="" />
-                <div class="caption">
-                    <h3><a href="#">Samsung Galaxy </a></h3>
-                    <p>Price : <strong>$ 3,45,900</strong> </p>
-                    <p><a href="#">Ptional dismiss button </a></p>
-                    <p>Ptional dismiss button in tional dismiss button in </p>
-                    <p><a href="#" class="btn btn-success" role="button">Add To Cart</a> <a href="#" class="btn btn-primary" role="button">See Details</a></p>
-                </div>
-            </div>
-        </div>
 
     </div>
 

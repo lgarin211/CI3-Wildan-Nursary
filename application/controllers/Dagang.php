@@ -79,6 +79,7 @@ class Dagang extends CI_Controller
         $data['keyurl'] = $da[0]->Link_Shopie;
         foreach ($item->items as $key => $value1) {
             $apidata[$key]['detail'] = $this->GetAPIOn($value1->itemid, $data['keyId']);
+            // $apidata[$key]['description'] = $apidata[$key]['detail']->item->description;
             $apidata[$key]['image'] = $value1->image;
             $apidata[$key]['image2'] = $value1->images;
             $apidata[$key]['image'] = $value1->image;
@@ -184,11 +185,26 @@ class Dagang extends CI_Controller
             return json_decode($response);
         }
     }
+    public function Art()
+    {
+        # code...
+    }
+    public function detail()
+    {
+        $da = array_reverse($this->db->get('V2')->result());
+        $data['keyId'] = $da[0]->ID_Shope;
+        $data['keyurl'] = $da[0]->Link_Shopie;
+        $apidata['detail'] = $this->GetAPIOn($_GET['id'], $data['keyId']);
+        $data['apidata'] = $apidata;
+        // var_dump($data);die;
+        $this->load->view('v2/detail', $data);
+        $this->load->view('v2/foot', $data);
+    }
     public function v2()
     {
+        // var_dump();die;
         $data = $this->Rone('the key is the parameter');
         $data['apidata'] = $this->jsondata();
-        // var_dump($data['cos']);die;
         foreach ($data['cos'] as $key => $value2) {
             $data['cos1'][$key] = count($value2);
         }
@@ -196,12 +212,9 @@ class Dagang extends CI_Controller
         foreach ($data['artikelv2'] as $key => $value3) {
             $data['contentv2'][$key] = $value3;
         }
-
+        // var_dump($data);die;
         if (!empty($_GET['bagian'])) {
-            // $id=$_GET['id'];
             $list = $data['contentv2'];
-            // var_dump($list['artikel']);
-            // die;
             foreach ($list['artikel'] as $key => $value4) {
                 if ($value4->ID == $_GET['id']) {
                     $write = $value4;
@@ -361,7 +374,6 @@ class Dagang extends CI_Controller
         if ($isi == null) {
             redirect('/');
         } else {
-
             foreach ($isi as $key => $i) {
                 $ping[$key] = $this->db->get_where('barang', array('id' => $i->item))->result();
                 $dist[$key] = $i->quantity;
@@ -494,7 +506,8 @@ class Dagang extends CI_Controller
                 $reg = array(
                     'item' => $_POST['idbarang'],
                     'quantity' => $_POST['quantity'],
-                    'id_user' => $_POST['sesi']
+                    'id_user' => $_POST['sesi'],
+                    'harga/1'=>$_POST['Harga']
                 );
                 $this->db->insert('chart', $reg);
             }

@@ -1,0 +1,10 @@
+V2 requred install{
+email
+no hp
+alamat
+lazada link
+shopie link
+tokpedlink
+bukalapak link
+
+}
