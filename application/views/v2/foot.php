@@ -8,55 +8,65 @@
         <div class="col-md-4">
             <strong>Send a Quick Query </strong>
             <hr>
-            <form>
+            <!-- <form> -->
                 <div class="row">
                     <div class="col-md-6 col-sm-6">
                         <div class="form-group">
-                            <input type="text" class="form-control" required="required" placeholder="Name">
+                            <input id="dom" type="text" class="form-control" required="required" placeholder="Name">
                         </div>
                     </div>
                     <div class="col-md-6 col-sm-6">
                         <div class="form-group">
-                            <input type="text" class="form-control" required="required" placeholder="Email address">
+                            <input id='dos' type="text" class="form-control" required="required" placeholder="Email address">
                         </div>
                     </div>
                 </div>
                 <div class="row">
                     <div class="col-md-12 col-sm-12">
                         <div class="form-group">
-                            <textarea name="message" id="message" required="required" class="form-control" rows="3" placeholder="Message"></textarea>
+                            <textarea id='dor' name="message" id="message" required="required" class="form-control" rows="3" placeholder="Message"></textarea>
                         </div>
                         <div class="form-group">
-                            <button type="submit" class="btn btn-primary">Submit Request</button>
+                            <input id='no' type="hidden" value="<?=$asesoris['No_HP'];?>">
+                            <button type="submit" onclick="lord()" class="btn btn-primary">Submit Request</button>
                         </div>
                     </div>
                 </div>
-            </form>
+            <!-- </form> -->
         </div>
+<script>
+function lord(params) {
+    var no=document.getElementById('no').value    
+    var dom=document.getElementById('dom').value    
+    var dos=document.getElementById('dos').value    
+    var dor=document.getElementById('dor').value 
+    window.open('https://api.whatsapp.com/send?phone=62'+no+'&text='+dor+' atas nama '+dom+' email '+dos);
+}
+
+  function klik(){
+
+    }
+
+</script>
 
         <div class="col-md-4">
             <strong>Our Location</strong>
             <hr>
             <p>
-                234, New york Street,<br />
-                Just Location, USA<br />
-                Call: +09-456-567-890<br>
-                Email: info@yourdomain.com<br>
+                <?= $asesoris['Alamat'] ?><br>
+                Call: <?= $asesoris['No_HP'] ?><br>
+                Email: <?= $asesoris['email'] ?><br>
             </p>
-
-            2014 www.yourdomain.com | All Right Reserved
         </div>
         <div class="col-md-4 social-box">
             <strong>We are Social </strong>
-            <hr>
             <a href="#"><i class="fa fa-facebook-square fa-3x "></i></a>
             <a href="#"><i class="fa fa-twitter-square fa-3x "></i></a>
             <a href="#"><i class="fa fa-google-plus-square fa-3x c"></i></a>
             <a href="#"><i class="fa fa-linkedin-square fa-3x "></i></a>
             <a href="#"><i class="fa fa-pinterest-square fa-3x "></i></a>
             <p>
-                Lorem ipsum dolor sit amet, consectetur adipiscing elit. Curabitur nec nisl odio. Mauris vehicula at
-                nunc id posuere. Curabitur nec nisl odio. Mauris vehicula at nunc id posuere.
+                <?= $asesoris['text-foot'] ?>
             </p>
         </div>
     </div>
@@ -64,9 +74,18 @@
 </div>
 
 <div class="col-md-12 end-box ">
-    &copy; 2014 | &nbsp; All Rights Reserved | &nbsp; www.yourdomain.com | &nbsp; 24x7 support | &nbsp; Email us:
-    info@yourdomain.com
+    <div class="row">
+        <div class="col-md-10">
+            &copy; <?= date('Y'); ?> | &nbsp; &nbsp; <?= base_url('') ?> | &nbsp; 24x7 support | &nbsp; Email us:
+            <?= $asesoris['email'] ?>
+        </div>
+        <div class="col-md-2 end-box ">
+            <img src="<?= base_url('assets/img/produk/head.jpg'); ?>" width="100px" class="">
+        </div>
+    </div>
 </div>
+
+
 
 <!--Footer end -->
 <!-- my -->

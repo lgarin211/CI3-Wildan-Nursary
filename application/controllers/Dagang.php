@@ -7,6 +7,7 @@ class Dagang extends CI_Controller
     {
         parent::__construct();
         $san = '';
+        $data['asesoris'] = $this->nams();
         if ($_SESSION['semi_id'] > 2000) {
             $san = 'Dasboard';
         } else {
@@ -14,13 +15,8 @@ class Dagang extends CI_Controller
         }
         $this->load->library('form_validation');
         $ceksesi = $this->db->get_where('chart', array('id_user' => $_SESSION['semi_id']))->result();
-        $banyak = 0;
-        foreach ($ceksesi as $key => $i) {
-            $banyak = $banyak + $i->quantity;
-        }
-        $data['keranjang'] = $banyak;
+        $data['keranjang'] = count($ceksesi);
         $data['san'] = $san;
-
         $this->load->view('v2/head', $data);
     }
     private function Vup($mil, $update = [])
@@ -200,10 +196,19 @@ class Dagang extends CI_Controller
         $this->load->view('v2/detail', $data);
         $this->load->view('v2/foot', $data);
     }
+    public function updatev2()
+    {
+        $this->db->set('quantity', $_GET['now']);
+        $this->db->where('id_user', $_SESSION['semi_id']);
+        $this->db->where('item', $_GET['idbarang']);
+        $this->db->update('chart');
+        return redirect('/dagang/keranjang');
+    }
     public function v2()
     {
-        // var_dump();die;
+
         $data = $this->Rone('the key is the parameter');
+        $data['asesoris'] = $this->nams();
         $data['apidata'] = $this->jsondata();
         foreach ($data['cos'] as $key => $value2) {
             $data['cos1'][$key] = count($value2);
@@ -227,7 +232,7 @@ class Dagang extends CI_Controller
             $this->load->view('v2/slide', $data);
             $this->load->view('v2/site', $data);
             $this->load->view('v2/produk', $data);
-            $this->load->view('v2/fslide', $data);
+            // $this->load->view('v2/fslide', $data);
         }
         $this->load->view('v2/foot', $data);
     }
@@ -371,18 +376,25 @@ class Dagang extends CI_Controller
     public function keranjang()
     {
         $isi = $this->db->get_where('chart', array('id_user' => $_SESSION['semi_id']))->result();
-        if ($isi == null) {
+        if (empty($isi)) {
             redirect('/');
         } else {
             foreach ($isi as $key => $i) {
-                $ping[$key] = $this->db->get_where('barang', array('id' => $i->item))->result();
-                $dist[$key] = $i->quantity;
+                $das[$i->item]['detail']=$this->GetAPIOn($i->item);
+                $das[$i->item]['total']=$i->quantity * $i->harga;
+                $das[$i->item]['quantity']=$i->quantity;
+                $das[$i->item]['satuan']=$i->harga;
             }
-            $data['isi'] = $ping;
-            $data['link_p'] = $dist;
+            $seluruh=0;
+            foreach ($das as $key => $item) {
+                $seluruh=$seluruh+$item['total'];
+            }
+            $data['isi']=$das;
+            $data['seluruh']=$seluruh;
+            // var_dump($data);die;
             $this->load->view('dagangan/kall', $data);
             $data['asesoris'] = $this->nams();
-            $this->load->view('dagangan/footer', $data);
+            // $this->load->view('dagangan/footer', $data);
         }
     }
     public function setse()
@@ -507,7 +519,7 @@ class Dagang extends CI_Controller
                     'item' => $_POST['idbarang'],
                     'quantity' => $_POST['quantity'],
                     'id_user' => $_POST['sesi'],
-                    'harga/1'=>$_POST['Harga']
+                    'harga' => $_POST['Harga']
                 );
                 $this->db->insert('chart', $reg);
             }
@@ -593,14 +605,11 @@ class Dagang extends CI_Controller
     }
     public function nams()
     {
-        $data[1] = $this->db->get_where('text-assis', array('id' => 1))->result();
-        $masl = $this->db->get_where('text-assis', array('id' => 2))->result();
-        $data[2] = explode('|', $masl[0]->img);
-        $masl2 = $this->db->get_where('text-assis', array('id' => 5))->result();
-        $data[5][0] = explode('|', $masl2[0]->img);
-        $data[5][1] = explode('|', $masl2[0]->link);
-        $data[3] = $this->db->get_where('text-assis', array('id' => 3))->result();
-        $data[4] = $this->db->get_where('text-assis', array('id' => 4))->result();
+        $mag=$this->db->get('v2_call_required')->result();
+        foreach ($mag as $key => $value) {
+            $data[$value->Dock]=$value->Value;
+        }
+        $data['link_foto_slider']=explode('|', $data['link_foto_slider']);
         return $data;
     }
     public function Uone()
