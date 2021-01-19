@@ -19,34 +19,45 @@ class Dagang extends CI_Controller
         $data['san'] = $san;
         $this->load->view('v2/head', $data);
     }
-    private function Vup($mil, $update = [])
+     
+    public function Vpdate2()
     {
-        if ($mil == 1) {
-            # code...
-        } else {
-            $this->load->view('v2/admin');
-        }
-    }
-    public function Vpdate()
-    {
-        if (!$_POST == null) {
-            $this->db->set('Json_data', $_POST['json']);
-            $this->db->where('ID_Shope', '331253719');
-            $this->db->update('V2');
-            return redirect('admin');
-        } else {
-            $this->Vup(2);
+        $val = $this->db->get('V2_kategori')->result_array();
+        var_dump($val[0]);
+        die;
+        $valApi = $this->jsondata();
+        $valApi = ($valApi['toko_detail']['Kategori']->data->items);
+        $das = [];
+        if (empty($_POST)) {
+            foreach ($valApi as $key => $value) {
+                $id = $value->shop_collection_id;
+                $link = 'https://shopee.co.id/api/v2/search_items/?by=pop&limit=30&match_id=331253719&newest=0&order=desc&original_categoryid=' . $id . '&page_type=shop&version=2';
+                $data['link'] = $link;
+                $this->load->view('v2/ket_update', $data);
+            }
+            if (!empty($_POST)) {
+                foreach ($val as $key => $value) {
+                    if (!$value->json == $_POST['json']) {
+                        $this->db->set('json', $_POST['json']);
+                        $this->db->where('ID_Shope', '331253719');
+                        $this->db->update('V2');
+                        return redirect('/Dagang/Vpdate2');
+                    }
+                }
+            }
+            $ping = array('id' => 'ds');
         }
     }
     public function artikelv2($case)
     {
+        $key='TIp29KsRs6XLS1%kYk96Qn$X5%MUI4jKPQlEA2r5U*Zkz8ifn&C@@%Bm#sI)hqkj';
         $options  = array(
             'http' =>
             array(
                 'ignore_errors' => true,
                 'header' =>
                 array(
-                    0 => 'authorization: Bearer TIp29KsRs6XLS1%kYk96Qn$X5%MUI4jKPQlEA2r5U*Zkz8ifn&C@@%Bm#sI)hqkj',
+                    0 => 'authorization: Bearer '.$key,
                 ),
             ),
         );
@@ -185,6 +196,47 @@ class Dagang extends CI_Controller
     {
         # code...
     }
+    public function sortby($idfin)
+    {
+        // $mas='https://shopee.co.id/api/v2/search_items/?by=pop&limit=30&match_id=331253719&newest=0&order=desc&original_categoryid=' . $idfin . '&page_type=shop&version=2';echo $mas;die;
+        $curl = curl_init();
+        curl_setopt_array($curl, array(
+            CURLOPT_URL => 'https://shopee.co.id/api/v2/search_items/?by=pop&limit=30&match_id=331253719&newest=0&order=desc&original_categoryid=' . $idfin . '&page_type=shop&version=2',
+            CURLOPT_RETURNTRANSFER => true,
+            CURLOPT_ENCODING => "",
+            CURLOPT_MAXREDIRS => 10,
+            CURLOPT_TIMEOUT => 30,
+            CURLOPT_HTTP_VERSION => CURL_HTTP_VERSION_1_1,
+            CURLOPT_CUSTOMREQUEST => "GET",
+            CURLOPT_HTTPHEADER => array(
+                "cache-control: no-cache",
+                "postman-token: bcc2caed-b8f3-2260-3d8c-34175cbea07a"
+            ),
+        ));
+
+        $response = curl_exec($curl);
+        $err = curl_error($curl);
+
+        curl_close($curl);
+
+        if ($err) {
+            echo "cURL Error #:" . $err;
+        } else {
+            $response = json_decode($response);
+            // var_dump($response);die;
+            return $response;
+        }
+    }
+    public function ketero()
+    {
+        if (!empty($_GET['id'])) {
+            $ping = array('id' => $_GET['id']);
+            $bas = $this->db->get_where('V2_kategori', $ping)->result();
+            foreach ($bas as $key => $dos) {
+                var_dump(json_decode($dos->json));
+            }
+        }
+    }
     public function detail()
     {
         $da = array_reverse($this->db->get('V2')->result());
@@ -193,10 +245,11 @@ class Dagang extends CI_Controller
         $apidata['detail'] = $this->GetAPIOn($_GET['id'], $data['keyId']);
         $data['apidata'] = $apidata;
         // var_dump($data);die;
+        // var_dump($apidata['detail']->item->attributes);die;
         $this->load->view('v2/detail', $data);
         $this->load->view('v2/foot', $data);
     }
-    public function updatev2()
+    public function update()
     {
         $this->db->set('quantity', $_GET['now']);
         $this->db->where('id_user', $_SESSION['semi_id']);
@@ -206,7 +259,6 @@ class Dagang extends CI_Controller
     }
     public function v2()
     {
-
         $data = $this->Rone('the key is the parameter');
         $data['asesoris'] = $this->nams();
         $data['apidata'] = $this->jsondata();
@@ -217,7 +269,7 @@ class Dagang extends CI_Controller
         foreach ($data['artikelv2'] as $key => $value3) {
             $data['contentv2'][$key] = $value3;
         }
-        // var_dump($data);die;
+        // var_dump($data['apidata']['toko_detail']['Kategori']->data->items);die;
         if (!empty($_GET['bagian'])) {
             $list = $data['contentv2'];
             foreach ($list['artikel'] as $key => $value4) {
@@ -380,17 +432,17 @@ class Dagang extends CI_Controller
             redirect('/');
         } else {
             foreach ($isi as $key => $i) {
-                $das[$i->item]['detail']=$this->GetAPIOn($i->item);
-                $das[$i->item]['total']=$i->quantity * $i->harga;
-                $das[$i->item]['quantity']=$i->quantity;
-                $das[$i->item]['satuan']=$i->harga;
+                $das[$i->item]['detail'] = $this->GetAPIOn($i->item);
+                $das[$i->item]['total'] = $i->quantity * $i->harga;
+                $das[$i->item]['quantity'] = $i->quantity;
+                $das[$i->item]['satuan'] = $i->harga;
             }
-            $seluruh=0;
+            $seluruh = 0;
             foreach ($das as $key => $item) {
-                $seluruh=$seluruh+$item['total'];
+                $seluruh = $seluruh + $item['total'];
             }
-            $data['isi']=$das;
-            $data['seluruh']=$seluruh;
+            $data['isi'] = $das;
+            $data['seluruh'] = $seluruh;
             // var_dump($data);die;
             $this->load->view('dagangan/kall', $data);
             $data['asesoris'] = $this->nams();
@@ -605,11 +657,11 @@ class Dagang extends CI_Controller
     }
     public function nams()
     {
-        $mag=$this->db->get('v2_call_required')->result();
+        $mag = $this->db->get('v2_call_required')->result();
         foreach ($mag as $key => $value) {
-            $data[$value->Dock]=$value->Value;
+            $data[$value->Dock] = $value->Value;
         }
-        $data['link_foto_slider']=explode('|', $data['link_foto_slider']);
+        $data['link_foto_slider'] = explode('|', $data['link_foto_slider']);
         return $data;
     }
     public function Uone()

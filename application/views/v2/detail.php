@@ -51,7 +51,7 @@
                 <ul>
                     <? $dom = ['Merek', 'Impor/Lokal', 'Tipe'];
                     foreach ($apidata['detail']->item->attributes as $key => $value) {
-                        echo '<li>' . $dom[$key] . ' : ' . $value->value . '</li>';
+                        echo '<li>' . $value->name . ' : ' . $value->value . '</li>';
                     } ?>
                 </ul>
             </div>

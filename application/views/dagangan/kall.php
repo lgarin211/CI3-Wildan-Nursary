@@ -57,7 +57,7 @@
         <? endforeach; ?>
 
         <li class="list-group-item d-flex justify-content-between">
-          <span>Total (USD)</span>
+          <span>Total (Rupiah)</span>
           <strong>Rp.<? echo $seluruh; ?></strong>
         </li>
       </ul>

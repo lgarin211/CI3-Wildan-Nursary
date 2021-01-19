@@ -2,7 +2,7 @@
     <div>
         <ol class="breadcrumb">
             <li><a href="#">Home</a></li>
-            <li class="active">Electronics</li>
+            <!-- <li class="active">Electronics</li> -->
         </ol>
     </div>
 
@@ -16,7 +16,7 @@
                 </button>
                 <ul class="dropdown-menu">
                     <? foreach ($apidata['toko_detail']['Kategori']->data->items as $key => $value31) : ?>
-                        <li><a href="#"><?= $value31->name ?></a></li>
+                        <li><a href="<?= base_url('/Dagang/ketero?id=') . $value31->shop_collection_id ?>"><?= $value31->name ?></a></li>
                         <li class="divider"></li>
                     <? endforeach ?>
 
@@ -26,7 +26,7 @@
     </div>
 
     <div class="row">
-        <? foreach ($apidata['apidata'] as $key => $value32) : ?>
+        <? foreach (array_reverse($apidata['apidata']) as $key => $value32) : ?>
             <div class="col-md-4 pt-2 pb-1 text-center col-sm-6 col-xs-6">
                 <div class="thumbnail product-box">
                     <?
@@ -44,9 +44,10 @@
                                     echo substr($kata, 0, 15) . '...';
                                 } else {
                                     echo $kata;
-                                } ?></a></h4>
+                                } ?></a>
+                        </h4>
                         <p>Harga : <strong>Rp <?= substr($value32['harga'], 0, 2) . '.000~'  ?></strong> </p>
-                        <p><a href="#">Detail</a></p>
+                        <!-- <p><a href="<?= base_url('/Dagang/ketero?id=') . $value31->shop_collection_id ?>">Detail</a></p> -->
                         <p></p>
                         <p>
                             <? $kata = '';
@@ -63,16 +64,16 @@
                             <? endforeach; ?>
                         </p>
                         <p>
-                            <form action="<?= base_url('dagang/rone') ?>" method="post">
-                                <input type="hidden" name="quantity" value="1">
-                                <input type="hidden" name="idbarang" value="<?= $value32['detail']->item->itemid ?>">
-                                <input type="hidden" name="Harga" value="<?= $value32['harga'] ?>">
-                                <input type="hidden" name="sesi" value="<?= $_SESSION['semi_id'] ?>">
-                                <button type="submit" class="btn btn-success">
-                                    <i class="fas fa-cart-plus fa-fw"></i>
-                                </button>
-                            </form>
-                            <a href="#" class="btn btn-primary" role="button">See Details</a>
+                        <form action="<?= base_url('dagang/rone') ?>" method="post">
+                            <input type="hidden" name="quantity" value="1">
+                            <input type="hidden" name="idbarang" value="<?= $value32['detail']->item->itemid ?>">
+                            <input type="hidden" name="Harga" value="<?= $value32['harga'] ?>">
+                            <input type="hidden" name="sesi" value="<?= $_SESSION['semi_id'] ?>">
+                            <button type="submit" class="btn btn-success">
+                                <i class="fas fa-cart-plus fa-fw"></i>
+                            </button>
+                        </form>
+                        <a href="<?= base_url('/Dagang/detail?id=' . $value32['detail']->item->itemid) ?>" class="btn btn-primary" role="button">See Details</a>
                         </p>
                     </div>
                 </div>

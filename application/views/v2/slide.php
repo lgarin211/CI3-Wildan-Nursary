@@ -11,7 +11,7 @@
                 <div class="carousel-inner">
                     <? foreach ($asesoris['link_foto_slider'] as $key => $valuedim) : ?>
                         <div class="carousel-item <? if ($key == 0) {
-                                                        echo " active";
+                                                        echo "active";
                                                     } ?>">
                             <img src="<?=$valuedim; ?>" alt="" srcset="" class="bd-placeholder-img card imh-rela" width="100%" height="100%">
                             <div class="container">

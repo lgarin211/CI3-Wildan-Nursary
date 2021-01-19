@@ -48,7 +48,7 @@ class Auth extends CI_Controller
                     $this->session->set_userdata($data);
 
                     if ($user['setsesion']==0) {
-                        var_dump($_SESSION['semi_id']);
+                        // var_dump($_SESSION['semi_id']);
                         $this->db->set('setsesion', $_SESSION['semi_id']+2020);
                         $this->db->where('id', $user['id']);
                         $this->db->update('user');

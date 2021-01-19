@@ -50,6 +50,8 @@ defined('BASEPATH') or exit('No direct script access allowed');
 |		my-controller/my-method	-> my_controller/my_method
 */
 $route['default_controller'] = 'dagang/v2';
-$route['super'] = 'dagang/Vpdate';
+$route['API-Shopie-Control'] = 'admin/vpdate';
+$route['Setting'] = 'admin/Setting';
+$route['Wp-config'] = 'admin/Wpconfig';
 $route['404_override'] = '';
 $route['translate_uri_dashes'] = false;
