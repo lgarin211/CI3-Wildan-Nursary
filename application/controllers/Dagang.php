@@ -19,7 +19,7 @@ class Dagang extends CI_Controller
         $data['san'] = $san;
         $this->load->view('v2/head', $data);
     }
-     
+
     public function Vpdate2()
     {
         $val = $this->db->get('V2_kategori')->result_array();
@@ -50,14 +50,21 @@ class Dagang extends CI_Controller
     }
     public function artikelv2($case)
     {
-        $key='TIp29KsRs6XLS1%kYk96Qn$X5%MUI4jKPQlEA2r5U*Zkz8ifn&C@@%Bm#sI)hqkj';
+        $taga = $this->db->get('WP-api')->result_array();
+        $tag = [];
+        foreach ($taga as $key => $w) {
+            if ($w['tag'] == 'TOKEN') {
+                $tag[$w['tag']] = $w['value'];
+            }
+        }
+        $key = $tag["TOKEN"];
         $options  = array(
             'http' =>
             array(
                 'ignore_errors' => true,
                 'header' =>
                 array(
-                    0 => 'authorization: Bearer '.$key,
+                    0 => 'authorization: Bearer ' . $key,
                 ),
             ),
         );

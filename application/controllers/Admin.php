@@ -9,20 +9,34 @@ class Admin extends CI_Controller
     }
     public function wp_get_token()
     {
-        
-        $curl = curl_init('https://public-api.wordpress.com/oauth2/token');
-        curl_setopt($curl, CURLOPT_POST, true);
-        curl_setopt($curl, CURLOPT_POSTFIELDS, array(
-            'client_id' => your_client_id,
-            'redirect_uri' => your_redirect_url,
-            'client_secret' => your_client_secret_key,
-            'code' => $_GET['code'], // The code from the previous request
-            'grant_type' => 'authorization_code'
-        ));
-        curl_setopt($curl, CURLOPT_RETURNTRANSFER, 1);
-        $auth = curl_exec($curl);
-        $secret = json_decode($auth);
-        $access_key = $secret->access_token;
+        $taga = $this->db->get('WP-api')->result_array();
+        $tag = [];
+        foreach ($taga as $key => $w) {
+            $tag[$w['tag']] = $w['value'];    # code...
+        }
+        if (empty($_GET)) {
+            echo '<a href="https://public-api.wordpress.com/oauth2/authorize?client_id=' . $tag['id'] . '&redirect_uri=' . $tag['red'] . '&response_type=code&blog=1234">get</a>';
+        } else {
+            $curl = curl_init('https://public-api.wordpress.com/oauth2/token');
+            curl_setopt($curl, CURLOPT_POST, true);
+            curl_setopt($curl, CURLOPT_POSTFIELDS, array(
+                'client_id' => $tag['id'],
+                'redirect_uri' => $tag['red'],
+                'client_secret' => $tag['scr'],
+                'code' => $_GET['code'], // The code from the previous request
+                'grant_type' => 'authorization_code'
+            ));
+            curl_setopt($curl, CURLOPT_RETURNTRANSFER, 1);
+            $auth = curl_exec($curl);
+            $secret = json_decode($auth);
+            $access_key = $secret->access_token;
+            $data = array(
+                "value" => $access_key,
+                "tag" => "TOKEN"
+            );
+            $this->db->insert('WP-api', $data);
+            redirect('/');
+        }
     }
     public function index()
     {
