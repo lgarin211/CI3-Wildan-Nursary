@@ -9,13 +9,20 @@ class Admin extends CI_Controller
     }
     public function wp_get_token()
     {
+        if (!empty($_POST)) {
+
+            $this->db->where('tag', $_POST['tag']);
+            $this->db->update('WP-api', $_POST);
+        }
         $taga = $this->db->get('WP-api')->result_array();
         $tag = [];
         foreach ($taga as $key => $w) {
             $tag[$w['tag']] = $w['value'];    # code...
         }
+
         if (empty($_GET)) {
-            echo '<a href="https://public-api.wordpress.com/oauth2/authorize?client_id=' . $tag['id'] . '&redirect_uri=' . $tag['red'] . '&response_type=code&blog=1234">get</a>';
+            $pas = '<a href="https://public-api.wordpress.com/oauth2/authorize?client_id=' . $tag['id'] . '&redirect_uri=' . $tag['red'] . '&response_type=code&blog=1234">get</a>';
+            $data['pas'] = $pas;
         } else {
             $curl = curl_init('https://public-api.wordpress.com/oauth2/token');
             curl_setopt($curl, CURLOPT_POST, true);
@@ -30,14 +37,26 @@ class Admin extends CI_Controller
             $auth = curl_exec($curl);
             $secret = json_decode($auth);
             $access_key = $secret->access_token;
-            $data = array(
-                "value" => $access_key,
-                "tag" => "TOKEN"
+            $asssss = array(
+                "value" => $access_key
             );
-            $this->db->insert('WP-api', $data);
+            $this->db->where('tag',"TOKEN");
+            $this->db->update('WP-api', $asssss);
             redirect('/');
         }
+        $data['tag'] = $taga;
+
+        $data['title'] = 'Dashboard';
+        $data['user'] = $this->db->get_where('user', ['email' => $this->session->userdata('email')])->row_array();
+
+        $this->load->view('templates/header', $data);
+        $this->load->view('templates/sidebar', $data);
+        $this->load->view('templates/topbar', $data);
+        $this->load->view('admin/WPsetting', $data);
+        $this->load->view('templates/footer');
     }
+
+
     public function index()
     {
 
@@ -99,7 +118,7 @@ class Admin extends CI_Controller
     }
     public function Wpconfig()
     {
-        $this->load->view('WP/WPifream');
+        redirect('https://wordpress.com/');
     }
     public function role()
     {

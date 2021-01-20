@@ -52,6 +52,8 @@ defined('BASEPATH') or exit('No direct script access allowed');
 $route['default_controller'] = 'dagang/v2';
 $route['API-Shopie-Control'] = 'admin/vpdate';
 $route['Setting'] = 'admin/Setting';
-$route['Wp-config'] = 'admin/Wpconfig';
+$route['Wp-config'] = 'admin/wp_get_token';
+$route['Wp-Write'] = 'admin/Wpconfig';
+
 $route['404_override'] = '';
 $route['translate_uri_dashes'] = false;
